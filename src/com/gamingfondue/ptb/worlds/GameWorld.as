@@ -2,8 +2,8 @@ package com.gamingfondue.ptb.worlds
 {
 	import com.gamingfondue.ptb.entities.Billboard;
 	import com.gamingfondue.ptb.entities.Cameraman;
-	import com.gamingfondue.ptb.entities.Map;
-	import com.gamingfondue.ptb.entities.Player;
+	import com.gamingfondue.ptb.levels.Map;
+	import com.gamingfondue.ptb.player.Player;
 	
 	import net.flashpunk.Entity;
 	import net.flashpunk.World;
@@ -32,8 +32,8 @@ package com.gamingfondue.ptb.worlds
 		{
 			billboard = new Billboard();
 			player = new Player();
-			cameraman = new Cameraman();
-			cameraman.target = player;
+			//cameraman = new Cameraman();
+			//cameraman.target = player;
 			map = new Map();
 		}
 		
@@ -45,7 +45,7 @@ package com.gamingfondue.ptb.worlds
 		{
 			add(billboard);
 			add(player);
-			add(cameraman);
+			//add(cameraman);
 			add(map);
 		}
 	}
