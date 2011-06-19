@@ -8,6 +8,8 @@ package com.gamingfondue.ptb.player
 	import com.gamingfondue.ptb.player.behaviour.Behaviors;
 	import com.gamingfondue.util.Logger;
 	
+	import flash.geom.Point;
+	
 	import net.flashpunk.Entity;
 	import net.flashpunk.FP;
 	import net.flashpunk.graphics.Image;
@@ -16,7 +18,10 @@ package com.gamingfondue.ptb.player
 	{
 		private var image:Image;
 		private var _behavior:Behavior;
-		private var state:State;
+		
+		public var double_jump:Boolean;
+		public var acceleration:Point;
+		public var speed:Point;
 		
 		public function Player()
 		{
@@ -27,7 +32,8 @@ package com.gamingfondue.ptb.player
 			setHitbox(16, 16, 0, 0);
 			type = Types.PLAYER;
 			
-			state = new State();
+			acceleration = new Point();
+			speed = new Point();
 			behavior = Behaviors.STANDING;
 		}
 		
@@ -55,12 +61,12 @@ package com.gamingfondue.ptb.player
 		private function set behavior(behavior:int):void
 		{
 			_behavior = BehaviorFactory.get(behavior);
-			_behavior.state = state;
 			_behavior.player = this;
+			_behavior.change();
 			_behavior.addEventListener(BehaviorEvent.CHANGE_BEHAVIOR, onBehaviorChange);
 			
-			// TODO: Remove this vefore release
-			Logger.log("Comportamiento: " + _behavior.toString());
+			// TODO: Remove this before release
+			Logger.log("Estado: " + _behavior.toString());
 		}
 		
 	}

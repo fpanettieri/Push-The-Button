@@ -33,6 +33,9 @@ package com.gamingfondue.ptb.levels
 			
 			grid.setRect(0, 20, 30, 1, true);
 			tiles.setRect(0, 20, 30, 1, 1);
+			
+			grid.setRect(5, 16, 1, 4, true);
+			tiles.setRect(5, 16, 1, 4, 1);
 		}
 	}
 }
