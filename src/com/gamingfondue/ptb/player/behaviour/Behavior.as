@@ -17,7 +17,13 @@ package com.gamingfondue.ptb.player.behaviour
 	{
 		public var player:Player;
 		
+		protected const CELL_SIZE:Number = 8;
 		protected const MAX_SPEED:Number = 8;
+		protected const MIN_SPEED:Number = 0.2;
+		protected const GRAVITY:Number = 8;
+		protected const RUN_SPEED:Number = 8;
+		protected const JUMP_STRENGTH:Number = -140;
+		protected const FRICTION:Number = 0.8;
 		
 		// Vector used to estamiate player location after physics calculations
 		protected var projection:Point;
@@ -30,7 +36,7 @@ package com.gamingfondue.ptb.player.behaviour
 		
 		// updates player state
 		public function update():void {}
-
+		
 		public function Behavior()
 		{
 			projection = new Point();

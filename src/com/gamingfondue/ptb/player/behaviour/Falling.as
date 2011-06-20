@@ -7,9 +7,6 @@ package com.gamingfondue.ptb.player.behaviour
 
 	public class Falling extends Behavior
 	{
-		private const GRAVITY:Number = 8;
-		private const CELL_SIZE:Number = 8;
-		
 		override public function change():void
 		{
 			player.acceleration.y = 0;
@@ -30,6 +27,8 @@ package com.gamingfondue.ptb.player.behaviour
 				
 				// FIXME: After pushing the player, we should check if it doesnt collide again, where we should move it
 				// up again
+				
+				// TODO: Verify if this isn't already fixed
 				displacement.y = projection.y % CELL_SIZE;
 				player.y = projection.y - displacement.y;
 				dispatchEvent(new BehaviorEvent(BehaviorEvent.CHANGE_BEHAVIOR, Behaviors.STANDING));

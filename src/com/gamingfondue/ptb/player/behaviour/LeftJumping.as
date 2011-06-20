@@ -1,6 +1,6 @@
 package com.gamingfondue.ptb.player.behaviour
 {
-	public class RunningRight extends Behavior
+	public class LeftJumping extends Behavior
 	{
 	}
 }

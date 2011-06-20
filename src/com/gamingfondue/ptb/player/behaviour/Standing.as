@@ -18,14 +18,25 @@ package com.gamingfondue.ptb.player.behaviour
 		{
 			projection.y = player.y + 1;
 			
+			// FIXME: Remove falling condition on release. We can't fall while standing
 			// If there it's no solid under us, we're falling
 			if(!player.collide(Types.SOLID, player.x, projection.y)) {
 				dispatchEvent(new BehaviorEvent(BehaviorEvent.CHANGE_BEHAVIOR, Behaviors.FALLING));	
 			}
 			
 			// SMB jump key ;)
-			if(Input.pressed(Bindings.JUMP_KEY)) {
+			if(Input.check(Bindings.JUMP_KEY)) {
 				dispatchEvent(new BehaviorEvent(BehaviorEvent.CHANGE_BEHAVIOR, Behaviors.JUMPING));
+			}
+			
+			// Start running right
+			if(Input.check(Bindings.RIGHT_KEY)) {
+				dispatchEvent(new BehaviorEvent(BehaviorEvent.CHANGE_BEHAVIOR, Behaviors.RIGHT_RUNNING));
+			}
+			
+			// Start running left
+			if(Input.check(Bindings.LEFT_KEY)) {
+				dispatchEvent(new BehaviorEvent(BehaviorEvent.CHANGE_BEHAVIOR, Behaviors.LEFT_RUNNING));
 			}
 		}
 	}

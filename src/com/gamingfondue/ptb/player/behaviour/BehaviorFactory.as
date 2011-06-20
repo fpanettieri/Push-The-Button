@@ -7,14 +7,21 @@ package com.gamingfondue.ptb.player.behaviour
 		 */ 
 		private static const behaviors:Array = [
 			new Standing(),
-			new RunningLeft(),
-			new RunningRight(),
 			new Jumping(),
 			new DoubleJumping(),
-			new WallingLeft(),
-			new WallingRight(),
-			new Falling(),
-			new Dead()
+			new RightRunning(),
+			new RightSliding(),
+			new RightJumping(),
+			new RightDoubleJumping(),
+			new RightWalling(),
+			new RightWallJumping(),
+			new LeftRunning(),
+			new LeftSliding(),
+			new LeftJumping(),
+			new LeftDoubleJumping(),
+			new LeftWalling(),
+			new LeftWallJumping(),
+			new Falling()
 		];
 		
 		public static function get(type:int):Behavior

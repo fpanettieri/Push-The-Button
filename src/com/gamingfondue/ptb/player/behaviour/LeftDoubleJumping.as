@@ -1,6 +1,6 @@
 package com.gamingfondue.ptb.player.behaviour
 {
-	public class WallingLeft extends Behavior
+	public class LeftDoubleJumping extends Behavior
 	{
 	}
 }

@@ -11,12 +11,6 @@ package com.gamingfondue.ptb.player.behaviour
 
 	public class Jumping extends Behavior
 	{
-		private const JUMP_STRENGTH:Number = -140;
-		private const JUMP_DECAY:Number = 8;
-		
-		private const GRAVITY:Number = 76;
-		private var strength:Number;
-		
 		override public function change():void
 		{
 			player.acceleration.y = JUMP_STRENGTH;
@@ -24,8 +18,15 @@ package com.gamingfondue.ptb.player.behaviour
 		
 		override public function update():void
 		{
+			// TODO: if player releases the jump key before reaching the highest position
+			// he starts falling
+			
+			// TODO: horizontal movement while jumping
+			// TODO: horizontal collision 
+			
+			
 			// Apply gravity
-			player.acceleration.y += JUMP_DECAY;
+			player.acceleration.y += GRAVITY;
 			player.speed.y = player.acceleration.y * FP.elapsed;
 			player.y += player.speed.y;
 			

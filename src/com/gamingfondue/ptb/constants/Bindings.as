@@ -10,5 +10,7 @@ package com.gamingfondue.ptb.constants
 	public class Bindings
 	{
 		public static const JUMP_KEY:int = Key.SPACE;
+		public static const RIGHT_KEY:int = Key.RIGHT;
+		public static const LEFT_KEY:int = Key.LEFT;
 	}
 }
