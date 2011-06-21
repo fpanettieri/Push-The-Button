@@ -19,7 +19,7 @@ package com.gamingfondue.ptb.player.behaviour
 			
 			// Slide when player releases right key
 			if (Input.check(Bindings.LEFT_KEY)) {
-				dispatchEvent(new BehaviorEvent(BehaviorEvent.CHANGE_BEHAVIOR, Behaviors.LEFT_RUNNING));
+				dispatchEvent(new BehaviorEvent(BehaviorEvent.CHANGE_BEHAVIOR, Behaviors.STANDING));
 			} else if (Input.check(Bindings.RIGHT_KEY)) {
 				dispatchEvent(new BehaviorEvent(BehaviorEvent.CHANGE_BEHAVIOR, Behaviors.RIGHT_RUNNING));
 			}

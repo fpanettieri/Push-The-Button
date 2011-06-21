@@ -12,6 +12,10 @@ package com.gamingfondue.ptb.player.behaviour
 		override public function change():void
 		{
 			player.double_jump = false;
+			player.acceleration.x = 0;
+			player.acceleration.y = 0;
+			player.speed.x = 0;
+			player.speed.y = 0;
 		}
 		
 		override public function update():void
@@ -25,7 +29,7 @@ package com.gamingfondue.ptb.player.behaviour
 			}
 			
 			// SMB jump key ;)
-			if(Input.check(Bindings.JUMP_KEY)) {
+			if(Input.pressed(Bindings.JUMP_KEY)) {
 				dispatchEvent(new BehaviorEvent(BehaviorEvent.CHANGE_BEHAVIOR, Behaviors.JUMPING));
 			}
 			

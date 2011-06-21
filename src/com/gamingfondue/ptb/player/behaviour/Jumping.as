@@ -1,5 +1,6 @@
 package com.gamingfondue.ptb.player.behaviour
 {
+	import com.gamingfondue.ptb.constants.Bindings;
 	import com.gamingfondue.ptb.constants.Types;
 	import com.gamingfondue.ptb.events.BehaviorEvent;
 	import com.gamingfondue.util.Logger;
@@ -8,6 +9,7 @@ package com.gamingfondue.ptb.player.behaviour
 	import flash.utils.getTimer;
 	
 	import net.flashpunk.FP;
+	import net.flashpunk.utils.Input;
 
 	public class Jumping extends Behavior
 	{
@@ -18,12 +20,12 @@ package com.gamingfondue.ptb.player.behaviour
 		
 		override public function update():void
 		{
-			// TODO: if player releases the jump key before reaching the highest position
-			// he starts falling
-			
+			if (!Input.check(Bindings.JUMP_KEY)) {
+				dispatchEvent(new BehaviorEvent(BehaviorEvent.CHANGE_BEHAVIOR, Behaviors.FALLING));
+			}
+
 			// TODO: horizontal movement while jumping
 			// TODO: horizontal collision 
-			
 			
 			// Apply gravity
 			player.acceleration.y += GRAVITY;

@@ -34,6 +34,11 @@ package com.gamingfondue.ptb.player.behaviour
 			if(!player.collide(Types.SOLID, player.x, player.y + 1)) {
 				dispatchEvent(new BehaviorEvent(BehaviorEvent.CHANGE_BEHAVIOR, Behaviors.FALLING));	
 			}
+			
+			// Last, if the player want's to jump
+			if (Input.pressed(Bindings.JUMP_KEY)) {
+				dispatchEvent(new BehaviorEvent(BehaviorEvent.CHANGE_BEHAVIOR, Behaviors.LEFT_JUMPING));
+			}
 		}
 	}
 }
