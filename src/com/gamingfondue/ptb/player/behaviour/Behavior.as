@@ -29,8 +29,8 @@ package com.gamingfondue.ptb.player.behaviour
 
 		// Jump heights
 		protected var HIGH_JUMP:Number = -140;
-		protected var DOUBLE_JUMP:Number = -60;
-		protected var LONG_JUMP:Number = -80;
+		protected var DOUBLE_JUMP:Number = -90;
+		protected var LONG_JUMP:Number = -100;
 		protected var WALL_JUMP:Number = -100;
 	
 		// Vector used to estamiate player location after physics calculations
