@@ -17,19 +17,24 @@ package com.gamingfondue.ptb.player.behaviour
 	{
 		public var player:Player;
 		
-		protected const CELL_SIZE:Number = 8;
-		protected const MAX_SPEED:Number = 8;
-		protected const MIN_SPEED:Number = 0.2;
-		protected const GRAVITY:Number = 8;
-		protected const RUN_SPEED:Number = 8;
-		protected const JUMP_STRENGTH:Number = -140;
-		protected const FRICTION:Number = 0.8;
-		
+		// Default player configuration
+		protected var CELL_SIZE:Number = 8;
+		protected var MAX_SPEED:Number = 8;
+		protected var MIN_SPEED:Number = 0.2;
+		protected var GRAVITY:Number = 8;
+		protected var FRICTION:Number = 0.8;
+		protected var RUN_ACCEL:Number = 8;
+		protected var RUN_SPEED:Number = 4;
+
+
+		// Jump heights
+		protected var HIGH_JUMP:Number = -140;
+		protected var DOUBLE_JUMP:Number = -60;
+		protected var LONG_JUMP:Number = -80;
+		protected var WALL_JUMP:Number = -100;
+	
 		// Vector used to estamiate player location after physics calculations
 		protected var projection:Point;
-		
-		// Smallest distance required to move the player out of collision
-		protected var displacement:Point;
 		
 		// Called when the behavior has changed
 		public function change():void {}
@@ -40,7 +45,6 @@ package com.gamingfondue.ptb.player.behaviour
 		public function Behavior()
 		{
 			projection = new Point();
-			displacement = new Point();
 		}
 	}
 }

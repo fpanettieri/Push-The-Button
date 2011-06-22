@@ -2,7 +2,6 @@ package com.gamingfondue.ptb.player.behaviour
 {
 	import com.gamingfondue.ptb.constants.Bindings;
 	import com.gamingfondue.ptb.constants.Types;
-	import com.gamingfondue.ptb.events.BehaviorEvent;
 	
 	import net.flashpunk.FP;
 	import net.flashpunk.utils.Input;
@@ -11,33 +10,34 @@ package com.gamingfondue.ptb.player.behaviour
 	{
 		override public function update():void
 		{
-			// Slide when player releases right key
-			if (!Input.check(Bindings.RIGHT_KEY)) {
-				dispatchEvent(new BehaviorEvent(BehaviorEvent.CHANGE_BEHAVIOR, Behaviors.RIGHT_SLIDING));
-			}
-			
-			// Apply gravity
-			player.acceleration.x = RUN_SPEED;
+			// Horizontal movement
+			player.acceleration.x = RUN_ACCEL;
 			player.speed.x += player.acceleration.x * FP.elapsed;
+			if (player.speed.x > RUN_SPEED) player.speed.x = RUN_SPEED;
 			
-			// Move the player
+			// Project the player horizontally
 			projection.x = player.x + player.speed.x;
 			if(player.collide(Types.SOLID, projection.x, player.y)) {
-				displacement.x = projection.x % CELL_SIZE;
-				player.x = projection.x - displacement.x;
-				dispatchEvent(new BehaviorEvent(BehaviorEvent.CHANGE_BEHAVIOR, Behaviors.STANDING));
+				projection.x -= projection.x % CELL_SIZE;
+				player.x = projection.x;
+				player.behavior = Behaviors.STANDING; return;
 			} else {
 				player.x = projection.x;
 			}
-			
-			// If there it's no solid under us, we're falling
-			if(!player.collide(Types.SOLID, player.x, player.y + 1)) {
-				dispatchEvent(new BehaviorEvent(BehaviorEvent.CHANGE_BEHAVIOR, Behaviors.FALLING));	
+
+			// Jumping it's our first priority
+			if (Input.pressed(Bindings.JUMP_KEY)) {
+				player.behavior = Behaviors.RIGHT_JUMPING; return;
 			}
 			
-			// Last, if the player want's to jump
-			if (Input.pressed(Bindings.JUMP_KEY)) {
-				dispatchEvent(new BehaviorEvent(BehaviorEvent.CHANGE_BEHAVIOR, Behaviors.RIGHT_JUMPING));
+			// Then we check if we should fall
+			if(!player.collide(Types.SOLID, player.x, player.y + 1)) {
+				player.behavior = Behaviors.FALLING; return;
+			}
+			
+			// Else we continue running or start to slide
+			if (!Input.check(Bindings.RIGHT_KEY)) {
+				player.behavior = Behaviors.RIGHT_SLIDING; return;
 			}
 		}
 	}

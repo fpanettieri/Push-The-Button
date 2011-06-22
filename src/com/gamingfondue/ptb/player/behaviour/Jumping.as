@@ -2,11 +2,6 @@ package com.gamingfondue.ptb.player.behaviour
 {
 	import com.gamingfondue.ptb.constants.Bindings;
 	import com.gamingfondue.ptb.constants.Types;
-	import com.gamingfondue.ptb.events.BehaviorEvent;
-	import com.gamingfondue.util.Logger;
-	
-	import flash.geom.Point;
-	import flash.utils.getTimer;
 	
 	import net.flashpunk.FP;
 	import net.flashpunk.utils.Input;
@@ -15,25 +10,46 @@ package com.gamingfondue.ptb.player.behaviour
 	{
 		override public function change():void
 		{
-			player.acceleration.y = JUMP_STRENGTH;
+			player.acceleration.y = HIGH_JUMP;
 		}
 		
 		override public function update():void
 		{
-			if (!Input.check(Bindings.JUMP_KEY)) {
-				dispatchEvent(new BehaviorEvent(BehaviorEvent.CHANGE_BEHAVIOR, Behaviors.FALLING));
+			// Project player vertically
+			player.acceleration.y += GRAVITY;
+			player.speed.y = player.acceleration.y * FP.elapsed;
+
+			// Vertical collition
+			projection.y = player.y + player.speed.y;
+			if(player.collide(Types.SOLID, player.x, projection.y)) {
+				
+				// If the player lands mid-cell, push him below it
+				projection.y += CELL_SIZE - (projection.y % CELL_SIZE);
+				
+				// If the player went through more than one cell, push him further
+				while(player.collide(Types.SOLID, player.x, projection.y)) {
+					projection.y += CELL_SIZE;
+				}
 			}
+			player.y = projection.y;
 
 			// TODO: horizontal movement while jumping
 			// TODO: horizontal collision 
+
+			// Player can double jump after 3/4 part of the jump
+			if (player.acceleration.y > 0.75 * HIGH_JUMP) {
+				if (Input.pressed(Bindings.JUMP_KEY)) {
+					player.behavior = Behaviors.DOUBLE_JUMPING; return;
+				}
+			} else {
+				if (!Input.check(Bindings.JUMP_KEY)) {
+					player.behavior = Behaviors.FALLING; return;
+				}
+			}
 			
-			// Apply gravity
-			player.acceleration.y += GRAVITY;
-			player.speed.y = player.acceleration.y * FP.elapsed;
-			player.y += player.speed.y;
-			
+			// After we reach the peak, start falling
 			if(player.speed.y > 0) {
-				dispatchEvent(new BehaviorEvent(BehaviorEvent.CHANGE_BEHAVIOR, Behaviors.FALLING));
+				player.behavior = Behaviors.FALLING; return;
 			}
 		}
 	}

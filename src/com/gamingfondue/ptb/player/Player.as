@@ -2,7 +2,6 @@ package com.gamingfondue.ptb.player
 {
 	import com.gamingfondue.ptb.Assets;
 	import com.gamingfondue.ptb.constants.Types;
-	import com.gamingfondue.ptb.events.BehaviorEvent;
 	import com.gamingfondue.ptb.player.behaviour.Behavior;
 	import com.gamingfondue.ptb.player.behaviour.BehaviorFactory;
 	import com.gamingfondue.ptb.player.behaviour.Behaviors;
@@ -47,23 +46,13 @@ package com.gamingfondue.ptb.player
 		}
 		
 		/**
-		 * Called when current behavior requests a change.
-		 */
-		private function onBehaviorChange(event:BehaviorEvent):void
-		{
-			if (_behavior) _behavior.removeEventListener(BehaviorEvent.CHANGE_BEHAVIOR, onBehaviorChange);
-			behavior = event.behavior;
-		}
-		
-		/**
 		 * Syntax sugar. Updates the player behavior
 		 */
-		private function set behavior(behavior:int):void
+		public function set behavior(behavior:int):void
 		{
 			_behavior = BehaviorFactory.get(behavior);
 			_behavior.player = this;
 			_behavior.change();
-			_behavior.addEventListener(BehaviorEvent.CHANGE_BEHAVIOR, onBehaviorChange);
 			
 			// TODO: Remove this before release
 			Logger.log("Estado: " + _behavior.toString());

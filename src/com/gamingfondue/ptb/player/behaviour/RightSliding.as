@@ -2,7 +2,6 @@ package com.gamingfondue.ptb.player.behaviour
 {
 	import com.gamingfondue.ptb.constants.Bindings;
 	import com.gamingfondue.ptb.constants.Types;
-	import com.gamingfondue.ptb.events.BehaviorEvent;
 	
 	import net.flashpunk.utils.Input;
 
@@ -10,33 +9,39 @@ package com.gamingfondue.ptb.player.behaviour
 	{
 		override public function update():void
 		{
-			// Apply gravity
+			// Horizontal movement
+			player.acceleration.x = 0;
 			player.speed.x *= FRICTION;
-			if (player.speed.x < MIN_SPEED) {
-				player.speed.x = 0;
-				dispatchEvent(new BehaviorEvent(BehaviorEvent.CHANGE_BEHAVIOR, Behaviors.STANDING));
-			}
-			
-			// Slide when player releases right key
-			if (Input.check(Bindings.LEFT_KEY)) {
-				dispatchEvent(new BehaviorEvent(BehaviorEvent.CHANGE_BEHAVIOR, Behaviors.STANDING));
-			} else if (Input.check(Bindings.RIGHT_KEY)) {
-				dispatchEvent(new BehaviorEvent(BehaviorEvent.CHANGE_BEHAVIOR, Behaviors.RIGHT_RUNNING));
-			}
-			
-			// Move the player
+			if (player.speed.x < MIN_SPEED) player.speed.x = 0;
+
+			// Project the player horizontally
 			projection.x = player.x + player.speed.x;
 			if(player.collide(Types.SOLID, projection.x, player.y)) {
-				displacement.x = projection.x % CELL_SIZE;
-				player.x = projection.x - displacement.x;
-				dispatchEvent(new BehaviorEvent(BehaviorEvent.CHANGE_BEHAVIOR, Behaviors.STANDING));
+				projection.x -= projection.x % CELL_SIZE;
+				player.x = projection.x;
+				player.behavior = Behaviors.STANDING; return;
 			} else {
 				player.x = projection.x;
 			}
-			
+
 			// If there it's no solid under us, we're falling
 			if(!player.collide(Types.SOLID, player.x, player.y + 1)) {
-				dispatchEvent(new BehaviorEvent(BehaviorEvent.CHANGE_BEHAVIOR, Behaviors.FALLING));	
+				player.behavior =  Behaviors.FALLING; return;
+			}
+
+			// If we're not falling we continue running
+			if (Input.check(Bindings.RIGHT_KEY)) {
+				player.behavior =  Behaviors.RIGHT_RUNNING; return;
+			}
+
+			// in either direction
+			if (Input.check(Bindings.LEFT_KEY)) {
+				player.behavior =  Behaviors.STANDING; return;
+			}
+
+			// else, if the speed == 0, then we're actually standing
+			if (player.speed.x == 0) {
+				player.behavior = Behaviors.STANDING; return;
 			}
 		}
 	}

@@ -12,5 +12,6 @@ package com.gamingfondue.ptb.constants
 		public static const JUMP_KEY:int = Key.SPACE;
 		public static const RIGHT_KEY:int = Key.RIGHT;
 		public static const LEFT_KEY:int = Key.LEFT;
+		public static const DOWN_KEY:int = Key.DOWN;
 	}
 }

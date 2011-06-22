@@ -1,7 +1,6 @@
 package com.gamingfondue.ptb.player.behaviour
 {
 	import com.gamingfondue.ptb.constants.Types;
-	import com.gamingfondue.ptb.events.BehaviorEvent;
 	
 	import net.flashpunk.FP;
 
@@ -9,6 +8,7 @@ package com.gamingfondue.ptb.player.behaviour
 	{
 		override public function change():void
 		{
+			// FIXME: commented, dunno if it's right
 			player.acceleration.y = 0;
 		}
 		
@@ -18,23 +18,30 @@ package com.gamingfondue.ptb.player.behaviour
 			player.acceleration.y += GRAVITY;
 			player.speed.y += player.acceleration.y * FP.elapsed;
 			
-			// Normalize speed
+			// Normalize fall speed
 			if(player.speed.y > MAX_SPEED) player.speed.y = MAX_SPEED;
 			
-			// Check collition
+			// Vertical collition
 			projection.y = player.y + player.speed.y;
 			if(player.collide(Types.SOLID, player.x, projection.y)) {
 				
-				// FIXME: After pushing the player, we should check if it doesnt collide again, where we should move it
-				// up again
+				// If the player lands mid-cell, push him above it
+				projection.y -= projection.y % CELL_SIZE;
 				
-				// TODO: Verify if this isn't already fixed
-				displacement.y = projection.y % CELL_SIZE;
-				player.y = projection.y - displacement.y;
-				dispatchEvent(new BehaviorEvent(BehaviorEvent.CHANGE_BEHAVIOR, Behaviors.STANDING));
+				// If the player went through more than one cell, push him further
+				while(player.collide(Types.SOLID, player.x, projection.y)) {
+					projection.y -= CELL_SIZE;
+				}
+
+				player.y = projection.y;
+				player.behavior = Behaviors.STANDING; return;
 			} else {
 				player.y = projection.y;
 			}
+
+			// TODO: horizontal movement while falling should be a fraction of the speed while running
+			//       something around 20%
+			// TODO: horizontal collision enables wall jumping
 		}
 	}
 }
