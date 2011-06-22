@@ -16,8 +16,26 @@ package com.gamingfondue.ptb.player.behaviour
 		
 		override public function update():void
 		{
+			// Horizontal collition
+			projection.x = player.x + player.speed.x;
+			if(player.collide(Types.SOLID, projection.x, player.y)) {
+				
+				if(player.speed.x > 0) {
+					projection.x -= projection.x % CELL_SIZE;
+					while(player.collide(Types.SOLID, projection.x, player.y)) {
+						projection.x -= CELL_SIZE;
+					} 
+				} else if(player.speed.x < 0) {
+					projection.x += CELL_SIZE - (projection.x % CELL_SIZE);
+					while(player.collide(Types.SOLID, projection.x, player.y)) {
+						projection.x += CELL_SIZE;
+					}
+				}
+			}
+			player.x = projection.x;
+			
 			// Apply gravity
-			player.acceleration.y += GRAVITY;
+			player.acceleration.y = GRAVITY;
 			player.speed.y += player.acceleration.y * FP.elapsed;
 			
 			// Normalize fall speed

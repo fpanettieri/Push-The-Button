@@ -25,7 +25,7 @@ package com.gamingfondue.ptb.player.behaviour
 		protected var FRICTION:Number = 0.8;
 		protected var RUN_ACCEL:Number = 8;
 		protected var RUN_SPEED:Number = 4;
-		protected var FALLING_SPEED:Number = 2;
+		protected var FALLING_SPEED:Number = 0;
 
 
 		// Jump heights
