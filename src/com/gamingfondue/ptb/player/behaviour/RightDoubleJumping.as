@@ -2,6 +2,7 @@ package com.gamingfondue.ptb.player.behaviour
 {
 	import com.gamingfondue.ptb.constants.Bindings;
 	import com.gamingfondue.ptb.constants.Types;
+	import com.gamingfondue.util.Logger;
 	
 	import net.flashpunk.FP;
 	import net.flashpunk.utils.Input;
@@ -21,7 +22,8 @@ package com.gamingfondue.ptb.player.behaviour
 			
 			// Vertical collition
 			projection.y = player.y + player.speed.y;
-			if(player.collide(Types.SOLID, player.x, projection.y)) {
+			if(player.speed.y < 0 && player.collide(Types.SOLID, player.x, projection.y)) {
+				Logger.log(player.speed.y.toString());
 				
 				// If the player lands mid-cell, push him below it
 				projection.y += CELL_SIZE - (projection.y % CELL_SIZE);
@@ -29,6 +31,7 @@ package com.gamingfondue.ptb.player.behaviour
 				// If the player went through more than one cell, push him further
 				while(player.collide(Types.SOLID, player.x, projection.y)) {
 					projection.y += CELL_SIZE;
+					Logger.log(player.speed.y.toString());
 				}
 			}
 			player.y = projection.y;

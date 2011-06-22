@@ -15,6 +15,24 @@ package com.gamingfondue.ptb.player.behaviour
 		
 		override public function update():void
 		{
+			// Project player vertically
+			player.acceleration.y += GRAVITY;
+			player.speed.y = player.acceleration.y * FP.elapsed;
+			
+			// Vertical collition
+			projection.y = player.y + player.speed.y;
+			if(player.collide(Types.SOLID, player.x, projection.y)) {
+				
+				// If the player lands mid-cell, push him below it
+				projection.y += CELL_SIZE - (projection.y % CELL_SIZE);
+				
+				// If the player went through more than one cell, push him further
+				while(player.collide(Types.SOLID, player.x, projection.y)) {
+					projection.y += CELL_SIZE;
+				}
+			}
+			player.y = projection.y;
+			
 			// Project player horizontally
 			if(Input.check(Bindings.RIGHT_KEY)) {
 				player.acceleration.x = RUN_ACCEL * 0.5;
@@ -45,24 +63,6 @@ package com.gamingfondue.ptb.player.behaviour
 				}
 			}
 			player.x = projection.x;
-			
-			// Project player vertically
-			player.acceleration.y += GRAVITY;
-			player.speed.y = player.acceleration.y * FP.elapsed;
-			
-			// Vertical collition
-			projection.y = player.y + player.speed.y;
-			if(player.collide(Types.SOLID, player.x, projection.y)) {
-				
-				// If the player lands mid-cell, push him below it
-				projection.y += CELL_SIZE - (projection.y % CELL_SIZE);
-				
-				// If the player went through more than one cell, push him further
-				while(player.collide(Types.SOLID, player.x, projection.y)) {
-					projection.y += CELL_SIZE;
-				}
-			}
-			player.y = projection.y;
 			
 			// After we reach the peak, start falling
 			if(player.speed.y > FALLING_SPEED) {

@@ -21,7 +21,7 @@ package com.gamingfondue.ptb.player.behaviour
 			
 			// Vertical collition
 			projection.y = player.y + player.speed.y;
-			if(player.collide(Types.SOLID, player.x, projection.y)) {
+			if(player.speed.y < 0 && player.collide(Types.SOLID, player.x, projection.y)) {
 				
 				// If the player lands mid-cell, push him below it
 				projection.y += CELL_SIZE - (projection.y % CELL_SIZE);
