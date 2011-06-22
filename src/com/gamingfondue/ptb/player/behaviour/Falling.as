@@ -1,8 +1,10 @@
 package com.gamingfondue.ptb.player.behaviour
 {
+	import com.gamingfondue.ptb.constants.Bindings;
 	import com.gamingfondue.ptb.constants.Types;
 	
 	import net.flashpunk.FP;
+	import net.flashpunk.utils.Input;
 
 	public class Falling extends Behavior
 	{
@@ -38,10 +40,6 @@ package com.gamingfondue.ptb.player.behaviour
 			} else {
 				player.y = projection.y;
 			}
-
-			// TODO: horizontal movement while falling should be a fraction of the speed while running
-			//       something around 20%
-			// TODO: horizontal collision enables wall jumping
 		}
 	}
 }
