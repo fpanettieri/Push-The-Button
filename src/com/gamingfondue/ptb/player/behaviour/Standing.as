@@ -32,12 +32,14 @@ package com.gamingfondue.ptb.player.behaviour
 			}
 			
 			// Start running right
-			if(Input.check(Bindings.RIGHT_KEY)) {
+			projection.x = player.x + 1;
+			if(Input.check(Bindings.RIGHT_KEY) && !player.collide(Types.SOLID, projection.x, player.y)) {
 				player.behavior = Behaviors.RIGHT_RUNNING; return;
 			}
 			
 			// Start running left
-			if(Input.check(Bindings.LEFT_KEY)) {
+			projection.x = player.x - 1;
+			if(Input.check(Bindings.LEFT_KEY) && !player.collide(Types.SOLID, projection.x, player.y)) {
 				player.behavior = Behaviors.LEFT_RUNNING; return;
 			}
 		}

@@ -10,7 +10,6 @@ package com.gamingfondue.ptb.player.behaviour
 	{
 		override public function change():void
 		{
-			// FIXME: commented, dunno if it's right
 			player.acceleration.y = 0;
 		}
 		
@@ -20,15 +19,34 @@ package com.gamingfondue.ptb.player.behaviour
 			projection.x = player.x + player.speed.x;
 			if(player.collide(Types.SOLID, projection.x, player.y)) {
 				
+				// if speed > 0, he's moving right
 				if(player.speed.x > 0) {
+					
+					// If the player lands mid-cell, push him left
 					projection.x -= projection.x % CELL_SIZE;
 					while(player.collide(Types.SOLID, projection.x, player.y)) {
 						projection.x -= CELL_SIZE;
-					} 
+					}
+					
+					// If the player holds right, we start walling
+					if(Input.check(Bindings.RIGHT_KEY)) {
+						player.x = projection.x;
+						player.behavior = Behaviors.RIGHT_WALLING; return;
+					}
+					
+				// if speed < 0, he's moving left
 				} else if(player.speed.x < 0) {
+					
+					// If the player lands mid-cell, push him right
 					projection.x += CELL_SIZE - (projection.x % CELL_SIZE);
 					while(player.collide(Types.SOLID, projection.x, player.y)) {
 						projection.x += CELL_SIZE;
+					}
+					
+					// If the player holds right, we start walling
+					if(Input.check(Bindings.LEFT_KEY)) {
+						player.x = projection.x;
+						player.behavior = Behaviors.LEFT_WALLING; return;
 					}
 				}
 			}
