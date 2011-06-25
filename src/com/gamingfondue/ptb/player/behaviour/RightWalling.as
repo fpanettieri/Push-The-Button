@@ -11,12 +11,14 @@ package com.gamingfondue.ptb.player.behaviour
 		override public function change():void
 		{
 			player.acceleration.y = 0;
+			player.acceleration.x = 0;
+			player.speed.x = 0;
 		}
 		
 		override public function update():void
 		{
 			// Apply gravity
-			player.acceleration.y = GRAVITY * 0.3;
+			player.acceleration.y = GRAVITY * 0.4;
 			player.speed.y += player.acceleration.y * FP.elapsed;
 			
 			// Normalize fall speed

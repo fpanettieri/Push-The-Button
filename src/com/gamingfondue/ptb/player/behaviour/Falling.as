@@ -10,7 +10,8 @@ package com.gamingfondue.ptb.player.behaviour
 	{
 		override public function change():void
 		{
-			player.acceleration.y = 0;
+			player.acceleration.y = GRAVITY;
+			player.speed.y = 0;
 		}
 		
 		override public function update():void
@@ -27,10 +28,10 @@ package com.gamingfondue.ptb.player.behaviour
 					while(player.collide(Types.SOLID, projection.x, player.y)) {
 						projection.x -= CELL_SIZE;
 					}
+					player.x = projection.x;
 					
 					// If the player holds right, we start walling
 					if(Input.check(Bindings.RIGHT_KEY)) {
-						player.x = projection.x;
 						player.behavior = Behaviors.RIGHT_WALLING; return;
 					}
 					
@@ -42,13 +43,14 @@ package com.gamingfondue.ptb.player.behaviour
 					while(player.collide(Types.SOLID, projection.x, player.y)) {
 						projection.x += CELL_SIZE;
 					}
+					player.x = projection.x;
 					
 					// If the player holds right, we start walling
 					if(Input.check(Bindings.LEFT_KEY)) {
-						player.x = projection.x;
 						player.behavior = Behaviors.LEFT_WALLING; return;
 					}
 				}
+				player.speed.x = 0;
 			}
 			player.x = projection.x;
 			

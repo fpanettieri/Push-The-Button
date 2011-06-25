@@ -22,7 +22,7 @@ package com.gamingfondue.ptb.player.behaviour
 		protected var MAX_SPEED:Number = 8;
 		protected var MIN_SPEED:Number = 0.2;
 		protected var GRAVITY:Number = 8;
-		protected var FRICTION:Number = 0.8;
+		protected var FRICTION:Number = 0.7;
 		protected var RUN_ACCEL:Number = 8;
 		protected var RUN_SPEED:Number = 4;
 		protected var FALLING_SPEED:Number = 0;
@@ -30,9 +30,9 @@ package com.gamingfondue.ptb.player.behaviour
 
 
 		// Jump heights
-		protected var HIGH_JUMP:Number = -140;
-		protected var DOUBLE_JUMP:Number = -90;
-		protected var LONG_JUMP:Number = -100;
+		protected var HIGH_JUMP:Number = -176;
+		protected var DOUBLE_JUMP:Number = -128;
+		protected var LONG_JUMP:Number = -144;
 		protected var WALL_JUMP:Number = -100;
 	
 		// Vector used to estamiate player location after physics calculations

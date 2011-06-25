@@ -38,7 +38,7 @@ package com.gamingfondue.ptb.player.behaviour
 			if(player.collide(Types.SOLID, projection.x, player.y)) {
 				
 				// If the player lands mid-cell, push him below it
-				projection.x += CELL_SIZE - (projection.y % CELL_SIZE);
+				projection.x += CELL_SIZE - (projection.x % CELL_SIZE);
 				
 				// If the player went through more than one cell, push him further
 				while(player.collide(Types.SOLID, projection.x, player.y)) {

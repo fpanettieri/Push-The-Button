@@ -65,7 +65,7 @@ package com.gamingfondue.ptb.player.behaviour
 			player.x = projection.x;
 
 			// Player can double jump after 3/4 part of the jump
-			if (player.acceleration.y > 0.75 * HIGH_JUMP) {
+			/*if (player.acceleration.y > 0.75 * HIGH_JUMP) {
 				if (Input.pressed(Bindings.JUMP_KEY)) {
 					player.behavior = Behaviors.DOUBLE_JUMPING; return;
 				}
@@ -73,6 +73,10 @@ package com.gamingfondue.ptb.player.behaviour
 				if (!Input.check(Bindings.JUMP_KEY)) {
 					player.behavior = Behaviors.FALLING; return;
 				}
+			}*/
+			
+			if (Input.pressed(Bindings.JUMP_KEY) && player.acceleration.y > 0.75 * HIGH_JUMP) {
+				player.behavior = Behaviors.DOUBLE_JUMPING; return;
 			}
 			
 			// After we reach the peak, start falling

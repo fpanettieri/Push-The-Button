@@ -1,4 +1,4 @@
-package com.gamingfondue.ptb
+package com.gamingfondue.ptb.constants
 {
 	/**
 	 * Static class used to embed binary files

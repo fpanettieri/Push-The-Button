@@ -2,8 +2,10 @@ package com.gamingfondue.ptb.worlds
 {
 	import com.gamingfondue.ptb.entities.Billboard;
 	import com.gamingfondue.ptb.entities.Cameraman;
-	import com.gamingfondue.ptb.levels.Map;
+	import com.gamingfondue.ptb.levels.Tutorial;
 	import com.gamingfondue.ptb.player.Player;
+	
+	import flash.geom.Rectangle;
 	
 	import net.flashpunk.Entity;
 	import net.flashpunk.World;
@@ -18,7 +20,7 @@ package com.gamingfondue.ptb.worlds
 		private var billboard:Billboard;
 		private var player:Player;
 		private var cameraman:Cameraman;
-		private var map:Map;
+		private var map:Tutorial;
 		private var clock:Entity;
 		private var money:Entity;
 		private var health:Entity;
@@ -32,9 +34,10 @@ package com.gamingfondue.ptb.worlds
 		{
 			billboard = new Billboard();
 			player = new Player();
-			//cameraman = new Cameraman();
-			//cameraman.target = player;
-			map = new Map();
+			cameraman = new Cameraman();
+			cameraman.target = player;
+			cameraman.bounds = new Rectangle(0, 0, 704, 496);  
+			map = new Tutorial();
 		}
 		
 		/**
@@ -45,7 +48,7 @@ package com.gamingfondue.ptb.worlds
 		{
 			add(billboard);
 			add(player);
-			//add(cameraman);
+			add(cameraman);
 			add(map);
 		}
 	}

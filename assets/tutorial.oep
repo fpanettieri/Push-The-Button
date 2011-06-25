@@ -1,0 +1,23 @@
+<project>
+  <name>Push The Button - Tutorial</name>
+  
+  <settings>
+    <defaultWidth>704</defaultWidth>
+    <defaultHeight>496</defaultHeight>
+  </settings>
+  
+  <tilesets>
+     <tileset name="wall" image="wall.png" tileHeight="16" tileWidth="16" />
+  </tilesets>
+  
+  <objects>
+  	<object name="entrance" image="entrance.png" height="16" width="16" limit="1" />
+  	<object name="exit" image="exit.png" height="16" width="16" limit="1" />
+  </objects>
+  
+  <layers>
+    <grid name="collision" gridSize="16" exportAsObjects="true" />
+    <tiles name="wall" gridSize="16" exportTileIDs="true" />
+    <objects name="objects" gridSize="16" />
+  </layers>
+</project>

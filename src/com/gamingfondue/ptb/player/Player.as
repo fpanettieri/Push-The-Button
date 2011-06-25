@@ -1,6 +1,6 @@
 package com.gamingfondue.ptb.player
 {
-	import com.gamingfondue.ptb.Assets;
+	import com.gamingfondue.ptb.constants.Assets;
 	import com.gamingfondue.ptb.constants.Types;
 	import com.gamingfondue.ptb.player.behaviour.Behavior;
 	import com.gamingfondue.ptb.player.behaviour.BehaviorFactory;
@@ -12,6 +12,7 @@ package com.gamingfondue.ptb.player
 	import net.flashpunk.Entity;
 	import net.flashpunk.FP;
 	import net.flashpunk.graphics.Image;
+	import net.flashpunk.utils.Input;
 	
 	public class Player extends Entity
 	{
@@ -24,7 +25,7 @@ package com.gamingfondue.ptb.player
 		
 		public function Player()
 		{
-			super(20, 50);
+			super(40, 400);
 			image = new Image(Assets.PLAYER);
 			graphic = image;
 			
@@ -43,6 +44,10 @@ package com.gamingfondue.ptb.player
 		override public function update():void
 		{
 			_behavior.update();
+			if (Input.mousePressed) {
+				x = Input.mouseX + FP.camera.x;
+				y = Input.mouseY + FP.camera.y;
+			}
 		}
 		
 		/**

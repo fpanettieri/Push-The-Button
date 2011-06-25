@@ -1,30 +1,34 @@
 package com.gamingfondue.ptb.entities
 {
 	
+	import com.gamingfondue.util.Size;
+	
 	import flash.geom.Point;
+	import flash.geom.Rectangle;
 	
 	import net.flashpunk.Entity;
 	import net.flashpunk.FP;
 	
 	/**
-	 * This entity controls the camera, it tries to keep all the sheeps visible
+	 * This entity controls the camera, it tries to keep the player on screen
 	 */ 
 	public class Cameraman extends Entity
 	{
 		/**
+		 * Cameraman max speed. 
 		 * Number of pixels the cameraman can move per second.
 		 */ 
-		private const SPEED:int = 130;
+		private const SPEED:Number = 2;
 		
 		/**
 		 * Area where the camera can focus properly in pixels.
 		 */ 
-		private const FOCUS:int = 16;
+		private const FOCUS:Number = 32;
 		
 		/**
 		 * The position of the interesting object, in this case the player.
 		 */ 
-		public var target:Entity;
+		private var _target:Entity;
 		
 		/**
 		 * Distance of the target to the cameraman.
@@ -32,47 +36,75 @@ package com.gamingfondue.ptb.entities
 		private var distance:Point;
 		
 		/**
-		 * Screen center.
+		 * Distance of the target to the center of the screen
+		 */
+		private var radial_distance:Number;
+		
+		/**
+		 * Camera focus center.
 		 */ 
-		private var offset:Point;
-
+		private var center:Point;
+		
+		/**
+		 * Area where the cameraman can move.
+		 */
+		public var bounds:Rectangle;
+		
+		/**
+		 * Region of the screen used to display a portion of the total image to be shown.
+		 */
+		private var viewport:Size;
+		
 		/**
 		 * Called when the cameraman is added to a World.
 		 */
 		override public function added():void
 		{
-			distance = new Point();
-			offset = new Point(FP.screen.width / -2, FP.screen.height / -2);
 			visible = false;
+			center = new Point(FP.screen.width / 2, FP.screen.height / 2);
+			viewport = new Size(FP.screen.width, FP.screen.height);
+			distance = new Point();
+			radial_distance = 0;
 		}
 		
 		/**
-		 * Called when the billboard is added to a World.
+		 * Update cameraman position
 		 */
 		override public function update():void
 		{
-			if (!target) return;
+			if (!_target) return;
 			
-			// Normalize movement
-			distance.x = target.x - x;
-			distance.y = target.y - y;
+			// Calculate distance to target
+			distance.x = _target.x - x;
+			distance.y = _target.y - y;
+			radial_distance = Math.sqrt(Math.pow(distance.x, 2) + Math.pow(distance.y, 2));
 			
 			// Move cameraman
-			if (distance.x > FOCUS) {
-				x += SPEED * FP.elapsed;
-			} else if (distance.x < -FOCUS) {
-				x -= SPEED * FP.elapsed;
+			if (radial_distance > FOCUS) {
+				x += distance.x / FOCUS * SPEED;
+				y += distance.y / FOCUS * SPEED;
 			}
 			
-			if (distance.y > FOCUS) {
-				y += SPEED * FP.elapsed;
-			} else if (distance.y < -FOCUS) {
-				y -= SPEED * FP.elapsed;
-			}
-			
-			// Move camera
-			FP.world.camera.x = int(x + offset.x);
-			FP.world.camera.y = int(y + offset.y);
+			// Adjust viewport to bounds
+		/*	if (x + center.x  < bounds.left) x = bounds.left;
+			if (y + center.y < bounds.top) y = bounds.top;
+			if (x + center.x + viewport.width > bounds.right) x = bounds.right - viewport.width;
+			if (y + center.y + viewport.height > bounds.top) y = bounds.top - viewport.height;
+		*/	
+			// Move camera: In order to center the target, we move the camera AWAY from it
+			// thus we need to substract the center position
+			FP.world.camera.x = x - center.x;
+			FP.world.camera.y = y - center.y;
+		}
+		
+		/**
+		 * Store the target and focus it
+		 */
+		public function set target(target:Entity):void
+		{
+			_target = target;
+			x = target.x;
+			y = target.y;
 		}
 	}
 }
