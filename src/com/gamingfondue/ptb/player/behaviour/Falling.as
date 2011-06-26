@@ -16,6 +16,21 @@ package com.gamingfondue.ptb.player.behaviour
 		
 		override public function update():void
 		{
+			fall(GRAVITY);
+			
+			// Project player horizontally
+			if(Input.check(Bindings.RIGHT_KEY)) {
+				player.acceleration.x = RUN_ACCEL * 0.5;
+				player.speed.x += player.acceleration.x * FP.elapsed;
+			} else if (Input.check(Bindings.LEFT_KEY)){
+				player.acceleration.x = -RUN_ACCEL * 0.5;
+				player.speed.x += player.acceleration.x * FP.elapsed;
+			} else {
+				player.speed.x *= FRICTION;
+			}
+			if (player.speed.x > RUN_SPEED) player.speed.x = RUN_SPEED;
+			if (player.speed.x < -RUN_SPEED) player.speed.x = -RUN_SPEED;
+			
 			// Horizontal collition
 			projection.x = player.x + player.speed.x;
 			if(player.collide(Types.SOLID, projection.x, player.y)) {
@@ -53,31 +68,6 @@ package com.gamingfondue.ptb.player.behaviour
 				player.speed.x = 0;
 			}
 			player.x = projection.x;
-			
-			// Apply gravity
-			player.acceleration.y = GRAVITY;
-			player.speed.y += player.acceleration.y * FP.elapsed;
-			
-			// Normalize fall speed
-			if(player.speed.y > MAX_SPEED) player.speed.y = MAX_SPEED;
-			
-			// Vertical collition
-			projection.y = player.y + player.speed.y;
-			if(player.collide(Types.SOLID, player.x, projection.y)) {
-				
-				// If the player lands mid-cell, push him above it
-				projection.y -= projection.y % CELL_SIZE;
-				
-				// If the player went through more than one cell, push him further
-				while(player.collide(Types.SOLID, player.x, projection.y)) {
-					projection.y -= CELL_SIZE;
-				}
-
-				player.y = projection.y;
-				player.behavior = Behaviors.STANDING; return;
-			} else {
-				player.y = projection.y;
-			}
 		}
 	}
 }

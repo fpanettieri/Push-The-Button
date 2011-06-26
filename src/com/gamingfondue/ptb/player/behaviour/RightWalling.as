@@ -17,30 +17,7 @@ package com.gamingfondue.ptb.player.behaviour
 		
 		override public function update():void
 		{
-			// Apply gravity
-			player.acceleration.y = GRAVITY * 0.4;
-			player.speed.y += player.acceleration.y * FP.elapsed;
-			
-			// Normalize fall speed
-			if(player.speed.y > MAX_SPEED) player.speed.y = MAX_SPEED;
-			
-			// Vertical collition
-			projection.y = player.y + player.speed.y;
-			if(player.collide(Types.SOLID, player.x, projection.y)) {
-				
-				// If the player lands mid-cell, push him above it
-				projection.y -= projection.y % CELL_SIZE;
-				
-				// If the player went through more than one cell, push him further
-				while(player.collide(Types.SOLID, player.x, projection.y)) {
-					projection.y -= CELL_SIZE;
-				}
-				
-				player.y = projection.y;
-				player.behavior = Behaviors.STANDING; return;
-			} else {
-				player.y = projection.y;
-			}
+			fall(GRAVITY * 0.5);
 			
 			// If the player releases the key, he start falling again
 			if (Input.pressed(Bindings.JUMP_KEY)) {
@@ -48,7 +25,7 @@ package com.gamingfondue.ptb.player.behaviour
 			}
 			
 			// If the player releases the key, he start falling again
-			if (!Input.check(Bindings.RIGHT_KEY)) {
+			if (!Input.check(Bindings.RIGHT_KEY) || !player.collide(Types.SOLID, player.x + 1, player.y)) {
 				player.behavior = Behaviors.FALLING; return;
 			}
 		}

@@ -19,19 +19,7 @@ package com.gamingfondue.ptb.player.behaviour
 			player.acceleration.y += GRAVITY;
 			player.speed.y = player.acceleration.y * FP.elapsed;
 			
-			// Vertical collition
-			projection.y = player.y + player.speed.y;
-			if(player.speed.y < 0 && player.collide(Types.SOLID, player.x, projection.y)) {
-				
-				// If the player lands mid-cell, push him below it
-				projection.y += CELL_SIZE - (projection.y % CELL_SIZE);
-				
-				// If the player went through more than one cell, push him further
-				while(player.collide(Types.SOLID, player.x, projection.y)) {
-					projection.y += CELL_SIZE;
-				}
-			}
-			player.y = projection.y;
+			jump();
 			
 			// Project player horizontally
 			player.acceleration.x = -RUN_ACCEL;

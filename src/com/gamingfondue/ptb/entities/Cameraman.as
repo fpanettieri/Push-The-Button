@@ -86,11 +86,11 @@ package com.gamingfondue.ptb.entities
 			}
 			
 			// Adjust viewport to bounds
-		/*	if (x + center.x  < bounds.left) x = bounds.left;
-			if (y + center.y < bounds.top) y = bounds.top;
-			if (x + center.x + viewport.width > bounds.right) x = bounds.right - viewport.width;
-			if (y + center.y + viewport.height > bounds.top) y = bounds.top - viewport.height;
-		*/	
+			if (x - center.x < bounds.left) x = bounds.left + center.x;
+			if (y - center.y < bounds.top) y = bounds.top + center.y;
+			if (x - center.x + viewport.width > bounds.right) x = bounds.right - viewport.width + center.x;
+			if (y - center.y + viewport.height > bounds.bottom) y = bounds.bottom - viewport.height + center.y;
+			
 			// Move camera: In order to center the target, we move the camera AWAY from it
 			// thus we need to substract the center position
 			FP.world.camera.x = x - center.x;
