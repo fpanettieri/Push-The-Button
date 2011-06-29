@@ -1,23 +1,23 @@
-package com.gamingfondue.ptb.player.behaviour
+package com.gamingfondue.ptb.player.behavior
 {
 	import com.gamingfondue.ptb.constants.Bindings;
 	import com.gamingfondue.ptb.constants.Types;
 	
 	import net.flashpunk.utils.Input;
 
-	public class RightSliding extends Behavior
+	public class LeftSliding extends Behavior
 	{
 		override public function update():void
 		{
 			// Horizontal movement
 			player.acceleration.x = 0;
 			player.speed.x *= FRICTION;
-			if (player.speed.x < MIN_SPEED) player.speed.x = 0;
+			if (player.speed.x > -MIN_SPEED) player.speed.x = 0;
 
 			// Project the player horizontally
 			projection.x = player.x + player.speed.x;
 			if(player.collide(Types.SOLID, projection.x, player.y)) {
-				projection.x -= projection.x % CELL_SIZE;
+				projection.x += CELL_SIZE - (projection.x % CELL_SIZE);
 				player.x = projection.x;
 				player.behavior = Behaviors.STANDING; return;
 			} else {
@@ -30,12 +30,12 @@ package com.gamingfondue.ptb.player.behaviour
 			}
 
 			// If we're not falling we continue running
-			if (Input.check(Bindings.RIGHT_KEY)) {
-				player.behavior =  Behaviors.RIGHT_RUNNING; return;
+			if (Input.check(Bindings.LEFT_KEY)) {
+				player.behavior =  Behaviors.LEFT_RUNNING; return;
 			}
 
 			// in either direction
-			if (Input.check(Bindings.LEFT_KEY)) {
+			if (Input.check(Bindings.RIGHT_KEY)) {
 				player.behavior =  Behaviors.STANDING; return;
 			}
 

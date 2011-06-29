@@ -1,4 +1,4 @@
-package com.gamingfondue.ptb.player.behaviour
+package com.gamingfondue.ptb.player.behavior
 {
 	import com.gamingfondue.ptb.constants.Bindings;
 	import com.gamingfondue.ptb.constants.Types;
@@ -9,13 +9,14 @@ package com.gamingfondue.ptb.player.behaviour
 
 	public class Standing extends Behavior
 	{
-		override public function change():void
+		override public function begin():void
 		{
-			player.double_jump = false;
 			player.acceleration.x = 0;
 			player.acceleration.y = 0;
 			player.speed.x = 0;
 			player.speed.y = 0;
+			
+			player.image.angle = 0;
 		}
 		
 		override public function update():void

@@ -1,4 +1,4 @@
-package com.gamingfondue.ptb.player.behaviour
+package com.gamingfondue.ptb.player.behavior
 {
 	/**
 	 * Player possible behaviors.

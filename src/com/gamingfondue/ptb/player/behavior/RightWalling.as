@@ -1,4 +1,4 @@
-package com.gamingfondue.ptb.player.behaviour
+package com.gamingfondue.ptb.player.behavior
 {
 	import com.gamingfondue.ptb.constants.Bindings;
 	import com.gamingfondue.ptb.constants.Types;
@@ -8,11 +8,20 @@ package com.gamingfondue.ptb.player.behaviour
 
 	public class RightWalling extends Behavior
 	{
-		override public function change():void
+		override public function begin():void
 		{
 			player.acceleration.y = 0;
 			player.acceleration.x = 0;
 			player.speed.x = 0;
+			
+			player.image.flipped = false;
+			player.image.angle = 90;
+			player.image.y = 16;
+		}
+		
+		override public function end():void
+		{
+			player.image.y = 0;
 		}
 		
 		override public function update():void

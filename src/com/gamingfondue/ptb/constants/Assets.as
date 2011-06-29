@@ -18,5 +18,17 @@ package com.gamingfondue.ptb.constants
 		 */ 
 		[Embed(source='/assets/wall.png')]
 		public static const WALL:Class;
+		
+		/**
+		 * Jumping sound effect
+		 */ 
+		[Embed(source = "/assets/sounds.swf#sonata")]
+		public static const SONATA:Class;
+		
+		/**
+		 * Jumping sound effect
+		 */ 
+		[Embed(source = "/assets/sounds.swf#jumping")]
+		public static const JUMPING:Class;
 	}
 }

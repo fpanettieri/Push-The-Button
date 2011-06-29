@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<movie width="10" height="10" framerate="12">
+	<background color="#ffffff" />
+	<frame>
+		<library>
+			<sound id="jumping" import="jumping.wav" />
+			<sound id="collision" import="collision.wav" />
+			<sound id="sonata" import="sonata.mp3" />
+		</library>
+	</frame>
+</movie>

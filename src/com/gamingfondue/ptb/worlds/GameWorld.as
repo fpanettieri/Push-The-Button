@@ -2,6 +2,7 @@ package com.gamingfondue.ptb.worlds
 {
 	import com.gamingfondue.ptb.entities.Billboard;
 	import com.gamingfondue.ptb.entities.Cameraman;
+	import com.gamingfondue.ptb.entities.Dirt;
 	import com.gamingfondue.ptb.levels.Tutorial;
 	import com.gamingfondue.ptb.player.Player;
 	
@@ -20,6 +21,7 @@ package com.gamingfondue.ptb.worlds
 		private var billboard:Billboard;
 		private var player:Player;
 		private var cameraman:Cameraman;
+		private var dirt:Dirt;
 		private var map:Tutorial;
 		private var clock:Entity;
 		private var money:Entity;
@@ -33,10 +35,16 @@ package com.gamingfondue.ptb.worlds
 		public function GameWorld()
 		{
 			billboard = new Billboard();
+			
 			player = new Player();
+			
 			cameraman = new Cameraman();
 			cameraman.target = player;
-			cameraman.bounds = new Rectangle(0, 0, 704, 496);  
+			cameraman.bounds = new Rectangle(0, 0, 704, 496);
+			
+			dirt = new Dirt();
+			dirt.player = player;
+			
 			map = new Tutorial();
 		}
 		
@@ -49,6 +57,7 @@ package com.gamingfondue.ptb.worlds
 			add(billboard);
 			add(player);
 			add(cameraman);
+			//add(dirt);
 			add(map);
 		}
 	}

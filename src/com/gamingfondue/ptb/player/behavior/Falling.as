@@ -1,4 +1,4 @@
-package com.gamingfondue.ptb.player.behaviour
+package com.gamingfondue.ptb.player.behavior
 {
 	import com.gamingfondue.ptb.constants.Bindings;
 	import com.gamingfondue.ptb.constants.Types;
@@ -6,27 +6,32 @@ package com.gamingfondue.ptb.player.behaviour
 	import net.flashpunk.FP;
 	import net.flashpunk.utils.Input;
 
-	public class Jumping extends Behavior
+	public class Falling extends Behavior
 	{
-		override public function change():void
+		override public function begin():void
 		{
-			player.acceleration.y = HIGH_JUMP;
+			player.acceleration.y = GRAVITY;
+			player.speed.y = 0;
+			player.image.angle = 0;
 		}
 		
 		override public function update():void
 		{
-			jump();
+			fall(GRAVITY);
 			
 			// Project player horizontally
 			if(Input.check(Bindings.RIGHT_KEY)) {
 				player.acceleration.x = RUN_ACCEL * 0.5;
-				player.speed.x += player.acceleration.x * FP.elapsed;
+				
 			} else if (Input.check(Bindings.LEFT_KEY)){
 				player.acceleration.x = -RUN_ACCEL * 0.5;
-				player.speed.x += player.acceleration.x * FP.elapsed;
+				
 			} else {
+				player.acceleration.x = 0;
 				player.speed.x *= FRICTION;
 			}
+			
+			player.speed.x += player.acceleration.x * FP.elapsed;
 			if (player.speed.x > RUN_SPEED) player.speed.x = RUN_SPEED;
 			if (player.speed.x < -RUN_SPEED) player.speed.x = -RUN_SPEED;
 			
@@ -34,35 +39,39 @@ package com.gamingfondue.ptb.player.behaviour
 			projection.x = player.x + player.speed.x;
 			if(player.collide(Types.SOLID, projection.x, player.y)) {
 				
+				// if speed > 0, he's moving right
 				if(player.speed.x > 0) {
+					
+					// If the player lands mid-cell, push him left
 					projection.x -= projection.x % CELL_SIZE;
 					while(player.collide(Types.SOLID, projection.x, player.y)) {
 						projection.x -= CELL_SIZE;
-					} 
+					}
+					player.x = projection.x;
+					
+					// If the player holds right, we start walling
+					if(Input.check(Bindings.RIGHT_KEY)) {
+						player.behavior = Behaviors.RIGHT_WALLING; return;
+					}
+					
+				// if speed < 0, he's moving left
 				} else if(player.speed.x < 0) {
+					
+					// If the player lands mid-cell, push him right
 					projection.x += CELL_SIZE - (projection.x % CELL_SIZE);
 					while(player.collide(Types.SOLID, projection.x, player.y)) {
 						projection.x += CELL_SIZE;
 					}
+					player.x = projection.x;
+					
+					// If the player holds right, we start walling
+					if(Input.check(Bindings.LEFT_KEY)) {
+						player.behavior = Behaviors.LEFT_WALLING; return;
+					}
 				}
+				player.speed.x = 0;
 			}
 			player.x = projection.x;
-
-			// Player can double jump after 3/4 part of the jump
-			if (player.acceleration.y > 0.75 * HIGH_JUMP) {
-				if (Input.pressed(Bindings.JUMP_KEY)) {
-					player.behavior = Behaviors.DOUBLE_JUMPING; return;
-				}
-			} else {
-				if (!Input.check(Bindings.JUMP_KEY)) {
-					player.behavior = Behaviors.FALLING; return;
-				}
-			}
-			
-			// After we reach the peak, start falling
-			if(player.speed.y > FALLING_SPEED) {
-				player.behavior = Behaviors.FALLING; return;
-			}
 		}
 	}
 }

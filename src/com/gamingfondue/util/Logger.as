@@ -4,9 +4,9 @@ package com.gamingfondue.util
 
 	public class Logger
 	{
-		public static function log(msg:String):void
+		public static function log(msg:Object):void
 		{
-			ExternalInterface.call("GF.log", msg);
+			//ExternalInterface.call("GF.log", msg.toString());
 		}
 	}
 }

@@ -1,4 +1,4 @@
-package com.gamingfondue.ptb.player.behaviour
+package com.gamingfondue.ptb.player.behavior
 {
 	import com.gamingfondue.ptb.constants.Bindings;
 	import com.gamingfondue.ptb.constants.Types;
@@ -8,11 +8,20 @@ package com.gamingfondue.ptb.player.behaviour
 
 	public class LeftWalling extends Behavior
 	{
-		override public function change():void
+		override public function begin():void
 		{
 			player.acceleration.y = 0;
 			player.acceleration.x = 0;
 			player.speed.x = 0;
+			
+			player.image.flipped = true;
+			player.image.angle = -90;
+			player.image.x = 16;
+		}
+		
+		override public function end():void
+		{
+			player.image.x = 0;
 		}
 		
 		override public function update():void

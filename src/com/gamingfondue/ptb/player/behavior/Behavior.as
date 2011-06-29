@@ -1,7 +1,8 @@
-package com.gamingfondue.ptb.player.behaviour
+package com.gamingfondue.ptb.player.behavior
 {
 	import com.gamingfondue.ptb.constants.Types;
 	import com.gamingfondue.ptb.player.Player;
+	import com.gamingfondue.ptb.player.sound.Sounds;
 	
 	import flash.events.EventDispatcher;
 	import flash.geom.Point;
@@ -41,11 +42,14 @@ package com.gamingfondue.ptb.player.behaviour
 		// Vector used to estamiate player location after physics calculations
 		protected var projection:Point;
 		
-		// Called when the behavior has changed
-		public function change():void {}
+		// Called after the behavior has been changed
+		public function begin():void {}
 		
 		// updates player state
 		public function update():void {}
+		
+		// Called before changing the behavior
+		public function end():void {}
 		
 		public function Behavior()
 		{
@@ -73,7 +77,9 @@ package com.gamingfondue.ptb.player.behaviour
 				while(player.collide(Types.SOLID, player.x, projection.y)) {
 					projection.y += CELL_SIZE;
 				}
+				
 				player.behavior = Behaviors.FALLING;
+				player.play(Sounds.COLLISION);
 			}
 			player.y = projection.y;
 		}
@@ -99,11 +105,9 @@ package com.gamingfondue.ptb.player.behaviour
 					projection.y -= CELL_SIZE;
 				}
 				
-				player.y = projection.y;
-				player.behavior = Behaviors.STANDING; return;
-			} else {
-				player.y = projection.y;
+				player.behavior = Behaviors.STANDING;
 			}
+			player.y = projection.y;
 		}
 	}
 }

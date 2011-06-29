@@ -1,16 +1,20 @@
-package com.gamingfondue.ptb.player.behaviour
+package com.gamingfondue.ptb.player.behavior
 {
 	import com.gamingfondue.ptb.constants.Types;
+	import com.gamingfondue.ptb.player.sound.Sounds;
 	
 	import net.flashpunk.FP;
 
 	public class RightWallJumping extends Behavior
 	{
-		override public function change():void
+		override public function begin():void
 		{
 			player.acceleration.y = WALL_JUMP;
 			player.acceleration.x = -RUN_ACCEL;
 			player.speed.x = -WALLJUMP_SPEED;
+			player.image.flipped = true;
+			player.image.angle = 0;
+			player.play(Sounds.JUMPING);
 		}
 		
 		override public function update():void
