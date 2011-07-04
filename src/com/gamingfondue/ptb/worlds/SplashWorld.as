@@ -38,6 +38,11 @@ package com.gamingfondue.ptb.worlds
 		 * Bounches the title out of the screen.
 		 */ 
 		private var fadeOut:VarTween;
+
+		/**
+		 * Game world instance. Created while the animations are being played
+		 */
+		private var game:World;
 		
 		/**
 		 * SplashWorld constructor. 
@@ -66,6 +71,7 @@ package com.gamingfondue.ptb.worlds
 		 */ 
 		private function onFadeIn(event:Event=null):void
 		{
+			game = new GameWorld();
 			timer = new Timer(4000, 1);
 			timer.addEventListener(TimerEvent.TIMER, onTimer);
 			timer.start();
@@ -88,7 +94,8 @@ package com.gamingfondue.ptb.worlds
 		 */ 
 		private function onFadeOut(event:Event=null):void
 		{
-			FP.world = new GameWorld();
+			FP.world = game;
+			game = null;
 		}
 	}
 }

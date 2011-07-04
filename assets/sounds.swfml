@@ -4,8 +4,8 @@
 	<frame>
 		<library>
 			<sound id="jumping" import="jumping.wav" />
-			<sound id="collision" import="collision.wav" />
 			<sound id="sonata" import="sonata.mp3" />
+			<sound id="tv" import="tv.mp3" />
 		</library>
 	</frame>
 </movie>

@@ -74,9 +74,6 @@ package com.gamingfondue.ptb.player
 			_behavior = BehaviorFactory.get(behavior);
 			_behavior.player = this;
 			_behavior.begin();
-			
-			// TODO: Remove this before release
-			Logger.log("Estado: " + _behavior.toString());
 		}
 		
 		/**

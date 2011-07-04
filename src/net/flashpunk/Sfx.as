@@ -33,13 +33,14 @@
 		 * Plays the sound once.
 		 * @param	vol		Volume factor, a value from 0 to 1.
 		 * @param	pan		Panning factor, a value from -1 to 1.
+		 * @param	start	Start position in miliseconds.
 		 */
-		public function play(vol:Number = 1, pan:Number = 0):void
+		public function play(vol:Number = 1, pan:Number = 0, start:Number = 0):void
 		{
 			if (_channel) stop();
 			_vol = _transform.volume = vol < 0 ? 0 : vol;
 			_pan = _transform.pan = pan < -1 ? -1 : (pan > 1 ? 1 : pan);
-			_channel = _sound.play(0, 0, _transform);
+			_channel = _sound.play(start, 0, _transform);
 			_channel.addEventListener(Event.SOUND_COMPLETE, onComplete);
 			_looping = false;
 			_position = 0;
@@ -49,10 +50,11 @@
 		 * Plays the sound looping. Will loop continuously until you call stop(), play(), or loop() again.
 		 * @param	vol		Volume factor, a value from 0 to 1.
 		 * @param	pan		Panning factor, a value from -1 to 1.
+		 * @param	start	Start position in miliseconds.
 		 */
-		public function loop(vol:Number = 1, pan:Number = 0):void
+		public function loop(vol:Number = 1, pan:Number = 0, start:Number = 0):void
 		{
-			play(vol, pan);
+			play(vol, pan, start);
 			_looping = true;
 		}
 		

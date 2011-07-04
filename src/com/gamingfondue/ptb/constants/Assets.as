@@ -20,10 +20,22 @@ package com.gamingfondue.ptb.constants
 		public static const WALL:Class;
 		
 		/**
-		 * Jumping sound effect
+		 * TV image
+		 */ 
+		[Embed(source = "/assets/tv.png")]
+		public static const TV_IMAGE:Class;
+		
+		/**
+		 * Work background music
 		 */ 
 		[Embed(source = "/assets/sounds.swf#sonata")]
 		public static const SONATA:Class;
+		
+		/**
+		 * TV sound track
+		 */ 
+		[Embed(source = "/assets/sounds.swf#tv")]
+		public static const TV_NOISE:Class;
 		
 		/**
 		 * Jumping sound effect

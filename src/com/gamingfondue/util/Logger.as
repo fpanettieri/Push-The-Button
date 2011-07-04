@@ -6,7 +6,7 @@ package com.gamingfondue.util
 	{
 		public static function log(msg:Object):void
 		{
-			//ExternalInterface.call("GF.log", msg.toString());
+			ExternalInterface.call("GF.log", msg.toString());
 		}
 	}
 }
