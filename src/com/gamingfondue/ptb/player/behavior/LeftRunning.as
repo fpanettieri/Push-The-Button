@@ -11,7 +11,6 @@ package com.gamingfondue.ptb.player.behavior
 		override public function begin():void
 		{
 			player.image.flipped = true;
-			player.image.angle = 0;
 		}
 		
 		override public function update():void

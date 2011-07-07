@@ -71,7 +71,7 @@ package com.gamingfondue.ptb.worlds
 		 */ 
 		private function onFadeIn(event:Event=null):void
 		{
-			game = new GameWorld();
+			game = new Reality();
 			timer = new Timer(4000, 1);
 			timer.addEventListener(TimerEvent.TIMER, onTimer);
 			timer.start();

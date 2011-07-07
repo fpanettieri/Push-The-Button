@@ -1,0 +1,41 @@
+<project>
+  <name>Push The Button - Level</name>
+  
+  <settings>
+    <defaultWidth>2048</defaultWidth>
+    <defaultHeight>2048</defaultHeight>
+  </settings>
+  
+  <tilesets>
+     <tileset name="wall" image="wall.png" tileHeight="16" tileWidth="16" />
+  </tilesets>
+  
+  <values>
+    <string name="name" default="Hello World!" maxChars="50" />
+    <integer name="cell_size" default="16" />
+  </values>
+  
+  <objects>
+  	<object name="entrance" image="entrance.png" height="16" width="16" limit="1" />
+  	<object name="tv" image="tv.png" height="16" width="16" resizableX="true" resizableY="true">
+        <values>
+            <integer name="radius" default="64" min="16" max="512" />
+        </values>	
+  	</object>
+  	<object name="button" image="entrance.png" height="16" width="16" />
+  	<object name="light" image="entrance.png" height="16" width="16">
+        <values>
+            <integer name="timeout" default="30" min="10" max="999" />
+            <integer name="radius" default="64" min="16" max="512" />
+        </values>	
+  	</object>
+  </objects>
+  
+  <layers>
+    <grid name="collision" gridSize="16" exportAsObjects="true" />
+    <tiles name="wall" gridSize="16" exportTileIDs="true" />
+    <grid name="home" gridSize="16" exportAsObjects="true" />
+    <grid name="work" gridSize="16" exportAsObjects="true" />
+    <objects name="objects" gridSize="16" />
+  </layers>
+</project>

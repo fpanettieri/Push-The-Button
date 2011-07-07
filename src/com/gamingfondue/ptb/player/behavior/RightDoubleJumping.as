@@ -14,7 +14,6 @@ package com.gamingfondue.ptb.player.behavior
 		{
 			player.acceleration.y = DOUBLE_JUMP;
 			player.image.flipped = false;
-			player.image.angle = 0;
 			player.play(Sounds.JUMPING);
 		}
 		

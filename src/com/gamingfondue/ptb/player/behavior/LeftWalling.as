@@ -15,13 +15,11 @@ package com.gamingfondue.ptb.player.behavior
 			player.speed.x = 0;
 			
 			player.image.flipped = true;
-			player.image.angle = -90;
-			player.image.x = 16;
 		}
 		
 		override public function end():void
 		{
-			player.image.x = 0;
+		//	player.image.x = 0;
 		}
 		
 		override public function update():void

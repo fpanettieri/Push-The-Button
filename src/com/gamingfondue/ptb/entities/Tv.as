@@ -7,7 +7,6 @@ package com.gamingfondue.ptb.entities
 	
 	import flash.display.BitmapData;
 	import flash.display.BitmapDataChannel;
-	import flash.filters.GlowFilter;
 	import flash.geom.Point;
 	
 	import net.flashpunk.Entity;
@@ -87,6 +86,8 @@ package com.gamingfondue.ptb.entities
 		public function Tv(x:Number = 0, y:Number = 0)
 		{
 			super(x, y);
+			setHitbox(16,14, 0, -2);
+			
 			noise = new LimitedSfx(Assets.TV_NOISE);
 			noise.min = 0.1;
 			noise.max = 0.6;

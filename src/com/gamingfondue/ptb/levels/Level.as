@@ -1,6 +1,8 @@
 package com.gamingfondue.ptb.levels 
 {
 	import net.flashpunk.Entity;
+	import net.flashpunk.graphics.Tilemap;
+	import net.flashpunk.masks.Grid;
 
 	/**
 	 * ...
@@ -8,6 +10,12 @@ package com.gamingfondue.ptb.levels
 	 */
 	public class Level extends Entity 
 	{
-		protected var CELL_SIZE:Number = 16;
+		public var name:String;
+		public var cell_size:int;
+		
+		public function Level() 
+		{
+			type = "solid";
+		}
 	}
 }

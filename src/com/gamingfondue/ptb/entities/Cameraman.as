@@ -58,7 +58,7 @@ package com.gamingfondue.ptb.entities
 		/**
 		 * Called when the cameraman is added to a World.
 		 */
-		override public function added():void
+		public function Cameraman()
 		{
 			visible = false;
 			center = new Point(FP.screen.width / 2, FP.screen.height / 2);

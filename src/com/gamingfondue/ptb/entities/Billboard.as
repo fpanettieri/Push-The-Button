@@ -45,7 +45,7 @@ package com.gamingfondue.ptb.entities
 		/**
 		 * Called when the billboard is added to a World.
 		 */
-		override public function added():void
+		public function Billboard()
 		{
 			visible = false;
 			queue = [];

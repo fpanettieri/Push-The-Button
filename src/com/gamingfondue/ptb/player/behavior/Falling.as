@@ -12,7 +12,6 @@ package com.gamingfondue.ptb.player.behavior
 		{
 			player.acceleration.y = GRAVITY;
 			player.speed.y = 0;
-			player.image.angle = 0;
 		}
 		
 		override public function update():void

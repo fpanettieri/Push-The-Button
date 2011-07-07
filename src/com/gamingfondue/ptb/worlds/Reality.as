@@ -7,7 +7,8 @@ package com.gamingfondue.ptb.worlds
 	import com.gamingfondue.ptb.entities.Light;
 	import com.gamingfondue.ptb.entities.Tv;
 	import com.gamingfondue.ptb.entities.Work;
-	import com.gamingfondue.ptb.levels.Tutorial;
+	import com.gamingfondue.ptb.levels.Level;
+	import com.gamingfondue.ptb.levels.Levels;
 	import com.gamingfondue.ptb.player.Player;
 	
 	import flash.geom.Rectangle;
@@ -20,17 +21,16 @@ package com.gamingfondue.ptb.worlds
 	 * 
 	 * @author: Fabio R. Panettieri
 	 **/
-	public class GameWorld extends World
+	public class Reality extends World
 	{
 		private var billboard:Billboard;
 		private var player:Player;
 		private var cameraman:Cameraman;
-		private var dirt:Dirt;
 		private var tvs:Array;
 		private var home:Home;
 		private var lights:Array;
 		private var work:Work;
-		private var map:Tutorial;
+		private var level:Level;
 		private var clock:Entity;
 		private var money:Entity;
 		private var health:Entity;
@@ -40,20 +40,17 @@ package com.gamingfondue.ptb.worlds
 		 * 
 		 * Object dependencies are injected after construction
 		 */
-		public function GameWorld()
+		public function Reality()
 		{
 			billboard = new Billboard();
-			
+			level = Levels.next();
 			player = new Player();
 			
 			cameraman = new Cameraman();
 			cameraman.target = player;
-			cameraman.bounds = new Rectangle(0, 0, 704, 496);
+			cameraman.bounds = new Rectangle(0, 0, level.width, level.height);
 			
-			dirt = new Dirt();
-			dirt.player = player;
-
-			tvs = [new Tv(240, 440)];
+			/*tvs = [new Tv(240, 432)];
 			tvs[0].player = player;
 
 			home = new Home();
@@ -66,9 +63,7 @@ package com.gamingfondue.ptb.worlds
 			work = new Work();
 			work.lights = lights;
 			work.player = player;
-			work.area = new Rectangle(0, 300, 4, 100);
-			
-			map = new Tutorial();
+			work.area = new Rectangle(0, 300, 4, 100);*/
 		}
 		
 		/**
@@ -80,11 +75,10 @@ package com.gamingfondue.ptb.worlds
 			add(billboard);
 			add(player);
 			add(cameraman);
-			add(dirt);
-			addList(tvs);
+			/*addList(tvs);
 			add(home);
-			add(work);
-			add(map);
+			add(work);*/
+			add(level);
 		}
 	}
 }
