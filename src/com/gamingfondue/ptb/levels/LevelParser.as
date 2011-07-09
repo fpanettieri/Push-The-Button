@@ -5,6 +5,9 @@ package com.gamingfondue.ptb.levels
 	import com.gamingfondue.util.OgmoTile;
 	import com.gamingfondue.util.XMLReader;
 	
+	import flash.geom.Point;
+	import flash.geom.Rectangle;
+	
 	import net.flashpunk.graphics.Tilemap;
 	import net.flashpunk.masks.Grid;
 
@@ -43,7 +46,17 @@ package com.gamingfondue.ptb.levels
 				tiles.setTile(tile.column, tile.row, tile.index);
 			}
 			level.graphic = tiles;
-			level.layer = 1;
+			
+			// Player entrance
+			level.player = new Point(xml.objects.entrance.@x, xml.objects.entrance.@y);
+			
+			// Home
+			level.home.area = new Rectangle(xml.home.rect.@x, xml.home.rect.@y, xml.home.rect.@w, xml.home.rect.@h);
+			// TODO: parse TVS
+			
+			// work
+			level.work.area = new Rectangle(xml.work.rect.@x, xml.work.rect.@y, xml.work.rect.@w, xml.work.rect.@h);
+			// TODO: parse buttons
 			
 			return level;
 		}

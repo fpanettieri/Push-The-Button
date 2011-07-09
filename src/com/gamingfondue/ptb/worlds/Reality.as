@@ -44,26 +44,11 @@ package com.gamingfondue.ptb.worlds
 		{
 			billboard = new Billboard();
 			level = Levels.next();
-			player = new Player();
+			player = new Player(level.player.x, level.player.y);
 			
 			cameraman = new Cameraman();
 			cameraman.target = player;
 			cameraman.bounds = new Rectangle(0, 0, level.width, level.height);
-			
-			/*tvs = [new Tv(240, 432)];
-			tvs[0].player = player;
-
-			home = new Home();
-			home.tvs = tvs;
-			home.player = player;
-			home.area = new Rectangle(0, 200, 704, 496);
-
-			lights = [new Light()];
-
-			work = new Work();
-			work.lights = lights;
-			work.player = player;
-			work.area = new Rectangle(0, 300, 4, 100);*/
 		}
 		
 		/**

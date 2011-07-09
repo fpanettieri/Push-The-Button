@@ -25,9 +25,9 @@ package com.gamingfondue.ptb.player
 		public var acceleration:Point;
 		public var speed:Point;
 		
-		public function Player()
+		public function Player(x:Number = 0, y:Number = 0)
 		{
-			super(40, 400);
+			super(x, y);
 			_image = new Image(Assets.PLAYER);
 			graphic = _image;
 			
