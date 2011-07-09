@@ -22,13 +22,11 @@
             <integer name="radius" default="64" min="16" max="512" />
         </values>	
   	</object>
-  	<object name="button" image="entrance.png" height="16" width="16" />
-  	<object name="light" image="entrance.png" height="16" width="16">
-        <values>
-            <integer name="timeout" default="30" min="10" max="999" />
-            <integer name="radius" default="64" min="16" max="512" />
-        </values>	
-  	</object>
+  	<object name="button" image="entrance.png" height="16" width="16">
+  	    <values>
+            <string name="direction" default="up" />
+        </values>
+    </object>
   </objects>
   
   <layers>

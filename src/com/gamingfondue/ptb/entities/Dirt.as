@@ -1,6 +1,6 @@
 package com.gamingfondue.ptb.entities
 {
-	import com.gamingfondue.ptb.player.Player;
+	import com.gamingfondue.ptb.entities.player.Player;
 	
 	import flash.display.BitmapData;
 	

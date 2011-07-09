@@ -2,7 +2,7 @@ package com.gamingfondue.ptb.entities
 {
 	import com.gamingfondue.core.LimitedSfx;
 	import com.gamingfondue.ptb.constants.Assets;
-	import com.gamingfondue.ptb.player.Player;
+	import com.gamingfondue.ptb.entities.player.Player;
 	import com.gamingfondue.util.Logger;
 	
 	import flash.display.BitmapData;
@@ -36,7 +36,7 @@ package com.gamingfondue.ptb.entities
 		/**
 		 * Range where the television it's audible
 		 */
-		private static const RADIUS:Number = 128;
+		private var radius:Number;
 		
 		/**
 		 * Injected dependency
@@ -83,9 +83,10 @@ package com.gamingfondue.ptb.entities
 		/**
 		 * Creates and configures the sprite and sounds
 		 */ 
-		public function Tv(x:Number = 0, y:Number = 0)
+		public function Tv(x:Number = 0, y:Number = 0, radius:Number = 128)
 		{
 			super(x, y);
+			this.radius = radius;
 			setHitbox(16,14, 0, -2);
 			
 			noise = new LimitedSfx(Assets.TV_NOISE);
@@ -136,10 +137,10 @@ package com.gamingfondue.ptb.entities
 			radial_distance = Math.sqrt(Math.pow(distance.x, 2) + Math.pow(distance.y, 2));
 
 			// Noise volume decreases with distance
-			noise.volume = 1 - (radial_distance / RADIUS);
+			noise.volume = 1 - (radial_distance / radius);
 
 			// Panning depends on player location
-			noise.pan = distance.x / -RADIUS;
+			noise.pan = distance.x / -radius;
 		}
 
 		/**

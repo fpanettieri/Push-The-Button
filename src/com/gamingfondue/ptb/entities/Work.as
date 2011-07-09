@@ -1,10 +1,12 @@
 package com.gamingfondue.ptb.entities
 {
-	import com.gamingfondue.ptb.player.Player;
-
+	import com.gamingfondue.ptb.entities.player.Player;
+	
+	import flash.display.BitmapData;
 	import flash.geom.Rectangle;
-
+	
 	import net.flashpunk.Entity;
+	import net.flashpunk.graphics.Stamp;
 	
 	/**
 	 * Represents the player home
@@ -16,9 +18,9 @@ package com.gamingfondue.ptb.entities
 	public class Work extends Entity
 	{
 		/**
-		 * Injected dependecy. Current level televisions
+		 * Injected dependecy. Current level buttons
 		 */
-		public var lights:Array;
+		public var buttons:Array;
 
 		/**
 		 * Injected dependecy. Player
@@ -28,17 +30,17 @@ package com.gamingfondue.ptb.entities
 		/**
 		 * Work area
 		 */
-		public var area:Rectangle;
+		private var _area:Rectangle;
 
 		/**
 		 * Indicates if the player it's inside
 		 */
 		private var inside:Boolean;
-
+		
 		/**
-		 * Used to iterate through tvs
-		 */
-		private var light:Light;
+		 * Used to iterate through buttons
+		 */ 
+		private var button:Entity;
 		
 		/**
 		 * Home constructor
@@ -47,32 +49,26 @@ package com.gamingfondue.ptb.entities
 		{
 			super(0, 0);
 			inside = false;
+			buttons = [];
+			layer = 2;
 		}
 
 		/**
-		 * Updates screen color, sound volume and panning
+		 * 
 		 */ 
 		override public function update():void 
 		{
-			// Only update state when all dependencies has been updated
-			if(area && player && lights){
-
-				// Turn on tvs when player enters home
-				if (!inside && area.contains(player.x, player.y)) {
-					inside = true;
-					for each (light in lights) {
-						light.turnOn();
-					}
-				}
-
-				// Turn off tvs when player leaves home
-				if (inside && !area.contains(player.x, player.y)) {
-					inside = false;
-					for each (light in lights) {
-						light.turnOff();
-					}
-				}
-			}
+		}
+		
+		/**
+		 * 
+		 */ 
+		public function set area(area:Rectangle):void
+		{
+			_area = area;
+			x = area.x;
+			y = area.y;
+			graphic = new Stamp(new BitmapData(area.width, area.height, false, 0xffff00ff));
 		}
 	}
 }

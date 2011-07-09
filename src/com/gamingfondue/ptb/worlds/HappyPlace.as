@@ -1,7 +1,7 @@
 package com.gamingfondue.ptb.worlds
 {
 	import com.gamingfondue.ptb.entities.Billboard;
-	import com.gamingfondue.ptb.player.Player;
+	import com.gamingfondue.ptb.entities.player.Player;
 	
 	import net.flashpunk.Entity;
 	import net.flashpunk.World;

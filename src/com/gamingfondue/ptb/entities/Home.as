@@ -1,11 +1,13 @@
 package com.gamingfondue.ptb.entities
 {
-	import com.gamingfondue.ptb.player.Player;
+	import com.gamingfondue.ptb.entities.player.Player;
 	import com.gamingfondue.util.Logger;
 	
+	import flash.display.BitmapData;
 	import flash.geom.Rectangle;
 	
 	import net.flashpunk.Entity;
+	import net.flashpunk.graphics.Stamp;
 	
 	/**
 	 * Represents the player home
@@ -24,12 +26,12 @@ package com.gamingfondue.ptb.entities
 		/**
 		 * Injected dependecy. Player
 		 */
-		public var player:Player;
+		private var _player:Player;
 
 		/**
 		 * Injected dependecy. Habitable area
 		 */
-		public var area:Rectangle;
+		private var _area:Rectangle;
 
 		/**
 		 * Indicates if the player it's inside home
@@ -48,6 +50,8 @@ package com.gamingfondue.ptb.entities
 		{
 			super(0, 0);
 			inside = false;
+			tvs = [];
+			layer = 2;
 		}
 
 		/**
@@ -56,11 +60,10 @@ package com.gamingfondue.ptb.entities
 		override public function update():void 
 		{
 			// Only update state when all dependencies has been updated
-			if(area && player && tvs){
+			if(_area && _player && tvs){
 
 				// Turn on tvs when player enters home
-				if (!inside && area.contains(player.x, player.y)) {
-					Logger.log("Enters home");
+				if (!inside && _area.contains(_player.x, _player.y)) {
 					inside = true;
 					for each (tv in tvs) {
 						tv.turnOn();
@@ -68,13 +71,28 @@ package com.gamingfondue.ptb.entities
 				}
 
 				// Turn off tvs when player leaves home
-				if (inside && !area.contains(player.x, player.y)) {
-					Logger.log("Leaves home");
+				if (inside && !_area.contains(_player.x, _player.y)) {
 					inside = false;
 					for each (tv in tvs) {
 						tv.turnOff();
 					}
 				}
+			}
+		}
+		
+		public function set area(area:Rectangle):void
+		{
+			_area = area;
+			x = area.x;
+			y = area.y;
+			graphic = new Stamp(new BitmapData(area.width, area.height, false, 0xffff00ff));
+		}
+		
+		public function set player(player:Player):void
+		{
+			_player = player;
+			for each (tv in tvs) {
+				tv.player = player;
 			}
 		}
 	}

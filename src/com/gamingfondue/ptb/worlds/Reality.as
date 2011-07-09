@@ -2,14 +2,10 @@ package com.gamingfondue.ptb.worlds
 {
 	import com.gamingfondue.ptb.entities.Billboard;
 	import com.gamingfondue.ptb.entities.Cameraman;
-	import com.gamingfondue.ptb.entities.Dirt;
-	import com.gamingfondue.ptb.entities.Home;
-	import com.gamingfondue.ptb.entities.Light;
-	import com.gamingfondue.ptb.entities.Tv;
-	import com.gamingfondue.ptb.entities.Work;
-	import com.gamingfondue.ptb.levels.Level;
-	import com.gamingfondue.ptb.levels.Levels;
-	import com.gamingfondue.ptb.player.Player;
+	import com.gamingfondue.ptb.entities.Sky;
+	import com.gamingfondue.ptb.entities.level.Level;
+	import com.gamingfondue.ptb.entities.level.Levels;
+	import com.gamingfondue.ptb.entities.player.Player;
 	
 	import flash.geom.Rectangle;
 	
@@ -23,15 +19,11 @@ package com.gamingfondue.ptb.worlds
 	 **/
 	public class Reality extends World
 	{
-		private var billboard:Billboard;
-		private var player:Player;
-		private var cameraman:Cameraman;
-		private var tvs:Array;
-		private var home:Home;
-		private var lights:Array;
-		private var work:Work;
+		private var sky:Sky;
 		private var level:Level;
-		private var clock:Entity;
+		private var player:Player;
+		private var billboard:Billboard;
+		private var cameraman:Cameraman;
 		private var money:Entity;
 		private var health:Entity;
 		
@@ -42,9 +34,13 @@ package com.gamingfondue.ptb.worlds
 		 */
 		public function Reality()
 		{
-			billboard = new Billboard();
+			sky = new Sky();
+			
 			level = Levels.next();
 			player = new Player(level.player.x, level.player.y);
+			level.home.player = player;
+			level.work.player = player;
+			billboard = new Billboard();
 			
 			cameraman = new Cameraman();
 			cameraman.target = player;
@@ -57,13 +53,15 @@ package com.gamingfondue.ptb.worlds
 		 */ 
 		override public function begin():void
 		{
-			add(billboard);
+			add(sky);
+			add(level);
+			add(level.home);
+			addList(level.home.tvs);
+			add(level.work);
+			addList(level.work.buttons);
 			add(player);
 			add(cameraman);
-			/*addList(tvs);
-			add(home);
-			add(work);*/
-			add(level);
+			add(billboard);
 		}
 	}
 }
