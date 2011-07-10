@@ -2,6 +2,7 @@ package com.gamingfondue.ptb.entities
 {
 	import com.gamingfondue.core.LimitedSfx;
 	import com.gamingfondue.ptb.constants.Assets;
+	import com.gamingfondue.ptb.constants.Layers;
 	import com.gamingfondue.ptb.entities.player.Player;
 	import com.gamingfondue.util.Logger;
 	
@@ -12,6 +13,7 @@ package com.gamingfondue.ptb.entities
 	import net.flashpunk.Entity;
 	import net.flashpunk.FP;
 	import net.flashpunk.Sfx;
+	import net.flashpunk.graphics.Image;
 	import net.flashpunk.graphics.Stamp;
 	
 	/**
@@ -42,12 +44,12 @@ package com.gamingfondue.ptb.entities
 		 * Injected dependency
 		 */ 
 		public var player:Player;
-
+		
 		/**
          * Television base image, no filters applied
 		 * Displayed when the TV it's off
          */
-		private var tv_off:Stamp;
+		private var tv_off:Image;
 
 		/**
          * Television glowing frames
@@ -83,7 +85,7 @@ package com.gamingfondue.ptb.entities
 		/**
 		 * Creates and configures the sprite and sounds
 		 */ 
-		public function Tv(x:Number = 0, y:Number = 0, radius:Number = 128)
+		public function Tv(x:Number = 0, y:Number = 0, width:Number = 16, height:Number = 16, radius:Number = 128)
 		{
 			super(x, y);
 			this.radius = radius;
@@ -94,18 +96,26 @@ package com.gamingfondue.ptb.entities
 			noise.max = 0.6;
 
 			// Load raw tv image from Assets
-			tv_off = new Stamp(Assets.TV_IMAGE);
+			var raw:Stamp = new Stamp(Assets.TV_IMAGE);
+			tv_off = new Image(raw.source);
+			tv_off.scaleX = width / 16;
+			tv_off.scaleY = height / 16;
 			graphic = tv_off;
+			layer = Layers.OBJECTS;
 
 			// Create colored frames bitmapdatas array
-			var src:BitmapData = tv_off.source;
+			var src:BitmapData = raw.source;
 			var dst:BitmapData;
 
 			frames = new Array(COLORS.length);
+			var frame:Image;
 			for (var i:int = 0; i < COLORS.length; i++) {
 				dst = src.clone();
 				dst.floodFill(3,6, COLORS[i]);
-				frames[i] = new Stamp(dst);
+				frame = new Image(dst);
+				frame.scaleX = width / 16;
+				frame.scaleY = height / 16;
+				frames[i] = frame;
 			}
 
 			// Initialize TV state

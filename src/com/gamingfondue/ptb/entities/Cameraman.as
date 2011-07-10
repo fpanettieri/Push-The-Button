@@ -93,8 +93,8 @@ package com.gamingfondue.ptb.entities
 			
 			// Move camera: In order to center the target, we move the camera AWAY from it
 			// thus we need to substract the center position
-			FP.world.camera.x = x - center.x;
-			FP.world.camera.y = y - center.y;
+			FP.world.camera.x = Math.round(x - center.x);
+			FP.world.camera.y = Math.round(y - center.y);
 		}
 		
 		/**

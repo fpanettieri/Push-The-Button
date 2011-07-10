@@ -1,5 +1,6 @@
 package com.gamingfondue.ptb.entities
 {
+	import com.gamingfondue.ptb.constants.Layers;
 	import com.gamingfondue.ptb.entities.player.Player;
 	import com.gamingfondue.util.Logger;
 	
@@ -51,7 +52,7 @@ package com.gamingfondue.ptb.entities
 			super(0, 0);
 			inside = false;
 			tvs = [];
-			layer = 2;
+			layer = Layers.BG;
 		}
 
 		/**

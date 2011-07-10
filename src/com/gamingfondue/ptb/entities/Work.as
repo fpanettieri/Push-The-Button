@@ -1,5 +1,6 @@
 package com.gamingfondue.ptb.entities
 {
+	import com.gamingfondue.ptb.constants.Layers;
 	import com.gamingfondue.ptb.entities.player.Player;
 	
 	import flash.display.BitmapData;
@@ -50,7 +51,7 @@ package com.gamingfondue.ptb.entities
 			super(0, 0);
 			inside = false;
 			buttons = [];
-			layer = 2;
+			layer = Layers.BG;
 		}
 
 		/**
