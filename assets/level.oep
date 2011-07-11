@@ -22,7 +22,11 @@
             <integer name="radius" default="64" min="16" max="512" />
         </values>	
   	</object>
-  	<object name="button" image="button.png" height="16" width="16" />
+  	<object name="button" image="button.png" height="16" width="16" >
+        <values>
+            <integer name="money" default="1" />
+        </values>	
+  	</object>
   </objects>
   
   <layers>

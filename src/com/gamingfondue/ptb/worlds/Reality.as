@@ -11,6 +11,7 @@ package com.gamingfondue.ptb.worlds
 	
 	import net.flashpunk.Entity;
 	import net.flashpunk.World;
+	import net.flashpunk.utils.Input;
 	
 	/**
 	 * Game simulation. 

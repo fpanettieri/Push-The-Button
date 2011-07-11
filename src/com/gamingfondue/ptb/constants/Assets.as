@@ -26,6 +26,12 @@ package com.gamingfondue.ptb.constants
 		public static const TV_IMAGE:Class;
 		
 		/**
+		 * Button image
+		 */ 
+		[Embed(source = "/assets/button.png")]
+		public static const BUTTON:Class;
+		
+		/**
 		 * Work background music
 		 */ 
 		[Embed(source = "/assets/sounds.swf#sonata")]
@@ -42,5 +48,11 @@ package com.gamingfondue.ptb.constants
 		 */ 
 		[Embed(source = "/assets/sounds.swf#jumping")]
 		public static const JUMPING:Class;
+		
+		/**
+		 * Money sound effect
+		 */ 
+		[Embed(source = "/assets/sounds.swf#money")]
+		public static const MONEY:Class;
 	}
 }

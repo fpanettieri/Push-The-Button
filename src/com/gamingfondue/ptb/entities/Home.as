@@ -20,6 +20,11 @@ package com.gamingfondue.ptb.entities
 	public class Home extends Entity
 	{
 		/**
+		 * Color used to determine work
+		 */
+		private static const BG:uint = 0xFF303030;
+		
+		/**
 		 * Injected dependecy. Current level televisions
 		 */
 		public var tvs:Array;
@@ -81,14 +86,20 @@ package com.gamingfondue.ptb.entities
 			}
 		}
 		
+		/**
+		 * Update home area
+		 */ 
 		public function set area(area:Rectangle):void
 		{
 			_area = area;
 			x = area.x;
 			y = area.y;
-			graphic = new Stamp(new BitmapData(area.width, area.height, false, 0xffff00ff));
+			graphic = new Stamp(new BitmapData(area.width, area.height, false, BG));
 		}
 		
+		/**
+		 * Inject player dependecy
+		 */ 
 		public function set player(player:Player):void
 		{
 			_player = player;

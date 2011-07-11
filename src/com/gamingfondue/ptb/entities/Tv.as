@@ -34,16 +34,16 @@ package com.gamingfondue.ptb.entities
 		 * Range where the television it's audible
 		 */
 		private static const FRAME_DURATION:Number = 0.3;
-
-		/**
-		 * Range where the television it's audible
-		 */
-		private var radius:Number;
 		
 		/**
 		 * Injected dependency
 		 */ 
 		public var player:Player;
+
+		/**
+		 * Range where the television it's audible
+		 */
+		private var radius:Number;
 		
 		/**
          * Television base image, no filters applied

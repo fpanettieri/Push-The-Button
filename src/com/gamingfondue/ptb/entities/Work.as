@@ -19,6 +19,11 @@ package com.gamingfondue.ptb.entities
 	public class Work extends Entity
 	{
 		/**
+		 * Color used to determine work
+		 */
+		private static const BG:uint = 0xFF303030;
+		
+		/**
 		 * Injected dependecy. Current level buttons
 		 */
 		public var buttons:Array;
@@ -26,7 +31,7 @@ package com.gamingfondue.ptb.entities
 		/**
 		 * Injected dependecy. Player
 		 */
-		public var player:Player;
+		private var _player:Player;
 
 		/**
 		 * Work area
@@ -41,7 +46,7 @@ package com.gamingfondue.ptb.entities
 		/**
 		 * Used to iterate through buttons
 		 */ 
-		private var button:Entity;
+		private var button:Button;
 		
 		/**
 		 * Home constructor
@@ -53,23 +58,27 @@ package com.gamingfondue.ptb.entities
 			buttons = [];
 			layer = Layers.BG;
 		}
-
-		/**
-		 * 
-		 */ 
-		override public function update():void 
-		{
-		}
 		
 		/**
-		 * 
+		 * Update work area
 		 */ 
 		public function set area(area:Rectangle):void
 		{
 			_area = area;
 			x = area.x;
 			y = area.y;
-			graphic = new Stamp(new BitmapData(area.width, area.height, false, 0xffff00ff));
+			graphic = new Stamp(new BitmapData(area.width, area.height, false, BG));
+		}
+		
+		/**
+		 * Inject player dependecy
+		 */ 
+		public function set player(player:Player):void
+		{
+			_player = player;
+			for each (button in buttons) {
+				button.player = player;
+			}
 		}
 	}
 }

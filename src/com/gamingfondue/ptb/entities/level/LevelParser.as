@@ -1,8 +1,8 @@
 package com.gamingfondue.ptb.entities.level
 {
 	import com.gamingfondue.ptb.constants.Assets;
+	import com.gamingfondue.ptb.entities.Button;
 	import com.gamingfondue.ptb.entities.Tv;
-	import com.gamingfondue.ptb.entities.button.Button;
 	import com.gamingfondue.util.OgmoRect;
 	import com.gamingfondue.util.OgmoTile;
 	import com.gamingfondue.util.XMLReader;
@@ -54,13 +54,14 @@ package com.gamingfondue.ptb.entities.level
 			
 			// Home
 			level.home.area = new Rectangle(xml.home.rect.@x, xml.home.rect.@y, xml.home.rect.@w, xml.home.rect.@h);
+			var tv:Tv;
 			for each(node in xml.objects.tv) {
 				level.home.tvs.push(new Tv(node.@x, node.@y, node.@width, node.@height, node.@radius));
 			}
 			
 			// work
 			level.work.area = new Rectangle(xml.work.rect.@x, xml.work.rect.@y, xml.work.rect.@w, xml.work.rect.@h);
-			for each(node in xml.objects.buttons) {
+			for each(node in xml.objects.button) {
 				level.work.buttons.push(new Button(node.@x, node.@y));
 			}
 			

@@ -12,7 +12,7 @@ package com.gamingfondue.ptb.entities
 		{
 			super(0,0);
 			layer = 4;
-			graphic = new Image(new BitmapData(FP.screen.width, FP.screen.height, true, 0xFFFFFFFF));
+			graphic = new Image(new BitmapData(FP.screen.width, FP.screen.height, true, 0xFF300030));
 		}
 		
 		/**

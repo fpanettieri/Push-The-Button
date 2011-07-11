@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<movie width="10" height="10" framerate="12">
-	<background color="#ffffff" />
+<movie width="10" height="10" framerate="30">
+	<background color="#000000" />
 	<frame>
 		<library>
 			<sound id="jumping" import="jumping.wav" />
+			<sound id="money" import="money.wav" />
 			<sound id="sonata" import="sonata.mp3" />
 			<sound id="tv" import="tv.mp3" />
 		</library>
