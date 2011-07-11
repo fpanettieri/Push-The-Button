@@ -65,7 +65,7 @@ package com.gamingfondue.ptb.entities
 			if (collide(Types.PLAYER, x, y)) {
 				pressed = true;
 				image.color = 0xFF30E030;
-				Player.money += money;
+				HUD.money += money;
 				sfx.play();
 			}
 		}

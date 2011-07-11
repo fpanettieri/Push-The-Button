@@ -8,5 +8,6 @@ package com.gamingfondue.ptb.constants
 		public static const WALL:int = 3;
 		public static const OBJECTS:int = 2;
 		public static const PLAYER:int = 1;
+		public static const HUD:int = 0;
 	}
 }

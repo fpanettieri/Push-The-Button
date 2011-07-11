@@ -3,6 +3,7 @@ package com.gamingfondue.ptb.entities.player
 	import com.gamingfondue.ptb.constants.Assets;
 	import com.gamingfondue.ptb.constants.Layers;
 	import com.gamingfondue.ptb.constants.Types;
+	import com.gamingfondue.ptb.entities.HUD;
 	import com.gamingfondue.ptb.entities.player.behavior.BehaviorFactory;
 	import com.gamingfondue.ptb.entities.player.behavior.Behaviors;
 	import com.gamingfondue.ptb.entities.player.behavior.PlayerBehavior;
@@ -25,9 +26,6 @@ package com.gamingfondue.ptb.entities.player
 		
 		public var acceleration:Point;
 		public var speed:Point;
-		
-		public static var money:Number = 0;
-		public static var happiness:Number = 0;
 		
 		public function Player(x:Number = 0, y:Number = 0)
 		{

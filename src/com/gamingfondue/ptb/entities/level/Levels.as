@@ -27,6 +27,11 @@ package com.gamingfondue.ptb.entities.level
 			}
 		}
 		
+		public static function get number():Number
+		{
+			return _current;
+		}
+		
 		public static function next():Level
 		{
 			return array[++_current];

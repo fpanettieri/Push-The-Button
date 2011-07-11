@@ -1,7 +1,9 @@
 package com.gamingfondue.ptb.worlds
 {
+	import com.gamingfondue.ptb.constants.Constants;
 	import com.gamingfondue.ptb.entities.Billboard;
 	import com.gamingfondue.ptb.entities.Cameraman;
+	import com.gamingfondue.ptb.entities.HUD;
 	import com.gamingfondue.ptb.entities.Sky;
 	import com.gamingfondue.ptb.entities.level.Level;
 	import com.gamingfondue.ptb.entities.level.Levels;
@@ -25,8 +27,7 @@ package com.gamingfondue.ptb.worlds
 		private var player:Player;
 		private var billboard:Billboard;
 		private var cameraman:Cameraman;
-		private var money:Entity;
-		private var health:Entity;
+		private var hud:HUD;
 		
 		/**
 		 * GameWorld Constructor
@@ -36,8 +37,8 @@ package com.gamingfondue.ptb.worlds
 		public function Reality()
 		{
 			sky = new Sky();
-			
 			level = Levels.next();
+			
 			player = new Player(level.player.x, level.player.y);
 			level.home.player = player;
 			level.work.player = player;
@@ -46,6 +47,9 @@ package com.gamingfondue.ptb.worlds
 			cameraman = new Cameraman();
 			cameraman.target = player;
 			cameraman.bounds = new Rectangle(0, 0, level.width, level.height);
+
+			hud = new HUD();
+			HUD.age = Levels.number + Constants.LEGAL_AGE;
 		}
 		
 		/**
@@ -63,6 +67,7 @@ package com.gamingfondue.ptb.worlds
 			add(player);
 			add(cameraman);
 			add(billboard);
+			add(hud);
 		}
 	}
 }

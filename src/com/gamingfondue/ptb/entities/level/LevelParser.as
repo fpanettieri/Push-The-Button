@@ -62,7 +62,7 @@ package com.gamingfondue.ptb.entities.level
 			// work
 			level.work.area = new Rectangle(xml.work.rect.@x, xml.work.rect.@y, xml.work.rect.@w, xml.work.rect.@h);
 			for each(node in xml.objects.button) {
-				level.work.buttons.push(new Button(node.@x, node.@y));
+				level.work.buttons.push(new Button(node.@x, node.@y, node.@money));
 			}
 			
 			return level;
