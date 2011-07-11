@@ -68,7 +68,6 @@ package com.gamingfondue.ptb.entities.player.behavior
 				}
 				
 				player.behavior = Behaviors.FALLING;
-				player.play(Sounds.COLLISION);
 			}
 			player.y = projection.y;
 		}

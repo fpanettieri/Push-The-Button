@@ -52,7 +52,6 @@ package com.gamingfondue.ptb.entities.player.behavior
 						projection.x += CELL_SIZE;
 					}
 				}
-				player.play(Sounds.COLLISION);
 			}
 			player.x = projection.x;
 			
