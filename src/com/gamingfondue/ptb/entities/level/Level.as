@@ -17,6 +17,7 @@ package com.gamingfondue.ptb.entities.level
 	{
 		public var name:String;
 		public var cell_size:int;
+		public var duration:int;
 		
 		public var player:Point;
 		public var home:Home;

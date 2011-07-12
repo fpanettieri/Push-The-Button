@@ -26,10 +26,11 @@ package com.gamingfondue.ptb.entities.level
 			// Aux variable used to iterate level
 			var node:XML;
 			
-			level.name = xml.@name;
-			level.cell_size = xml.@cell_size;
 			level.width = xml.width;
 			level.height = xml.height;
+			level.name = xml.@name;
+			level.cell_size = xml.@cell_size;
+			level.duration = xml.@duration;
 			
 			// Create collision grid
 			var grid:Grid = new Grid(level.width, level.height, level.cell_size, level.cell_size, 0, 0);

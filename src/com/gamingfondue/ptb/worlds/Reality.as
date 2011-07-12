@@ -36,8 +36,8 @@ package com.gamingfondue.ptb.worlds
 		 */
 		public function Reality()
 		{
-			sky = new Sky();
 			level = Levels.next();
+			sky = new Sky(level.duration);
 			
 			player = new Player(level.player.x, level.player.y);
 			level.home.player = player;

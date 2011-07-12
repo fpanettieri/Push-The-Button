@@ -27,17 +27,17 @@ package com.gamingfondue.ptb.entities
 			age = new Text("", 5, 0, 90, 30);
 			age.scrollX = 0;
 			age.scrollY = 0;
-			age.color = 0xFF9030;
+			age.color = 0xFFFFFF;
 			
 			money = new Text("", 130, 0, 120, 30);
 			money.scrollX = 0;
 			money.scrollY = 0;
-			money.color = 0xFF9030;
+			money.color = 0xFFFFFF;
 			
 			happiness = new Text("", 270, 0, 50, 30);
 			happiness.scrollX = 0;
 			happiness.scrollY = 0;
-			happiness.color = 0xFF9030;
+			happiness.color = 0xFFFFFF;
 			
 			display = new Graphiclist(age, money, happiness);
 			graphic = display;

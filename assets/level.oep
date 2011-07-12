@@ -12,6 +12,7 @@
   
   <values>
     <string name="name" default="Hello World!" maxChars="50" />
+    <integer name="duration" />
     <integer name="cell_size" default="16" />
   </values>
   
