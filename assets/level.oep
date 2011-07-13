@@ -28,6 +28,12 @@
             <integer name="money" default="1" />
         </values>	
   	</object>
+  	<object name="tooltip" image="tooltip.png" height="16" width="16" resizableX="true" resizableY="true">
+        <values>
+            <string name="en" default="English message" />
+            <string name="es" default="Mensaje en español" />
+        </values>	
+  	</object>
   </objects>
   
   <layers>
@@ -36,5 +42,6 @@
     <grid name="home" gridSize="16" exportAsObjects="true" />
     <grid name="work" gridSize="16" exportAsObjects="true" />
     <objects name="objects" gridSize="16" />
+    <objects name="tooltips" gridSize="16" />
   </layers>
 </project>

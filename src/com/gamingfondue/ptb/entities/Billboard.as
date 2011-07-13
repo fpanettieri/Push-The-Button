@@ -2,6 +2,7 @@ package com.gamingfondue.ptb.entities
 {
 	import net.flashpunk.Entity;
 	import net.flashpunk.FP;
+	import net.flashpunk.graphics.ResizableText;
 	import net.flashpunk.graphics.Stamp;
 	import net.flashpunk.graphics.Text;
 	import net.flashpunk.tweens.misc.VarTween;
@@ -20,22 +21,17 @@ package com.gamingfondue.ptb.entities
 		/**
 		 * Max number of queued messages
 		 */ 
-		private static const QUEUE_SIZE:int = 5;
+		private static const QUEUE_SIZE:int = 3;
 		
 		/**
 		 * Message speed
 		 */ 
-		private static const SPEED:int = 7;
+		private static const SPEED:int = 2;
 		
 		/**
 		 * Displayed text
 		 */ 
-		private var text:Text;
-		
-		/**
-		 * Marquee effect.
-		 */ 
-		private var scroll:VarTween;
+		private var text:ResizableText;
 		
 		/**
 		 * Fixed size message queue
@@ -49,12 +45,10 @@ package com.gamingfondue.ptb.entities
 		{
 			visible = false;
 			queue = [];
-			text = new Text("",0, 300, 480, 32);
+			text = new ResizableText("",0, 223, null, 32);
 			text.scrollX = 0;
 			text.scrollY = 0;
 			graphic = text;
-			scroll = new VarTween(onScroll);
-			addTween(scroll);
 		}
 
 		/**
@@ -65,10 +59,14 @@ package com.gamingfondue.ptb.entities
 		{
 			if (!visible && queue.length > 0) {
 				visible = true;
-				text.text = queue.pop();
+				text.text = queue.splice(0, 1);
+				text.width 
 				x = FP.screen.width;
-				scroll.tween(this, 'x', -text.width, SPEED);
-				scroll.start();
+			} else {
+				x -= SPEED;
+				if (x <= -text.width) {
+					visible = false;
+				}
 			}
 		}
 		
@@ -81,14 +79,6 @@ package com.gamingfondue.ptb.entities
 				queue.pop();
 			}
 			queue.push(msg);
-		}
-		
-		/**
-		 * Tween callback.
-		 */
-		private function onScroll():void
-		{
-			visible = false;
 		}
 	}
 }

@@ -2,6 +2,7 @@ package com.gamingfondue.ptb.entities.level
 {
 	import com.gamingfondue.ptb.constants.Assets;
 	import com.gamingfondue.ptb.entities.Button;
+	import com.gamingfondue.ptb.entities.Tooltip;
 	import com.gamingfondue.ptb.entities.Tv;
 	import com.gamingfondue.util.OgmoRect;
 	import com.gamingfondue.util.OgmoTile;
@@ -64,6 +65,11 @@ package com.gamingfondue.ptb.entities.level
 			level.work.area = new Rectangle(xml.work.rect.@x, xml.work.rect.@y, xml.work.rect.@w, xml.work.rect.@h);
 			for each(node in xml.objects.button) {
 				level.work.buttons.push(new Button(node.@x, node.@y, node.@money));
+			}
+			
+			// tooltips
+			for each(node in xml.tooltips.tooltip) {
+				level.tooltips.add(new Tooltip(node.@x, node.@y, node.@width, node.@height, node.@en, node.@es));
 			}
 			
 			return level;

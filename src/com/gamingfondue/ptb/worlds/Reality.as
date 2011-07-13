@@ -42,6 +42,7 @@ package com.gamingfondue.ptb.worlds
 			player = new Player(level.player.x, level.player.y);
 			level.home.player = player;
 			level.work.player = player;
+			level.tooltips.player = player;
 			billboard = new Billboard();
 			
 			cameraman = new Cameraman();
@@ -68,6 +69,7 @@ package com.gamingfondue.ptb.worlds
 			add(cameraman);
 			add(billboard);
 			add(hud);
+			add(level.tooltips);
 		}
 	}
 }
