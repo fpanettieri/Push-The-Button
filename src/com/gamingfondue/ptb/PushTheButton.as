@@ -1,6 +1,7 @@
 package com.gamingfondue.ptb
 {
 	import com.gamingfondue.ptb.worlds.Reality;
+	import com.gamingfondue.ptb.worlds.Splash;
 	import com.gamingfondue.ptb.worlds.SplashWorld;
 	
 	import net.flashpunk.Engine;
@@ -15,7 +16,7 @@ package com.gamingfondue.ptb
 		{
 			super(320, 240, 30, false);
 			FP.screen.scale = 2;
-			//FP.console.enable();
+			FP.console.enable();
 		}
 		
 		/**
@@ -23,9 +24,7 @@ package com.gamingfondue.ptb
 		 */
 		override public function init():void
 		{
-			// FIXME: uncomment this on completion
-			//FP.world = new SplashWorld();
-			FP.world = new Reality();
+			FP.world = new Splash();
 		} 
 	}
 }

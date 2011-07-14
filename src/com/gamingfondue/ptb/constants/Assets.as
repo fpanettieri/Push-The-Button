@@ -54,5 +54,18 @@ package com.gamingfondue.ptb.constants
 		 */ 
 		[Embed(source = "/assets/sounds.swf#money")]
 		public static const MONEY:Class;
+
+		/**
+		 * FlashPunk splash assets
+		 */
+		[Embed(source = "/assets/splash_lines.png")] public static const SPLASH_LINES:Class;
+		[Embed(source = "/assets/splash_cog.png")] public static const SPLASH_COG:Class;
+		[Embed(source = "/assets/splash_left.png")] public static const SPLASH_LEFT:Class;
+		[Embed(source = "/assets/splash_right.png")] public static const SPLASH_RIGHT:Class;
+		
+		/**
+		 * Gaming Fonduie splash assets
+		 */
+		[Embed(source = "/assets/splash.png")] public static const SPLASH:Class;
 	}
 }
