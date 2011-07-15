@@ -34,6 +34,7 @@ package com.gamingfondue.ptb.entities
 		 */ 
 		public function Dirt()
 		{
+			super(0, 0);
 			emitter = new Emitter(new BitmapData(1, 1, false, 0xFF0000));
 			this.graphic = emitter;
 			

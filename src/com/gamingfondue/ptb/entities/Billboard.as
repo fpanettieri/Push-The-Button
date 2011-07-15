@@ -21,7 +21,7 @@ package com.gamingfondue.ptb.entities
 		/**
 		 * Max number of queued messages
 		 */ 
-		private static const QUEUE_SIZE:int = 3;
+		private static const QUEUE_SIZE:int = 1;
 		
 		/**
 		 * Message speed
@@ -43,6 +43,7 @@ package com.gamingfondue.ptb.entities
 		 */
 		public function Billboard()
 		{
+			super(0, 0);
 			visible = false;
 			queue = [];
 			text = new ResizableText("",0, 223, null, 32);

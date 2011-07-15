@@ -8,10 +8,13 @@ package com.gamingfondue.ptb.worlds
 	import com.gamingfondue.ptb.entities.level.Level;
 	import com.gamingfondue.ptb.entities.level.Levels;
 	import com.gamingfondue.ptb.entities.player.Player;
+	import com.gamingfondue.util.Logger;
 	
+	import flash.geom.Point;
 	import flash.geom.Rectangle;
 	
 	import net.flashpunk.Entity;
+	import net.flashpunk.FP;
 	import net.flashpunk.World;
 	import net.flashpunk.utils.Input;
 	
@@ -28,13 +31,12 @@ package com.gamingfondue.ptb.worlds
 		private var billboard:Billboard;
 		private var cameraman:Cameraman;
 		private var hud:HUD;
-		
+
 		/**
-		 * GameWorld Constructor
-		 * 
-		 * Object dependencies are injected after construction
-		 */
-		public function Reality()
+		 * Called when the world is activated.
+		 * Adds game actors to the world so the simulation can run
+		 */ 
+		override public function begin():void
 		{
 			level = Levels.next();
 			sky = new Sky(level.duration);
@@ -46,19 +48,12 @@ package com.gamingfondue.ptb.worlds
 			billboard = new Billboard();
 			
 			cameraman = new Cameraman();
-			cameraman.target = player;
 			cameraman.bounds = new Rectangle(0, 0, level.width, level.height);
-
+			cameraman.target = player;
+			
 			hud = new HUD();
 			HUD.age = Levels.number + Constants.LEGAL_AGE;
-		}
-		
-		/**
-		 * Called when the world is activated.
-		 * Adds game actors to the world so the simulatino can run
-		 */ 
-		override public function begin():void
-		{
+			
 			add(sky);
 			add(level);
 			add(level.home);

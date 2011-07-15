@@ -8,7 +8,7 @@ package com.gamingfondue.ptb.constants
 		public static var DUSK:int = 3;
 		public static var NIGHT:int = 4;
 		
-		public static const COLORS:Array = [0xFF0A0A1E, 0xFFE67B3A, 0xFF5C94FC, 0xFFF578A0, 0xFF6E0F64, 0xFF0A0A1E];
-		public static const DURATION:Array = [0.2, 0.05, 0.64, 0.01, 0.1];
+		public static const COLORS:Array = [0xFF0A0A1E, 0xFFFADC81, 0xFF99DDEE, 0xFFFF9173, 0xFF784C70, 0xFF0A0A1E];
+		public static const DURATION:Array = [0.25, 0.1, 0.48, 0.02, 0.15];
 	}
 }

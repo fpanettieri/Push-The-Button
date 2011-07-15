@@ -716,12 +716,10 @@
   </objects>
   <tooltips>
     <tooltip x="16" y="1984" width="320" height="48" en="What are you doing here? You should be working" es="¿Que estas haciendo aca? Deberias estar trabajando"/>
-    <tooltip x="368" y="2016" width="16" height="16" en="Use arrows to move" es="Utiliza las flechas para moverte"/>
-    <tooltip x="800" y="2016" width="16" height="16" en="Use space to jump" es="Usa la barra espaciadora para saltar"/>
+    <tooltip x="368" y="2016" width="16" height="16" en="Press arrows to move, space to jump" es="Presiona las flechas para moverte, espacio para saltar"/>
     <tooltip x="736" y="1904" width="16" height="16" en="This looks familiar" es="Este lugar me parece familiar"/>
-    <tooltip x="1200" y="1968" width="16" height="16" en="Jump again in mid-air to perform a double jump" es="Salta de nuevo en el aire para ejecutar un salto doble"/>
-    <tooltip x="1408" y="2016" width="16" height="16" en="Welcome to PTB Inc." es="Bienvenido a PTB SA"/>
-    <tooltip x="1456" y="2016" width="16" height="16" en="Push buttons to earn money" es="Aprieta los botones para ganar dinero"/>
-    <tooltip x="1600" y="1984" width="32" height="48" en="Go home when you're done" es="Regresa a casa cuando hayas terminado"/>
+    <tooltip x="1024" y="1968" width="192" height="16" en="Press jump in mid-air to perform a double jump" es="Presiona espacio en el aire para ejecutar un salto doble"/>
+    <tooltip x="1248" y="1968" width="160" height="64" en="Push buttons to earn money" es="Presiona los botones para ganar dinero"/>
+    <tooltip x="1600" y="1904" width="32" height="32" en="Go home when you're done" es="Regresa a casa cuando hayas terminado"/>
   </tooltips>
 </level>

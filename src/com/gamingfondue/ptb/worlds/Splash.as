@@ -45,23 +45,16 @@ package com.gamingfondue.ptb.worlds
 		private var menu:Menu;
 
 		/**
-		 * SplashWorld constructor. 
-		 * Creates the title.
-		 */ 
-		public function Splash()
-		{
-            fp = new FlashPunk(0xFF9900, 0x333333, 1);
-			gf = new GamingFondue();
-			menu = new Menu();
-		}
-		
-		/**
 		 * Called when the world is activated.
 		 * It creates the bounce effect of the title.
 		 */ 
 		override public function begin():void
 		{
-            add(fp);
+            fp = new FlashPunk(0xFF9900, 0x333333, 1);
+			gf = new GamingFondue();
+			menu = new Menu();
+
+			add(fp);
             fp.start(fpComplete);
 		}
 
@@ -76,7 +69,6 @@ package com.gamingfondue.ptb.worlds
 		{
 			add(menu);
 			remove(gf);
-			menu.start();
 			FP.world = new Reality();
 		}
 	}

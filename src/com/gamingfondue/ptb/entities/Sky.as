@@ -31,7 +31,7 @@ package com.gamingfondue.ptb.entities
 		{
 			super(0,0);
 			this.duration = duration;
-
+			
 			display = new Image(new BitmapData(FP.screen.width, FP.screen.height, true, 0xFFFFFFFF));
 			display.color = DayNightCycle.COLORS[0];
 			display.scrollX = 0;
@@ -57,13 +57,10 @@ package com.gamingfondue.ptb.entities
 		 */ 
 		private function delay():void 
 		{
-			Logger.log("delay: " + time);
 			if (time < DayNightCycle.COLORS.length - 1) {
 				alarm = new Alarm(duration * DayNightCycle.DURATION[time], transition, Tween.ONESHOT);
 				addTween(alarm, true);
-			} else {
-				Logger.log("done");
-			}
+			} 
 		}
 
 		/**
@@ -71,7 +68,6 @@ package com.gamingfondue.ptb.entities
 		 */ 
 		private function transition():void 
 		{
-			Logger.log("transition: " + time);
 			tween = new ColorTween(delay, Tween.ONESHOT);
 			addTween(tween);
 			tween.tween(DayNightCycle.TRANSITION, DayNightCycle.COLORS[time], DayNightCycle.COLORS[time + 1]);

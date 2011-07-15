@@ -60,6 +60,7 @@ package com.gamingfondue.ptb.entities
 		 */
 		public function Cameraman()
 		{
+			super(0, 0);
 			visible = false;
 			center = new Point(FP.screen.width / 2, FP.screen.height / 2);
 			viewport = new Size(FP.screen.width, FP.screen.height);
@@ -85,16 +86,7 @@ package com.gamingfondue.ptb.entities
 				y += distance.y / FOCUS * SPEED;
 			}
 			
-			// Adjust viewport to bounds
-			if (x - center.x < bounds.left) x = bounds.left + center.x;
-			if (y - center.y < bounds.top) y = bounds.top + center.y;
-			if (x - center.x + viewport.width > bounds.right) x = bounds.right - viewport.width + center.x;
-			if (y - center.y + viewport.height > bounds.bottom) y = bounds.bottom - viewport.height + center.y;
-			
-			// Move camera: In order to center the target, we move the camera AWAY from it
-			// thus we need to substract the center position
-			FP.world.camera.x = Math.round(x - center.x);
-			FP.world.camera.y = Math.round(y - center.y);
+			updateCamera();
 		}
 		
 		/**
@@ -105,6 +97,24 @@ package com.gamingfondue.ptb.entities
 			_target = target;
 			x = target.x;
 			y = target.y;
+			updateCamera();
+		}
+		
+		/**
+		 * Update camera position
+		 */
+		private function updateCamera():void
+		{
+			// Adjust viewport to bounds
+			if (x - center.x < bounds.left) x = bounds.left + center.x;
+			if (y - center.y < bounds.top) y = bounds.top + center.y;
+			if (x - center.x + viewport.width > bounds.right) x = bounds.right - viewport.width + center.x;
+			if (y - center.y + viewport.height > bounds.bottom) y = bounds.bottom - viewport.height + center.y;
+			
+			// Move camera: In order to center the target, we move the camera AWAY from it
+			// thus we need to substract the center position
+			FP.world.camera.x = Math.round(x - center.x);
+			FP.world.camera.y = Math.round(y - center.y);
 		}
 	}
 }

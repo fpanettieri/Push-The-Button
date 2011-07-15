@@ -3,6 +3,7 @@ package com.gamingfondue.ptb.entities.level
 	import com.gamingfondue.ptb.entities.Home;
 	import com.gamingfondue.ptb.entities.Tooltips;
 	import com.gamingfondue.ptb.entities.Work;
+	import com.gamingfondue.ptb.entities.player.Player;
 	
 	import flash.geom.Point;
 	
@@ -27,6 +28,7 @@ package com.gamingfondue.ptb.entities.level
 		
 		public function Level() 
 		{
+			super(0, 0);
 			home = new Home();
 			work = new Work();
 			tooltips = new Tooltips();
