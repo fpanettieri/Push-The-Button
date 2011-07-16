@@ -1,5 +1,7 @@
 package com.gamingfondue.ptb.entities
 {
+	import com.gamingfondue.ptb.constants.Languages;
+	
 	import flash.geom.Rectangle;
 	
 	import net.flashpunk.Entity;
@@ -8,6 +10,8 @@ package com.gamingfondue.ptb.entities
 	
 	public class Tooltip extends Entity
 	{
+		public static var language:int = Languages.EN;
+		
 		private var en:String;
 		private var es:String;
 		private var rect:Rectangle;
@@ -27,8 +31,7 @@ package com.gamingfondue.ptb.entities
 			
 		public function get msg():String
 		{
-			// TODO: Use desired language
-			return es;
+			return language == Languages.EN ? en : es;
 		}
 	}
 }

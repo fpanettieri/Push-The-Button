@@ -71,6 +71,7 @@ package com.gamingfondue.ptb.entities
 				// Turn on tvs when player enters home
 				if (!inside && _area.contains(_player.x, _player.y)) {
 					inside = true;
+					SoundMixer.sonata.stop();
 					for each (tv in tvs) {
 						tv.turnOn();
 					}
@@ -79,6 +80,8 @@ package com.gamingfondue.ptb.entities
 				// Turn off tvs when player leaves home
 				if (inside && !_area.contains(_player.x, _player.y)) {
 					inside = false;
+					SoundMixer.sonata.resume();
+					
 					for each (tv in tvs) {
 						tv.turnOff();
 					}

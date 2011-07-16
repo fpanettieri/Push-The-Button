@@ -131,6 +131,8 @@
 		 */
 		public function get length():Number { return _sound.length / 1000; }
 		
+		public function set looping(value:Boolean):void { _looping = value; }
+		
 		// Sound infromation.
 		/** @private */ private var _vol:Number = 1;
 		/** @private */ private var _pan:Number = 0;

@@ -5,6 +5,7 @@
 		<library>
 			<sound id="jumping" import="jumping.wav" />
 			<sound id="money" import="money.wav" />
+			<sound id="clock" import="clock.wav" />
 			<sound id="sonata" import="sonata.mp3" />
 			<sound id="tv" import="tv.mp3" />
 		</library>

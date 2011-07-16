@@ -4,23 +4,20 @@ package com.gamingfondue.ptb.entities.player.sound
 	
 	import net.flashpunk.Sfx;
 
+	// TODO: remove this class
 	public class Sound
 	{
-		private var sonata:Sfx;
 		private var jumping:Sfx;
 		
 		public function Sound()
 		{
-			sonata = new Sfx(Assets.SONATA);
 			jumping = new Sfx(Assets.JUMPING);
-			//sonata.loop(0.2);
 		}
 		
+		// TODO: remove this method
 		public function play(sound:int):void
 		{
-			switch(sound){
-				case Sounds.JUMPING: jumping.play(); break;
-			}
+			jumping.play();
 		}
 	}
 }

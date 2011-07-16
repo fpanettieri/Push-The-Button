@@ -23,7 +23,6 @@ package com.gamingfondue.ptb.worlds.splash
 		private var _delay:Alarm;
 		private var _onComplete:Function;
 		
-		
 		public function GamingFondue()
 		{
 			super(0, 0);

@@ -1,18 +1,11 @@
 package com.gamingfondue.ptb.worlds
 {
-	import com.gamingfondue.ptb.entities.Title;
 	import com.gamingfondue.ptb.worlds.splash.FlashPunk;
 	import com.gamingfondue.ptb.worlds.splash.GamingFondue;
 	import com.gamingfondue.ptb.worlds.splash.Menu;
 	
-	import flash.events.Event;
-	import flash.events.TimerEvent;
-	import flash.utils.Timer;
-	
 	import net.flashpunk.FP;
 	import net.flashpunk.World;
-	import net.flashpunk.tweens.misc.VarTween;
-	import net.flashpunk.utils.Ease;
 	
 	/**
      * Powered by FlashPunk
@@ -20,8 +13,8 @@ package com.gamingfondue.ptb.worlds
      * Gaming Fondue presents
      *
      * Push The Button
-     * * english *
-     * español
+     *       * english
+     *         español
      *
 	 * [fancy transition]
 	 * 
@@ -54,6 +47,8 @@ package com.gamingfondue.ptb.worlds
 			gf = new GamingFondue();
 			menu = new Menu();
 
+			//gfComplete();
+			
 			add(fp);
             fp.start(fpComplete);
 		}
@@ -69,6 +64,11 @@ package com.gamingfondue.ptb.worlds
 		{
 			add(menu);
 			remove(gf);
+			menu.start(menuComplete)
+		}
+		
+		private function menuComplete():void
+		{
 			FP.world = new Reality();
 		}
 	}
