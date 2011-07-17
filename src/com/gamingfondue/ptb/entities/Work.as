@@ -60,6 +60,26 @@ package com.gamingfondue.ptb.entities
 		}
 		
 		/**
+		 * Updates screen color, sound volume and panning
+		 */ 
+		override public function update():void 
+		{
+			// Only update state when all dependencies has been updated
+			if(_area == null || _player == null || buttons == null) return;
+				
+			// Turn on tvs when player enters work
+			if (!inside && _area.contains(_player.x, _player.y)) {
+				inside = true;
+			}
+			
+			// Turn off tvs when player leaves work
+			if (inside && !_area.contains(_player.x, _player.y)) {
+				inside = false;
+				_player.worked = true;
+			}
+		}
+		
+		/**
 		 * Update work area
 		 */ 
 		public function set area(area:Rectangle):void

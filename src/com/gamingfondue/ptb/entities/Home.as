@@ -66,25 +66,27 @@ package com.gamingfondue.ptb.entities
 		override public function update():void 
 		{
 			// Only update state when all dependencies has been updated
-			if(_area && _player && tvs){
+			if(_area == null || _player == null || tvs == null) return;
 
-				// Turn on tvs when player enters home
-				if (!inside && _area.contains(_player.x, _player.y)) {
-					inside = true;
-					SoundMixer.sonata.stop();
-					for each (tv in tvs) {
-						tv.turnOn();
-					}
+			// Turn on tvs when player enters home
+			if (!inside && _area.contains(_player.x, _player.y)) {
+				inside = true;
+				
+				// TODO: fadeOut
+				SoundMixer.sonata.stop();
+				for each (tv in tvs) {
+					tv.turnOn();
 				}
+			}
 
-				// Turn off tvs when player leaves home
-				if (inside && !_area.contains(_player.x, _player.y)) {
-					inside = false;
-					SoundMixer.sonata.resume();
-					
-					for each (tv in tvs) {
-						tv.turnOff();
-					}
+			// Turn off tvs when player leaves home
+			if (inside && !_area.contains(_player.x, _player.y)) {
+				inside = false;
+				
+				// TODO: fadeIn
+				//SoundMixer.sonata.resume();
+				for each (tv in tvs) {
+					tv.turnOff();
 				}
 			}
 		}

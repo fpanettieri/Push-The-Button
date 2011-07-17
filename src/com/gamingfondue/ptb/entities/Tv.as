@@ -4,6 +4,7 @@ package com.gamingfondue.ptb.entities
 	import com.gamingfondue.ptb.constants.Assets;
 	import com.gamingfondue.ptb.constants.Layers;
 	import com.gamingfondue.ptb.entities.player.Player;
+	import com.gamingfondue.ptb.worlds.HappyPlace;
 	import com.gamingfondue.util.Logger;
 	
 	import flash.display.BitmapData;
@@ -80,7 +81,7 @@ package com.gamingfondue.ptb.entities
 		/**
          * Indicates if the TV its on or off
          */
-		private var on:Boolean;
+		public var on:Boolean;
 
 		/**
 		 * Creates and configures the sprite and sounds
@@ -151,6 +152,12 @@ package com.gamingfondue.ptb.entities
 
 			// Panning depends on player location
 			noise.pan = distance.x / -radius;
+			
+			// Watching tv reduces Player insatisfaction
+			player.insatisfaction -= noise.volume * FP.elapsed;
+			if (player.insatisfaction < 0) {
+				FP.world = new HappyPlace(); 
+			}
 		}
 
 		/**
@@ -158,7 +165,9 @@ package com.gamingfondue.ptb.entities
 		 */
 		public function turnOn():void
 		{
+			if (!player.worked) return;
 			on = true;
+			// TODO: Replace this with a fade in
 			noise.loop(0, 0, Math.random() * noise.length * 1000);
 			timer = 0;
 		}

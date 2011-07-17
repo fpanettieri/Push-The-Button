@@ -1,4 +1,4 @@
-<level name="Hello World!" duration="30" cell_size="16">
+<level duration="30" cell_size="16">
   <width>2048</width>
   <height>2048</height>
   <collision>

@@ -15,7 +15,7 @@ package com.gamingfondue.ptb
 		{
 			super(320, 240, 30, false);
 			FP.screen.scale = 2;
-			//FP.console.enable();
+			FP.console.enable();
 		}
 		
 		/**
@@ -23,8 +23,8 @@ package com.gamingfondue.ptb
 		 */
 		override public function init():void
 		{
-			FP.world = new Splash();
-			//FP.world = new Reality();
+			//FP.world = new Splash();
+			FP.world = new Reality();
 		} 
 	}
 }

@@ -7,6 +7,7 @@ package com.gamingfondue.ptb.worlds
 	import com.gamingfondue.ptb.entities.Sky;
 	import com.gamingfondue.ptb.entities.level.Level;
 	import com.gamingfondue.ptb.entities.level.Levels;
+	import com.gamingfondue.ptb.entities.level.Nirvana;
 	import com.gamingfondue.ptb.entities.player.Player;
 	import com.gamingfondue.util.Logger;
 	
@@ -65,6 +66,14 @@ package com.gamingfondue.ptb.worlds
 			add(billboard);
 			add(hud);
 			add(level.tooltips);
+		}
+		
+		override public function update():void
+		{
+			super.update();
+			if (Input.mousePressed) {
+				FP.world = new HappyPlace();
+			}
 		}
 	}
 }

@@ -12,12 +12,12 @@ package com.gamingfondue.ptb.entities.level
 	import net.flashpunk.masks.Grid;
 
 	/**
-	 * ...
+	 * Reality map
+	 * 
 	 * @author Fabio R. Panettieri
 	 */
 	public class Level extends Entity 
 	{
-		public var name:String;
 		public var cell_size:int;
 		public var duration:int;
 		

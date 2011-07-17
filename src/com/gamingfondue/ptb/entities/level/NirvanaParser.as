@@ -13,12 +13,12 @@ package com.gamingfondue.ptb.entities.level
 	
 	import net.flashpunk.graphics.Tilemap;
 	import net.flashpunk.masks.Grid;
-
-	public class LevelParser
+	
+	public class NirvanaParser
 	{
-		public function parse(oel:Class):Level
+		public function parse(oel:Class):Nirvana
 		{
-			var level:Level = new Level();
+			var level:Nirvana = new Nirvana();
 			
 			// Extract embedded level
 			var reader:XMLReader = new XMLReader();
@@ -30,7 +30,6 @@ package com.gamingfondue.ptb.entities.level
 			level.width = xml.width;
 			level.height = xml.height;
 			level.cell_size = xml.@cell_size;
-			level.duration = xml.@duration;
 			
 			// Create collision grid
 			var grid:Grid = new Grid(level.width, level.height, level.cell_size, level.cell_size, 0, 0);
@@ -40,7 +39,7 @@ package com.gamingfondue.ptb.entities.level
 				grid.setRect(rect.x, rect.y, rect.w, rect.h, true);
 			}
 			level.mask = grid;
-
+			
 			// Create map tiles
 			var tiles:Tilemap = new Tilemap(Assets.WALL, level.width, level.height, level.cell_size, level.cell_size);
 			var tile:OgmoTile = new OgmoTile(level.cell_size);
@@ -53,22 +52,14 @@ package com.gamingfondue.ptb.entities.level
 			// Player entrance
 			level.player = new Point(xml.objects.entrance.@x, xml.objects.entrance.@y);
 			
-			// Home
-			level.home.area = new Rectangle(xml.home.rect.@x, xml.home.rect.@y, xml.home.rect.@w, xml.home.rect.@h);
-			var tv:Tv;
-			for each(node in xml.objects.tv) {
-				level.home.tvs.push(new Tv(node.@x, node.@y, node.@width, node.@height, node.@radius));
-			}
-			
-			// work
-			level.work.area = new Rectangle(xml.work.rect.@x, xml.work.rect.@y, xml.work.rect.@w, xml.work.rect.@h);
-			for each(node in xml.objects.button) {
-				level.work.buttons.push(new Button(node.@x, node.@y, node.@money));
-			}
-			
 			// tooltips
 			for each(node in xml.tooltips.tooltip) {
 				level.tooltips.add(new Tooltip(node.@x, node.@y, node.@width, node.@height, node.@en, node.@es));
+			}
+			
+			// happy spots
+			for each(node in xml.objects.happiness) {
+				level.spots.push(new Point(node.@x, node.@y));
 			}
 			
 			return level;

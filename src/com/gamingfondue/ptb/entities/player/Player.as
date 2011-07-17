@@ -26,8 +26,10 @@ package com.gamingfondue.ptb.entities.player
 		
 		public var acceleration:Point;
 		public var speed:Point;
+		public var worked:Boolean;
+		public var insatisfaction:Number;
 		
-		public function Player(x:Number = 0, y:Number = 0)
+		public function Player(x:Number = 0, y:Number = 0, behavior:int = Behaviors.STANDING)
 		{
 			super(x, y);
 			_image = new Image(Assets.PLAYER);
@@ -41,7 +43,9 @@ package com.gamingfondue.ptb.entities.player
 			
 			acceleration = new Point();
 			speed = new Point();
-			behavior = Behaviors.STANDING;
+			worked = false;
+			insatisfaction = 0;
+			this.behavior = behavior;
 		}
 		
 		/**
@@ -66,6 +70,7 @@ package com.gamingfondue.ptb.entities.player
 		 */
 		public function set behavior(behavior:int):void
 		{
+			Logger.log(behavior);
 			_behaviorType = behavior;
 			if(_behavior) _behavior.end();
 			_behavior = BehaviorFactory.get(behavior);

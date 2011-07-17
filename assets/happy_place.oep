@@ -1,9 +1,9 @@
 <project>
-  <name>Push The Button - Level</name>
+  <name>Push The Button - Happy Place</name>
   
   <settings>
-    <defaultWidth>2048</defaultWidth>
-    <defaultHeight>2048</defaultHeight>
+    <defaultWidth>448</defaultWidth>
+    <defaultHeight>336</defaultHeight>
   </settings>
   
   <tilesets>
@@ -11,22 +11,12 @@
   </tilesets>
   
   <values>
-    <integer name="duration" />
     <integer name="cell_size" default="16" />
   </values>
   
   <objects>
   	<object name="entrance" image="entrance.png" height="16" width="16" limit="1" />
-  	<object name="tv" image="tv.png" height="16" width="16" resizableX="true" resizableY="true">
-        <values>
-            <integer name="radius" default="64" min="16" max="512" />
-        </values>	
-  	</object>
-  	<object name="button" image="button.png" height="16" width="16" >
-        <values>
-            <integer name="money" default="1" />
-        </values>	
-  	</object>
+  	<object name="happiness" image="happiness.png" height="16" width="16" />
   	<object name="tooltip" image="tooltip.png" height="16" width="16" resizableX="true" resizableY="true">
         <values>
             <string name="en" default="English message" />
@@ -38,8 +28,6 @@
   <layers>
     <grid name="collision" gridSize="16" exportAsObjects="true" />
     <tiles name="wall" gridSize="16" exportTileIDs="true" />
-    <grid name="home" gridSize="16" exportAsObjects="true" />
-    <grid name="work" gridSize="16" exportAsObjects="true" />
     <objects name="objects" gridSize="16" />
     <objects name="tooltips" gridSize="16" />
   </layers>

@@ -47,7 +47,7 @@ package com.gamingfondue.ptb.worlds
 			gf = new GamingFondue();
 			menu = new Menu();
 
-			//gfComplete();
+			// TODO: add background music
 			
 			add(fp);
             fp.start(fpComplete);

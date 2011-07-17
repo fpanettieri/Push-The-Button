@@ -13,17 +13,29 @@ package com.gamingfondue.ptb.entities.level
 		[Embed(source='/assets/level01.oel', mimeType='application/octet-stream')]
 		private static const L1:Class;
 		
-		private static const levels:Array = [L1];
-		private static var array:Array = [];
+		[Embed(source='/assets/hp01.oel', mimeType='application/octet-stream')]
+		private static const HP1:Class;
+		
+		private static const REALITIES:Array = [L1];
+		private static var realities:Array = [];
+
+		private static const NIRVANAS:Array = [HP1];
+		private static var nirvanas:Array = [];
 
 		private static var _current:Number = -1;
 		private static var instance:Levels = new Levels();
 		
 		public function Levels()
 		{
-			var parser:LevelParser = new LevelParser();
-			for (var i:int = 0; i < levels.length; i++) {
-				array.push(parser.parse(levels[i]));
+			var i:int;
+			var reality_parser:LevelParser = new LevelParser();
+			for (i = 0; i < REALITIES.length; i++) {
+				realities.push(reality_parser.parse(REALITIES[i]));
+			}
+			
+			var nirvana_parser:NirvanaParser = new NirvanaParser();
+			for (i = 0; i < NIRVANAS.length; i++) {
+				nirvanas.push(nirvana_parser.parse(NIRVANAS[i]));
 			}
 		}
 		
@@ -34,17 +46,17 @@ package com.gamingfondue.ptb.entities.level
 		
 		public static function next():Level
 		{
-			return array[++_current];
+			return realities[++_current];
 		}
 		
 		public static function current():Level
 		{
-			return array[_current];
+			return realities[_current];
 		}
 		
-		public static function previous():Level
+		public static function nirvana():Nirvana
 		{
-			return array[--_current];
+			return nirvanas[_current];
 		}
 	}
 }
