@@ -72,7 +72,7 @@ package com.gamingfondue.ptb.worlds
 		{
 			super.update();
 			if (Input.mousePressed) {
-				FP.world = new HappyPlace();
+				FP.world = new Transition(new HappyPlace());
 			}
 		}
 	}

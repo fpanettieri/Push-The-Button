@@ -5,6 +5,7 @@ package com.gamingfondue.ptb.entities
 	import com.gamingfondue.ptb.constants.Layers;
 	import com.gamingfondue.ptb.entities.player.Player;
 	import com.gamingfondue.ptb.worlds.HappyPlace;
+	import com.gamingfondue.ptb.worlds.Transition;
 	import com.gamingfondue.util.Logger;
 	
 	import flash.display.BitmapData;
@@ -156,7 +157,7 @@ package com.gamingfondue.ptb.entities
 			// Watching tv reduces Player insatisfaction
 			player.insatisfaction -= noise.volume * FP.elapsed;
 			if (player.insatisfaction < 0) {
-				FP.world = new HappyPlace(); 
+				FP.world = new Transition(new HappyPlace());
 			}
 		}
 
