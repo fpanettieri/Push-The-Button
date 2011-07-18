@@ -1,4 +1,4 @@
-package com.gamingfondue.ptb.worlds.splash
+package com.gamingfondue.ptb.entities.splash
 {
 	import flash.display.BitmapData;
 	import flash.display.BlendMode;

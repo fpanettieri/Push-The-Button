@@ -84,7 +84,7 @@ package com.gamingfondue.ptb.entities
 				inside = false;
 				
 				// TODO: fadeIn
-				//SoundMixer.sonata.resume();
+				SoundMixer.sonata.resume();
 				for each (tv in tvs) {
 					tv.turnOff();
 				}

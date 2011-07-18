@@ -287,7 +287,7 @@
 		public function get clipRect():Rectangle { return _sourceRect; }
 		
 		/** @private Source BitmapData image. */
-		protected function get source():BitmapData { return _source; }
+		public function get source():BitmapData { return _source; }
 		
 		// Source and buffer information.
 		/** @private */ protected var _source:BitmapData;

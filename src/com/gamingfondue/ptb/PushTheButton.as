@@ -23,8 +23,8 @@ package com.gamingfondue.ptb
 		 */
 		override public function init():void
 		{
-			//FP.world = new Splash();
-			FP.world = new Reality();
+			FP.world = new Splash();
+			//FP.world = new Reality();
 		} 
 	}
 }

@@ -1,4 +1,4 @@
-package com.gamingfondue.ptb.worlds.splash
+package com.gamingfondue.ptb.entities.splash
 {
 	import com.gamingfondue.ptb.constants.Assets;
 	

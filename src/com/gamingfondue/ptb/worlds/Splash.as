@@ -1,8 +1,8 @@
 package com.gamingfondue.ptb.worlds
 {
-	import com.gamingfondue.ptb.worlds.splash.FlashPunk;
-	import com.gamingfondue.ptb.worlds.splash.GamingFondue;
-	import com.gamingfondue.ptb.worlds.splash.Menu;
+	import com.gamingfondue.ptb.entities.splash.FlashPunk;
+	import com.gamingfondue.ptb.entities.splash.GamingFondue;
+	import com.gamingfondue.ptb.entities.splash.Menu;
 	
 	import net.flashpunk.FP;
 	import net.flashpunk.World;
