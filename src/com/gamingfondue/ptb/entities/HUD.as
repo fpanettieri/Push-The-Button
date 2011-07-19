@@ -41,7 +41,8 @@ package com.gamingfondue.ptb.entities
 			
 			display = new Graphiclist(age, money, happiness);
 			graphic = display;
-
+			
+			_dirty = true;
 			layer = Layers.HUD;
 		}
 		

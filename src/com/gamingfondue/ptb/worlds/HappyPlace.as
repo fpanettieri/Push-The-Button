@@ -4,7 +4,9 @@ package com.gamingfondue.ptb.worlds
 	import com.gamingfondue.ptb.entities.Billboard;
 	import com.gamingfondue.ptb.entities.Cameraman;
 	import com.gamingfondue.ptb.entities.HUD;
+	import com.gamingfondue.ptb.entities.Happiness;
 	import com.gamingfondue.ptb.entities.NirvanaSky;
+	import com.gamingfondue.ptb.entities.Spawner;
 	import com.gamingfondue.ptb.entities.level.Levels;
 	import com.gamingfondue.ptb.entities.level.Nirvana;
 	import com.gamingfondue.ptb.entities.player.Player;
@@ -24,6 +26,8 @@ package com.gamingfondue.ptb.worlds
 	{
 		private var sky:NirvanaSky;
 		private var nirvana:Nirvana;
+		private var happiness:Happiness;
+		private var spawner:Spawner;
 		private var player:Player;
 		private var billboard:Billboard;
 		private var cameraman:Cameraman;
@@ -39,8 +43,11 @@ package com.gamingfondue.ptb.worlds
 			sky = new NirvanaSky();
 			player = new Player(nirvana.player.x, nirvana.player.y, Behaviors.HAPPY);
 			nirvana.tooltips.player = player;
+			happiness = new Happiness();
 			
-			// TODO: ADD happy spawner
+			spawner = new Spawner();
+			spawner.spots = nirvana.spots;
+			spawner.happiness = happiness;
 			
 			billboard = new Billboard();
 			cameraman = new Cameraman();
@@ -48,7 +55,6 @@ package com.gamingfondue.ptb.worlds
 			cameraman.target = player;
 			
 			hud = new HUD();
-			HUD.age = Levels.number + Constants.LEGAL_AGE;
 			
 			add(sky);
 			add(nirvana);
@@ -57,8 +63,8 @@ package com.gamingfondue.ptb.worlds
 			add(billboard);
 			add(hud);
 			add(nirvana.tooltips);
-			// TODO: Add nirvana spawner
-			
+			add(spawner);
+			add(happiness);
 		}
 	}
 }

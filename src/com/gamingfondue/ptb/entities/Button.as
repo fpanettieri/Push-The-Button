@@ -26,7 +26,7 @@ package com.gamingfondue.ptb.entities
 		private var pressed:Boolean;
 		
 		/**
-		 * Button sprite
+		 * Button image
 		 */
 		private var image:Image;
 		

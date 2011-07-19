@@ -73,7 +73,7 @@ package com.gamingfondue.ptb.entities.splash
 			} else {
 				option.y = 205;
 			}
-			if (Input.pressed(Key.ENTER)) {
+			if (Input.pressed(Key.SPACE)) {
 				onComplete();
 			}
 		}

@@ -151,7 +151,6 @@
   </objects>
   <tooltips>
     <tooltip x="144" y="160" width="160" height="16" en="Here you can buy happiness" es="Aqui puedes comprar la felicidad"/>
-    <tooltip x="176" y="320" width="96" height="16" en="You don't need to jump here, relax" es="Aqui no necesitas saltar, relájate"/>
-    <tooltip x="208" y="0" width="16" height="16" en="This is your happy place" es="Este es tu lugar feliz"/>
+    <tooltip x="208" y="0" width="16" height="16" en="This is your happy place, you don't need to jump here" es="Este es tu lugar feliz, aqui no necesitas saltar"/>
   </tooltips>
 </level>

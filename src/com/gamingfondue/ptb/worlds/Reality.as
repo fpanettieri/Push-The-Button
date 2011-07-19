@@ -5,6 +5,7 @@ package com.gamingfondue.ptb.worlds
 	import com.gamingfondue.ptb.entities.Cameraman;
 	import com.gamingfondue.ptb.entities.HUD;
 	import com.gamingfondue.ptb.entities.Sky;
+	import com.gamingfondue.ptb.entities.Statistics;
 	import com.gamingfondue.ptb.entities.level.Level;
 	import com.gamingfondue.ptb.entities.level.Levels;
 	import com.gamingfondue.ptb.entities.level.Nirvana;
@@ -53,7 +54,7 @@ package com.gamingfondue.ptb.worlds
 			cameraman.target = player;
 			
 			hud = new HUD();
-			HUD.age = Levels.number + Constants.LEGAL_AGE;
+			HUD.age = Levels.number * 4 + Constants.BASE_AGE;
 			
 			add(sky);
 			add(level);
@@ -74,6 +75,11 @@ package com.gamingfondue.ptb.worlds
 			if (Input.mousePressed) {
 				FP.world = new WorldTransition(new HappyPlace());
 			}
+		}
+		
+		override public function end():void
+		{
+			Statistics.money += HUD.money;
 		}
 	}
 }

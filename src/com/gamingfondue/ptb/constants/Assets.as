@@ -32,6 +32,12 @@ package com.gamingfondue.ptb.constants
 		public static const BUTTON:Class;
 		
 		/**
+		 * Happiness image
+		 */ 
+		[Embed(source = "/assets/happiness.png")]
+		public static const HAPPINESS:Class;
+		
+		/**
 		 * Work background music
 		 */ 
 		[Embed(source = "/assets/sounds.swf#sonata")]

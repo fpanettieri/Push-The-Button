@@ -69,7 +69,7 @@ package com.gamingfondue.ptb.entities.player.behavior
 			
 			// World wrap
 			if (player.x > Nirvana.WIDTH) player.x = 0;
-			if (player.x < 0) player.x = Nirvana.WIDTH - CELL_SIZE;
+			if (player.x <= -CELL_SIZE) player.x = Nirvana.WIDTH - CELL_SIZE;
 			if (player.y > Nirvana.HEIGHT) player.y = 0;
 		}
 		

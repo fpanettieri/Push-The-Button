@@ -1,4 +1,4 @@
-package com.nextive.slime.worlds
+package com.gamingfondue.ptb.worlds
 {
 	import net.flashpunk.FP;
 	import net.flashpunk.World;
@@ -12,7 +12,7 @@ package com.nextive.slime.worlds
 	 * 
 	 * @author: Fabio R. Panettieri
 	 */ 
-	public class CreditsWorld extends World
+	public class Credits extends World
 	{
 		/**
 		 * Text showing my name
@@ -54,7 +54,7 @@ package com.nextive.slime.worlds
 		override public function update():void
 		{
 			if (Input.mousePressed) {
-				FP.world = new SplashWorld();
+				FP.world = new Splash();
 			}
 		}
 	}
