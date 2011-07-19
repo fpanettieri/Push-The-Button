@@ -19,17 +19,12 @@ package com.gamingfondue.ptb.entities
 		/**
 		 * Max delay between happiness spawns
 		 */
-		private const DELAY_MIN:Number = 3;
+		private const DELAY_MIN:Number = 10;
 		
 		/**
 		 * Min delay between happiness spawns
 		 */
 		private const DELAY_MARGIN:Number = 10;
-		
-		/**
-		 * How much happiness can spawn in a single iteration
-		 */
-		private const SPAWN_LIMIT:Number = 1;
 		
 		/**
 		 * Injected Dependency. Happiness
@@ -56,9 +51,7 @@ package com.gamingfondue.ptb.entities
 		 */ 
 		override public function added():void
 		{
-			// FIXME: Remove this hardcoded value 
-			HUD.money = 10;
-			delay();
+			spawn();
 		}
 		
 		/**
@@ -66,8 +59,7 @@ package com.gamingfondue.ptb.entities
 		 */
 		private function delay():void
 		{
-			var d:Number = Math.random() * DELAY_MARGIN + DELAY_MIN;
-			_delay = new Alarm(d, spawn, Tween.ONESHOT);
+			_delay = new Alarm(Math.random() * DELAY_MARGIN + DELAY_MIN, spawn, Tween.ONESHOT);
 			addTween(_delay, true);
 		}
 		
