@@ -22,6 +22,12 @@ package com.gamingfondue.ptb.entities.splash
 		private var tween:ColorTween;
 		private var _delay:Alarm;
 		private var _onComplete:Function;
+
+        // Synch
+        private const CLIMAX:Number = 15.7;
+        private const FADE_IN:Number = 4;
+        private const FADE_OUT:Number = 2;
+        private var _elapsed:Number;
 		
 		public function GamingFondue()
 		{
@@ -37,8 +43,9 @@ package com.gamingfondue.ptb.entities.splash
 		/**
 		 * Start the splash screen.
 		 */
-		public function start(onComplete:Function = null):void
+		public function start(elapsed:Number, onComplete:Function = null):void
 		{
+            _elapsed = elapsed;
 			_onComplete = onComplete;
 			visible = true;
 			fadeIn();
@@ -59,7 +66,7 @@ package com.gamingfondue.ptb.entities.splash
 		{
 			tween = new ColorTween(delay, Tween.ONESHOT);
 			addTween(tween);
-			tween.tween(4, BG, BG, 0, 1, Ease.cubeOut);
+			tween.tween(FADE_IN, BG, BG, 0, 1, Ease.cubeOut);
 		}
 		
 		/**
@@ -68,7 +75,7 @@ package com.gamingfondue.ptb.entities.splash
 		private function delay():void
 		{
 			tween = null;
-			_delay = new Alarm(5, fadeOut, Tween.ONESHOT);
+			_delay = new Alarm(CLIMAX - FADE_IN - FADE_OUT - _elapsed, fadeOut, Tween.ONESHOT);
 			addTween(_delay, true);
 		}
 		
@@ -79,7 +86,7 @@ package com.gamingfondue.ptb.entities.splash
 		{
 			tween = new ColorTween(_onComplete, Tween.ONESHOT);
 			addTween(tween);
-			tween.tween(2, BG, BG, 1, 0, Ease.cubeOut);
+			tween.tween(FADE_OUT, BG, BG, 1, 0, Ease.cubeOut);
 		}
 		
 	}

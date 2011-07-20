@@ -39,12 +39,18 @@ package com.gamingfondue.ptb.worlds
 		 */
 		private var menu:Menu;
 
+        /**
+		 * Elapsed time, used to sync music
+		 */ 
+		private var elapsed:Number;
+
 		/**
 		 * Called when the world is activated.
 		 * It creates the bounce effect of the title.
 		 */ 
 		override public function begin():void
 		{
+            elapsed = 0;
             fp = new FlashPunk(0xFF9900, 0x333333, 1, 2.5);
 			gf = new GamingFondue();
 			menu = new Menu();
@@ -53,6 +59,15 @@ package com.gamingfondue.ptb.worlds
 			
 			add(fp);
             fp.start(fpComplete);
+		}
+
+        /**
+		 * Stores elapsed time and call super update
+		 */ 
+		override public function update():void
+		{
+            super.update();
+            elapsed += FP.elapsed;
 		}
 		
 		/**
@@ -67,7 +82,7 @@ package com.gamingfondue.ptb.worlds
         {
 			add(gf);
 			remove(fp);
-            gf.start(gfComplete);
+            gf.start(elapsed, gfComplete);
         }
 		
 		private function gfComplete():void
