@@ -1,5 +1,7 @@
 package com.gamingfondue.ptb
 {
+	import com.gamingfondue.ptb.constants.Assets;
+	import com.gamingfondue.ptb.constants.Musics;
 	import com.gamingfondue.ptb.worlds.Reality;
 	import com.gamingfondue.ptb.worlds.Splash;
 	
@@ -23,6 +25,7 @@ package com.gamingfondue.ptb
 		 */
 		override public function init():void
 		{
+			// Create first world
 			FP.world = new Splash();
 			//FP.world = new Reality();
 		} 

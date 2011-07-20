@@ -73,7 +73,7 @@ package com.gamingfondue.ptb.entities
 				inside = true;
 				
 				// TODO: fadeOut
-				SoundMixer.sonata.stop();
+				//SoundMixer.sonata.stop();
 				for each (tv in tvs) {
 					tv.turnOn();
 				}
@@ -84,7 +84,7 @@ package com.gamingfondue.ptb.entities
 				inside = false;
 				
 				// TODO: fadeIn
-				SoundMixer.sonata.resume();
+				//SoundMixer.sonata.resume();
 				for each (tv in tvs) {
 					tv.turnOff();
 				}

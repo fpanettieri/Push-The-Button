@@ -30,7 +30,7 @@
             var flashvars = {};
             var params = {};
             params.quality = "high";
-            params.bgcolor = "#202020";
+            params.bgcolor = "#333333";
             params.allowscriptaccess = "sameDomain";
             params.allowfullscreen = "true";
             var attributes = {};
@@ -45,19 +45,8 @@
 			<!-- JavaScript enabled so display the flashContent div in case it is not replaced with a swf object. -->
 			swfobject.createCSS("#flashContent", "display:block;text-align:left;");
         </script>
-        
-        <!-- Gaming Fondue Logger -->
-        <script type="text/javascript" src="jquery.js"></script>
-        <script type="text/javascript" src="jquery.autoscroll.js"></script>
-        <script type="text/javascript" src="gfLog.js"></script>
-        <link rel="stylesheet" href="gfLog.css" type="text/css" />
-        
     </head>
     <body>
-    	<div id="wrapper">
-          <div id="flashContent"></div>
-	      <div id="gfLog"></div>
-	      <script> $("gfLog").autoscroll(); </script>
-	    </div>
-   </body>
+      <div id="flashContent"></div>
+    </body>
 </html>
