@@ -35,19 +35,25 @@ package com.gamingfondue.ptb.constants
 		 * Happiness image
 		 */ 
 		[Embed(source = "/assets/happiness.png")]
-		public static const HAPPINESS:Class;
+		public static const HAPPINESS_IMAGE:Class;
 		
 		/**
 		 * Work background music
 		 */ 
-		[Embed(source = "/assets/sounds.swf#sonata")]
-		public static const SONATA:Class;
+		[Embed(source = "/assets/sounds.swf#sonata_sad")]
+		public static const SONATA_SAD:Class;
+		
+		/**
+		 * Happy place music
+		 */ 
+		[Embed(source = "/assets/sounds.swf#sonata_happy")]
+		public static const SONATA_HAPPY:Class;
 		
 		/**
 		 * TV sound track
 		 */ 
 		[Embed(source = "/assets/sounds.swf#tv")]
-		public static const TV_NOISE:Class;
+		public static const TV_SOUND:Class;
 		
 		/**
 		 * Jumping sound effect
@@ -60,6 +66,12 @@ package com.gamingfondue.ptb.constants
 		 */ 
 		[Embed(source = "/assets/sounds.swf#money")]
 		public static const MONEY:Class;
+		
+		/**
+		 * Happiness sound effect
+		 */ 
+		[Embed(source = "/assets/sounds.swf#happiness")]
+		public static const HAPPINESS_SOUND:Class;
 
 		/**
 		 * FlashPunk splash assets

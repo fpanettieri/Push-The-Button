@@ -2,6 +2,7 @@ package com.gamingfondue.ptb.entities
 {
 	import com.gamingfondue.core.LimitedSfx;
 	import com.gamingfondue.ptb.constants.Assets;
+	import com.gamingfondue.ptb.constants.Languages;
 	import com.gamingfondue.ptb.constants.Layers;
 	import com.gamingfondue.ptb.entities.player.Player;
 	import com.gamingfondue.ptb.worlds.HappyPlace;
@@ -93,7 +94,7 @@ package com.gamingfondue.ptb.entities
 			this.radius = radius;
 			setHitbox(16,14, 0, -2);
 			
-			noise = new LimitedSfx(Assets.TV_NOISE);
+			noise = new LimitedSfx(Assets.TV_SOUND);
 			noise.min = 0.1;
 			noise.max = 0.6;
 
@@ -155,7 +156,7 @@ package com.gamingfondue.ptb.entities
 			noise.pan = distance.x / -radius;
 			
 			// Watching tv reduces Player insatisfaction
-			player.insatisfaction -= noise.volume * FP.elapsed;
+			player.insatisfaction -= FP.elapsed;
 			if (player.insatisfaction < 0) {
 				FP.world = new WorldTransition(new HappyPlace());
 			}
@@ -168,7 +169,7 @@ package com.gamingfondue.ptb.entities
 		{
 			if (!player.worked) return;
 			on = true;
-			// TODO: Replace this with a fade in
+			Billboard.notify(Tooltip.tv);
 			noise.loop(0, 0, Math.random() * noise.length * 1000);
 			timer = 0;
 		}

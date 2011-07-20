@@ -9,8 +9,6 @@ package com.gamingfondue.ptb.entities
 	
 	import net.flashpunk.Entity;
 	import net.flashpunk.FP;
-	import net.flashpunk.Graphic;
-	import net.flashpunk.Mask;
 	import net.flashpunk.Tween;
 	import net.flashpunk.tweens.misc.Alarm;
 	
@@ -24,7 +22,7 @@ package com.gamingfondue.ptb.entities
 		/**
 		 * Min delay between happiness spawns
 		 */
-		private const DELAY_MARGIN:Number = 10;
+		private const DELAY_MARGIN:Number = 30;
 		
 		/**
 		 * Injected Dependency. Happiness
@@ -47,11 +45,11 @@ package com.gamingfondue.ptb.entities
 		private var _delay:Alarm;
 		
 		/**
-		 * Called on level construction
-		 */ 
-		override public function added():void
+		 * If the player touched happiness it skips to the next level
+		 */
+		override public function update():void
 		{
-			spawn();
+			if (!happiness.visible) spawn();
 		}
 		
 		/**
@@ -68,6 +66,9 @@ package com.gamingfondue.ptb.entities
 		 */
 		private function spawn():void
 		{
+			// Remove previous alarm
+			clearTweens();
+			
 			// Return to reality when money it's not enough to spawn new happiness
 			if(HUD.money < Levels.number)  {
 				
@@ -84,7 +85,7 @@ package com.gamingfondue.ptb.entities
 			HUD.money -= Levels.number;
 			
 			// Choose random spot and move happiness there
-			spot = FP.choose(spots);
+			spot = spots[Math.floor(Math.random() * spots.length)];
 			happiness.x = spot.x;
 			happiness.y = spot.y;
 			happiness.visible = true;

@@ -4,9 +4,11 @@
 	<frame>
 		<library>
 			<sound id="jumping" import="jumping.wav" />
+			<sound id="happiness" import="happiness.wav" />
 			<sound id="money" import="money.wav" />
-			<sound id="clock" import="clock.wav" />
-			<sound id="sonata" import="sonata.mp3" />
+			<sound id="balrog" import="balrog.mp3" />
+			<sound id="sonata_happy" import="sonata_happy.mp3" />
+			<sound id="sonata_sad" import="sonata_sad.mp3" />
 			<sound id="tv" import="tv.mp3" />
 		</library>
 	</frame>

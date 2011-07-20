@@ -5,6 +5,7 @@ package com.gamingfondue.ptb.entities
 	import com.gamingfondue.ptb.constants.Types;
 	
 	import net.flashpunk.Entity;
+	import net.flashpunk.FP;
 	import net.flashpunk.Graphic;
 	import net.flashpunk.Mask;
 	import net.flashpunk.Sfx;
@@ -19,7 +20,7 @@ package com.gamingfondue.ptb.entities
 		/**
 		 * Happiness image
 		 */
-		private var image:Image;
+		private var display:Image;
 		
 		/**
 		 * Happiness touch sfx
@@ -29,10 +30,10 @@ package com.gamingfondue.ptb.entities
 		public function Happiness()
 		{
 			super();
-			sfx = new Sfx(Assets.MONEY);
+			sfx = new Sfx(Assets.HAPPINESS_SOUND);
 			
-			image = new Image(Assets.HAPPINESS);
-			graphic = image;
+			display = new Image(Assets.HAPPINESS_IMAGE);
+			graphic = display;
 			setHitbox(12, 12, -2, -2);
 
 			layer = Layers.OBJECTS;

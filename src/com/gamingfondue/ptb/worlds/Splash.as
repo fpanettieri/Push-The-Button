@@ -49,6 +49,8 @@ package com.gamingfondue.ptb.worlds
 
 			// TODO: add background music
 			
+			//gfComplete();
+			
 			add(fp);
             fp.start(fpComplete);
 		}

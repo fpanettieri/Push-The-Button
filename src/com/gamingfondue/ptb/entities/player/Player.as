@@ -3,19 +3,15 @@ package com.gamingfondue.ptb.entities.player
 	import com.gamingfondue.ptb.constants.Assets;
 	import com.gamingfondue.ptb.constants.Layers;
 	import com.gamingfondue.ptb.constants.Types;
-	import com.gamingfondue.ptb.entities.HUD;
 	import com.gamingfondue.ptb.entities.player.behavior.BehaviorFactory;
 	import com.gamingfondue.ptb.entities.player.behavior.Behaviors;
 	import com.gamingfondue.ptb.entities.player.behavior.PlayerBehavior;
 	import com.gamingfondue.ptb.entities.player.sound.Sound;
-	import com.gamingfondue.util.Logger;
 	
 	import flash.geom.Point;
 	
 	import net.flashpunk.Entity;
-	import net.flashpunk.FP;
 	import net.flashpunk.graphics.Image;
-	import net.flashpunk.utils.Input;
 	
 	public class Player extends Entity
 	{
@@ -70,7 +66,6 @@ package com.gamingfondue.ptb.entities.player
 		 */
 		public function set behavior(behavior:int):void
 		{
-			Logger.log(behavior);
 			_behaviorType = behavior;
 			if(_behavior) _behavior.end();
 			_behavior = BehaviorFactory.get(behavior);

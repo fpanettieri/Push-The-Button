@@ -73,6 +73,7 @@ package com.gamingfondue.ptb.worlds
 		{
 			super.update();
 			if (Input.mousePressed) {
+				HUD.money = 10;
 				FP.world = new WorldTransition(new HappyPlace());
 			}
 		}

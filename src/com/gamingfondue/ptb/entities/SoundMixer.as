@@ -7,6 +7,6 @@ package com.gamingfondue.ptb.entities
 
 	public class SoundMixer
 	{
-		public static var sonata:Sfx = new Sfx(Assets.SONATA);
+		public static var sonata:Sfx = new Sfx(Assets.SONATA_SAD);
 	}
 }

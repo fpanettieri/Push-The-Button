@@ -33,5 +33,11 @@ package com.gamingfondue.ptb.entities
 		{
 			return language == Languages.EN ? en : es;
 		}
+		
+		public static function get tv():String
+		{
+			return language == Languages.EN ? "TV makes you happy!!!" : "La televisión te hace feliz!!!";
+		}
+		
 	}
 }

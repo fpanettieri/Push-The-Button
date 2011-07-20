@@ -65,16 +65,45 @@ package com.gamingfondue.ptb.entities.splash
 		
 		override public function update():void
 		{
+			// Arrows switch languages
 			if (Input.pressed(Key.UP) || Input.pressed(Key.DOWN)) {
 				Tooltip.language = 1 - Tooltip.language;
 			}
+			
+			// Select option on mouse down
+			if (Input.mouseDown) {
+				
+				// Mouse in clickeable area
+				if (Input.mouseX > 265 && Input.mouseY > 195){
+					
+					// English
+					if (Input.mouseY < 215) {
+						Tooltip.language = Languages.EN;
+					} else {
+						Tooltip.language = Languages.ES;
+					}
+				}
+			}
+			
+			// Update tooltip position
 			if(Tooltip.language == Languages.EN) {
 				option.y = 195;
 			} else {
 				option.y = 205;
 			}
-			if (Input.pressed(Key.SPACE)) {
+			
+			// Enter or space select current option
+			if (Input.pressed(Key.SPACE) || Input.pressed(Key.ENTER)) {
 				onComplete();
+			}
+			
+			// Enter or space select current option
+			if (Input.mouseReleased) {
+				
+				// Mouse in clickeable area
+				if (Input.mouseX > 265 && Input.mouseY > 195){
+					onComplete();
+				}
 			}
 		}
 	}
