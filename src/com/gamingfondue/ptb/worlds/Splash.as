@@ -1,5 +1,7 @@
 package com.gamingfondue.ptb.worlds
 {
+	import com.gamingfondue.ptb.entities.SoundMixer;
+	import com.gamingfondue.ptb.entities.player.sound.Sound;
 	import com.gamingfondue.ptb.entities.splash.FlashPunk;
 	import com.gamingfondue.ptb.entities.splash.GamingFondue;
 	import com.gamingfondue.ptb.entities.splash.Menu;
@@ -43,16 +45,22 @@ package com.gamingfondue.ptb.worlds
 		 */ 
 		override public function begin():void
 		{
-            fp = new FlashPunk(0xFF9900, 0x333333, 1);
+            fp = new FlashPunk(0xFF9900, 0x333333, 1, 2.5);
 			gf = new GamingFondue();
 			menu = new Menu();
 
-			// TODO: add background music
-			
-			//gfComplete();
+			SoundMixer.balrog.loop();
 			
 			add(fp);
             fp.start(fpComplete);
+		}
+		
+		/**
+		 * On end we fade out intro music
+		 */
+		override public function end():void
+		{
+			SoundMixer.balrog.stop();
 		}
 
         private function fpComplete():void

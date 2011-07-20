@@ -38,6 +38,12 @@ package com.gamingfondue.ptb.constants
 		public static const HAPPINESS_IMAGE:Class;
 		
 		/**
+		 * Intro music
+		 */ 
+		[Embed(source = "/assets/sounds.swf#balrog")]
+		public static const BALROG:Class;
+		
+		/**
 		 * Work background music
 		 */ 
 		[Embed(source = "/assets/sounds.swf#sonata_sad")]

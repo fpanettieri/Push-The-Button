@@ -59,7 +59,7 @@ package com.gamingfondue.ptb.entities.splash
 		{
 			tween = new ColorTween(delay, Tween.ONESHOT);
 			addTween(tween);
-			tween.tween(3, BG, BG, 0, 1, Ease.cubeOut);
+			tween.tween(4, BG, BG, 0, 1, Ease.cubeOut);
 		}
 		
 		/**
@@ -68,7 +68,7 @@ package com.gamingfondue.ptb.entities.splash
 		private function delay():void
 		{
 			tween = null;
-			_delay = new Alarm(2, fadeOut, Tween.ONESHOT);
+			_delay = new Alarm(5, fadeOut, Tween.ONESHOT);
 			addTween(_delay, true);
 		}
 		
