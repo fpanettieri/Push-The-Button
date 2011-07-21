@@ -7,6 +7,7 @@ package com.gamingfondue.ptb.worlds
 	import com.gamingfondue.ptb.entities.HUD;
 	import com.gamingfondue.ptb.entities.Happiness;
 	import com.gamingfondue.ptb.entities.NirvanaSky;
+	import com.gamingfondue.ptb.entities.Scanlines;
 	import com.gamingfondue.ptb.entities.Spawner;
 	import com.gamingfondue.ptb.entities.level.Levels;
 	import com.gamingfondue.ptb.entities.level.Nirvana;
@@ -56,6 +57,11 @@ package com.gamingfondue.ptb.worlds
 		private var fader:SfxFader;
 		
 		/**
+		 * TV mode
+		 */
+		private var scanlines:Scanlines;
+		
+		/**
 		 * Called when the world is activated.
 		 * Adds game actors to the world so the simulatino can run
 		 */ 
@@ -76,6 +82,7 @@ package com.gamingfondue.ptb.worlds
 			cameraman.bounds = new Rectangle(0, 0, nirvana.width, nirvana.height);
 			cameraman.target = player;
 			
+			scanlines = new Scanlines();
 			hud = new HUD();
 			
 			add(sky);
@@ -83,10 +90,11 @@ package com.gamingfondue.ptb.worlds
 			add(player);
 			add(cameraman);
 			add(billboard);
-			add(hud);
 			add(nirvana.tooltips);
 			add(spawner);
 			add(happiness);
+			add(scanlines);
+			add(hud);
 			
 			sonata = new Sfx(Assets.SONATA_HAPPY);
 			playSonata();

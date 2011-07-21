@@ -43,12 +43,12 @@ package com.gamingfondue.ptb.entities
 		/**
 		 * Called when the billboard is added to a World.
 		 */
-		public function Billboard()
+		public function Billboard(x:Number = 0, y:Number = 0)
 		{
-			super(0, 0);
+			super(x, y);
 			visible = false;
 			queue = [];
-			text = new ResizableText("",0, 223, null, 32);
+			text = new ResizableText("",0, 0);
 			text.scrollX = 0;
 			text.scrollY = 0;
 			graphic = text;

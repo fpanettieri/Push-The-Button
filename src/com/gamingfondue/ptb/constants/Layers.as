@@ -13,5 +13,6 @@ package com.gamingfondue.ptb.constants
 		public static const CREDITS_BG:int = 3;
 		public static const CREDITS_FLOOR:int = 1;
 		public static const CREDITS_FRONT:int = 0;
+		public static const SCANLINES:int = 1;
 	}
 }

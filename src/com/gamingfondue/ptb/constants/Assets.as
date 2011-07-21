@@ -107,6 +107,12 @@ package com.gamingfondue.ptb.constants
 		public static const MENU:Class;
 		
 		/**
+		 * TV scanlines
+		 */
+		[Embed(source = "/assets/scanlines.png")] 
+		public static const SCANLINES:Class;
+		
+		/**
 		 * Credits images
 		 */
 		[Embed(source = "/assets/credits_bg.png")] 
