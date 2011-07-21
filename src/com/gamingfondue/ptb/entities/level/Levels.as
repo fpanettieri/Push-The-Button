@@ -7,7 +7,7 @@ package com.gamingfondue.ptb.entities.level
 	 */ 
 	public class Levels
 	{
-		public static const last:Number = 58;
+		public static const last:Number = 14;//58;
 		
 		[Embed(source='/assets/level01.oel', mimeType='application/octet-stream')]
 		private static const L1:Class;

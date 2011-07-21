@@ -17,12 +17,12 @@ package com.gamingfondue.ptb.entities
 		/**
 		 * Max delay between happiness spawns
 		 */
-		private const DELAY_MIN:Number = 10;
+		private const DELAY_MIN:Number = 5;
 		
 		/**
 		 * Min delay between happiness spawns
 		 */
-		private const DELAY_MARGIN:Number = 10;
+		private const DELAY_MARGIN:Number = 3;
 		
 		/**
 		 * Injected Dependency. Happiness
@@ -57,7 +57,7 @@ package com.gamingfondue.ptb.entities
 		 */
 		private function delay():void
 		{
-			_delay = new Alarm(Math.random() * DELAY_MARGIN + DELAY_MIN, spawn, Tween.ONESHOT);
+			_delay = new Alarm(FP.rand(DELAY_MARGIN) + DELAY_MIN, spawn, Tween.ONESHOT);
 			addTween(_delay, true);
 		}
 		
@@ -73,7 +73,7 @@ package com.gamingfondue.ptb.entities
 			if(HUD.money < Levels.number)  {
 				
 				// If this is the last level we show the final world
-				if (Levels.number == Levels.last) {
+				if (Statistics.age >= Levels.last) {
 					FP.world = new WorldTransition(new Credits());
 				} else {
 					FP.world = new WorldTransition(new Reality());
@@ -85,7 +85,7 @@ package com.gamingfondue.ptb.entities
 			HUD.money -= Levels.number;
 			
 			// Choose random spot and move happiness there
-			spot = spots[Math.floor(Math.random() * spots.length)];
+			spot = FP.choose(spots);
 			happiness.x = spot.x;
 			happiness.y = spot.y;
 			happiness.visible = true;

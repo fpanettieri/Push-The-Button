@@ -3,6 +3,7 @@ package com.gamingfondue.ptb.worlds
 	import com.gamingfondue.ptb.constants.Assets;
 	import com.gamingfondue.ptb.entities.Billboard;
 	import com.gamingfondue.ptb.entities.Cameraman;
+	import com.gamingfondue.ptb.entities.Statistics;
 	import com.gamingfondue.ptb.entities.credits.Background;
 	import com.gamingfondue.ptb.entities.credits.Floor;
 	import com.gamingfondue.ptb.entities.credits.Front;
@@ -10,6 +11,7 @@ package com.gamingfondue.ptb.worlds
 	import com.gamingfondue.ptb.entities.player.behavior.Behaviors;
 	
 	import flash.geom.Rectangle;
+	import flash.utils.getTimer;
 	
 	import net.flashpunk.FP;
 	import net.flashpunk.Sfx;
@@ -73,6 +75,7 @@ package com.gamingfondue.ptb.worlds
 		 */ 
 		override public function begin():void
 		{
+			Statistics.end = getTimer();
 			player = new Player(-128, 0, Behaviors.DEAD);
 			
 			billboard = new Billboard();
@@ -98,7 +101,7 @@ package com.gamingfondue.ptb.worlds
 			add(billboard);
 
 			balrog = new Sfx(Assets.BALROG);
-			balrog.loop(0.3);
+			balrog.loop();
 		}
 		
 		/**

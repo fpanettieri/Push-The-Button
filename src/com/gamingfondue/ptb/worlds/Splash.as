@@ -1,10 +1,13 @@
 package com.gamingfondue.ptb.worlds
 {
 	import com.gamingfondue.ptb.constants.Assets;
+	import com.gamingfondue.ptb.entities.Statistics;
 	import com.gamingfondue.ptb.entities.player.sound.Sound;
 	import com.gamingfondue.ptb.entities.splash.FlashPunk;
 	import com.gamingfondue.ptb.entities.splash.GamingFondue;
 	import com.gamingfondue.ptb.entities.splash.Menu;
+	
+	import flash.utils.getTimer;
 	
 	import net.flashpunk.FP;
 	import net.flashpunk.Sfx;
@@ -102,6 +105,7 @@ package com.gamingfondue.ptb.worlds
 		private function menuComplete():void
 		{
 			balrog.stop();
+			Statistics.begin = getTimer();
 			FP.world = new Reality();
 		}
 	}

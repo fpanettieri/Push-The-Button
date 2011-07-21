@@ -8,14 +8,10 @@ package com.gamingfondue.ptb.worlds
 	import com.gamingfondue.ptb.entities.Statistics;
 	import com.gamingfondue.ptb.entities.level.Level;
 	import com.gamingfondue.ptb.entities.level.Levels;
-	import com.gamingfondue.ptb.entities.level.Nirvana;
 	import com.gamingfondue.ptb.entities.player.Player;
-	import com.gamingfondue.util.Logger;
 	
-	import flash.geom.Point;
 	import flash.geom.Rectangle;
 	
-	import net.flashpunk.Entity;
 	import net.flashpunk.FP;
 	import net.flashpunk.World;
 	import net.flashpunk.utils.Input;
@@ -48,14 +44,15 @@ package com.gamingfondue.ptb.worlds
 			level.home.player = player;
 			level.work.player = player;
 			level.tooltips.player = player;
-			billboard = new Billboard();
+			billboard = new Billboard(0, 222);
 			
 			cameraman = new Cameraman();
 			cameraman.bounds = new Rectangle(0, 0, level.width, level.height);
 			cameraman.target = player;
 			
 			hud = new HUD();
-			HUD.age = Levels.number * 4 + Constants.BASE_AGE;
+			Statistics.age = Levels.number * 4 + Constants.BASE_AGE;
+			HUD.age = Statistics.age;
 			
 			add(sky);
 			add(level);

@@ -1,7 +1,6 @@
 package com.gamingfondue.ptb.worlds
 {
 	import com.gamingfondue.ptb.constants.Assets;
-	import com.gamingfondue.ptb.constants.Constants;
 	import com.gamingfondue.ptb.entities.Billboard;
 	import com.gamingfondue.ptb.entities.Cameraman;
 	import com.gamingfondue.ptb.entities.HUD;
@@ -16,7 +15,6 @@ package com.gamingfondue.ptb.worlds
 	
 	import flash.geom.Rectangle;
 	
-	import net.flashpunk.Entity;
 	import net.flashpunk.FP;
 	import net.flashpunk.Sfx;
 	import net.flashpunk.Tween;
@@ -77,7 +75,7 @@ package com.gamingfondue.ptb.worlds
 			spawner.spots = nirvana.spots;
 			spawner.happiness = happiness;
 			
-			billboard = new Billboard();
+			billboard = new Billboard(0, 222);
 			cameraman = new Cameraman();
 			cameraman.bounds = new Rectangle(0, 0, nirvana.width, nirvana.height);
 			cameraman.target = player;

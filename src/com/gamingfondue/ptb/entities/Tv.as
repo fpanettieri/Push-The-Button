@@ -39,6 +39,11 @@ package com.gamingfondue.ptb.entities
 		private static const FRAME_DURATION:Number = 0.3;
 		
 		/**
+		 * Factor used to determine how much satisfaction does TV give you
+		 */
+		private static const SATISFACTION:Number = 0.5;
+		
+		/**
 		 * Injected dependency
 		 */ 
 		public var player:Player;
@@ -140,8 +145,8 @@ package com.gamingfondue.ptb.entities
 				timer -= FP.elapsed;
 				
 			} else {
-				timer = Math.random() * FRAME_DURATION;
-				graphic = frames[int(Math.random() * COLORS.length)];
+				timer = FP.rand(FRAME_DURATION);
+				graphic = FP.choose(frames);
 			}
 
 			// Calculate distance to player
@@ -156,7 +161,7 @@ package com.gamingfondue.ptb.entities
 			noise.pan = distance.x / -radius;
 			
 			// Watching tv reduces Player insatisfaction
-			player.insatisfaction -= FP.elapsed;
+			player.insatisfaction -= FP.elapsed * SATISFACTION;
 			if (player.insatisfaction < 0) {
 				FP.world = new WorldTransition(new HappyPlace());
 			}
