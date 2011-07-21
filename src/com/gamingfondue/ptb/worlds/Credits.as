@@ -1,9 +1,25 @@
 package com.gamingfondue.ptb.worlds
 {
+	import com.gamingfondue.ptb.constants.Assets;
+	import com.gamingfondue.ptb.entities.Billboard;
+	import com.gamingfondue.ptb.entities.Cameraman;
+	import com.gamingfondue.ptb.entities.HUD;
+	import com.gamingfondue.ptb.entities.credits.Background;
+	import com.gamingfondue.ptb.entities.credits.Floor;
+	import com.gamingfondue.ptb.entities.credits.Front;
+	import com.gamingfondue.ptb.entities.player.Player;
+	import com.gamingfondue.ptb.entities.player.behavior.Behaviors;
+	
+	import flash.geom.Rectangle;
+	
 	import net.flashpunk.FP;
+	import net.flashpunk.Sfx;
 	import net.flashpunk.World;
+	import net.flashpunk.graphics.Backdrop;
 	import net.flashpunk.graphics.Text;
+	import net.flashpunk.tweens.sound.SfxFader;
 	import net.flashpunk.utils.Input;
+	import net.flashpunk.utils.Key;
 	
 	/**
 	 * The last screen of the game. 
@@ -14,20 +30,35 @@ package com.gamingfondue.ptb.worlds
 	 */ 
 	public class Credits extends World
 	{
-		/**
-		 * Text showing my name
-		 */ 
-		private var author:Text;
+		private var player:Player;
+		private var billboard:Billboard;
+		private var cameraman:Cameraman;
+		private var hud:HUD;
 		
 		/**
-		 * Contact mail
-		 */ 
-		private var contact:Text;
+		 * Background image
+		 */
+		private var bg:Background;
 		
 		/**
-		 * Restart message
-		 */ 
-		private var restart:Text;
+		 * Floor image
+		 */
+		private var floor:Floor;
+		
+		/**
+		 * Front image
+		 */
+		private var front:Front;
+		
+		/**
+		 * Background music
+		 */
+		private var balrog:Sfx;
+		
+		/**
+		 * Used to fade sonata in
+		 */
+		private var fader:SfxFader;
 		
 		/**
 		 * Called when the world is activated.
@@ -35,17 +66,35 @@ package com.gamingfondue.ptb.worlds
 		 */ 
 		override public function begin():void
 		{
-			author = new Text("author: Fabio R. Panettieri", 30, 20, 400, 20);
-			author.size = 14;
+			player = new Player(-128, 0, Behaviors.DEAD);
 			
-			contact = new Text("contact: fpanettieri@gmail.com", 30, 40, 400, 30 );
-			contact.size = 14;
+			billboard = new Billboard();
+			// TODO: msgs
+			Billboard.size = 10000;
 			
-			restart = new Text("click to restart", 220, 400, 200, 15);
+			Billboard.notify("aca va manso mensaje");
+			Billboard.notify("Y uno triste");
+
+			cameraman = new Cameraman();
+			cameraman.bounds = new Rectangle(-1024, 0, 2048, 256);
+			cameraman.target = player;
 			
-			addGraphic(author);
-			addGraphic(contact);
-			addGraphic(restart);
+			hud = new HUD();
+			
+			bg = new Background();
+			floor = new Floor();
+			front = new Front();
+			
+			add(bg);
+			add(player);
+			add(floor);
+			add(front);
+			add(cameraman);
+			add(billboard);
+			add(hud);
+			
+			balrog = new Sfx(Assets.BALROG);
+			balrog.loop();
 		}
 		
 		/**
@@ -53,9 +102,18 @@ package com.gamingfondue.ptb.worlds
 		 */ 
 		override public function update():void
 		{
-			if (Input.mousePressed) {
+			super.update();
+			if (Input.pressed(Key.R)) {
 				FP.world = new Splash();
 			}
+		}
+		
+		/**
+		 * Stop music
+		 */ 
+		override public function end():void
+		{
+			balrog.stop();
 		}
 	}
 }

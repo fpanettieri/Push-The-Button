@@ -1,5 +1,6 @@
 package com.gamingfondue.ptb.entities
 {
+	import com.gamingfondue.ptb.constants.Assets;
 	import com.gamingfondue.ptb.constants.Layers;
 	import com.gamingfondue.ptb.entities.player.Player;
 	import com.gamingfondue.util.Logger;
@@ -8,7 +9,11 @@ package com.gamingfondue.ptb.entities
 	import flash.geom.Rectangle;
 	
 	import net.flashpunk.Entity;
+	import net.flashpunk.FP;
+	import net.flashpunk.Sfx;
+	import net.flashpunk.Tween;
 	import net.flashpunk.graphics.Stamp;
+	import net.flashpunk.tweens.sound.SfxFader;
 	
 	/**
 	 * Represents the player home
@@ -50,6 +55,21 @@ package com.gamingfondue.ptb.entities
 		private var tv:Tv;
 		
 		/**
+		 * Last played position
+		 */ 
+		public static var position:Number = 0;
+		
+		/**
+		 * Sound played outside home
+		 */
+		private var sonata:Sfx;
+		
+		/**
+		 * Used to fade sonata in
+		 */
+		private var fader:SfxFader;
+		
+		/**
 		 * Home constructor
 		 */ 
 		public function Home()
@@ -58,6 +78,7 @@ package com.gamingfondue.ptb.entities
 			inside = false;
 			tvs = [];
 			layer = Layers.BG;
+			sonata = new Sfx(Assets.SONATA_SAD);
 		}
 
 		/**
@@ -71,26 +92,50 @@ package com.gamingfondue.ptb.entities
 			// Turn on tvs when player enters home
 			if (!inside && _area.contains(_player.x, _player.y)) {
 				inside = true;
-				
-				// TODO: fadeOut
-				//SoundMixer.sonata.stop();
 				for each (tv in tvs) {
 					tv.turnOn();
 				}
+				stopSonata();
 			}
 
 			// Turn off tvs when player leaves home
 			if (inside && !_area.contains(_player.x, _player.y)) {
 				inside = false;
-				
-				// TODO: fadeIn
-				//SoundMixer.sonata.resume();
 				for each (tv in tvs) {
 					tv.turnOff();
 				}
+				playSonata();
 			}
 		}
 		
+		/**
+		 * Stop sonata playback on leave
+		 */ 
+		override public function removed():void
+		{
+			stopSonata();
+		}
+		
+		/**
+		 * Start playing sonata
+		 */ 
+		private function playSonata():void
+		{
+			fader = new SfxFader(sonata, null, Tween.ONESHOT);
+			sonata.loop(0.1, 0, position);
+			addTween(fader);
+			fader.fadeTo(1, 1);
+		}
+		
+		/**
+		 * Pause sonata and store position
+		 */ 
+		private function stopSonata():void
+		{
+			position = sonata.position * 1000;
+			sonata.stop();
+		}
+
 		/**
 		 * Update home area
 		 */ 

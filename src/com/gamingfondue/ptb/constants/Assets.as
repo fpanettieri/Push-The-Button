@@ -105,5 +105,17 @@ package com.gamingfondue.ptb.constants
 		 */
 		[Embed(source = "/assets/menu.png")] 
 		public static const MENU:Class;
+		
+		/**
+		 * Credits images
+		 */
+		[Embed(source = "/assets/credits_bg.png")] 
+		public static const CREDITS_BG:Class;
+		
+		[Embed(source = "/assets/credits_floor.png")] 
+		public static const CREDITS_FLOOR:Class;
+		
+		[Embed(source = "/assets/credits_front.png")] 
+		public static const CREDITS_FRONT:Class;
 	}
 }

@@ -1,5 +1,7 @@
 package com.gamingfondue.ptb.entities
 {
+	import com.gamingfondue.ptb.constants.Layers;
+	
 	import net.flashpunk.Entity;
 	import net.flashpunk.FP;
 	import net.flashpunk.graphics.ResizableText;
@@ -21,7 +23,7 @@ package com.gamingfondue.ptb.entities
 		/**
 		 * Max number of queued messages
 		 */ 
-		private static const QUEUE_SIZE:int = 1;
+		public static var size:int = 1;
 		
 		/**
 		 * Message speed
@@ -50,6 +52,7 @@ package com.gamingfondue.ptb.entities
 			text.scrollX = 0;
 			text.scrollY = 0;
 			graphic = text;
+			layer = Layers.BILLBOARD;
 		}
 
 		/**
@@ -76,7 +79,7 @@ package com.gamingfondue.ptb.entities
 		 */ 
 		public static function notify(msg:String):void
 		{
-			if (queue.length == QUEUE_SIZE) {
+			if (queue.length >= size) {
 				queue.pop();
 			}
 			queue.push(msg);

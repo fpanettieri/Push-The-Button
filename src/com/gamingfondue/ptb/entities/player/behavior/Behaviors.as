@@ -24,5 +24,6 @@ package com.gamingfondue.ptb.entities.player.behavior
 		public static const LEFT_WALL_JUMPING:int = 14;
 		public static const FALLING:int = 15;
 		public static const HAPPY:int = 16;
+		public static const DEAD:int = 17;
 	}
 }

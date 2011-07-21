@@ -1,7 +1,6 @@
 package com.gamingfondue.ptb.worlds
 {
 	import com.gamingfondue.ptb.constants.Constants;
-	import com.gamingfondue.ptb.constants.Musics;
 	import com.gamingfondue.ptb.entities.Billboard;
 	import com.gamingfondue.ptb.entities.Cameraman;
 	import com.gamingfondue.ptb.entities.HUD;
@@ -20,6 +19,7 @@ package com.gamingfondue.ptb.worlds
 	import net.flashpunk.FP;
 	import net.flashpunk.World;
 	import net.flashpunk.utils.Input;
+	import net.flashpunk.utils.Key;
 	
 	/**
 	 * Game simulation. 
@@ -73,6 +73,9 @@ package com.gamingfondue.ptb.worlds
 		override public function update():void
 		{
 			super.update();
+			if (Input.pressed(Key.M)){
+				FP.volume = 1 - FP.volume;
+			}
 			if (Input.mousePressed) {
 				HUD.money = 10;
 				FP.world = new WorldTransition(new HappyPlace());
@@ -81,6 +84,7 @@ package com.gamingfondue.ptb.worlds
 		
 		override public function end():void
 		{
+			removeAll();
 			Statistics.money += HUD.money;
 		}
 	}

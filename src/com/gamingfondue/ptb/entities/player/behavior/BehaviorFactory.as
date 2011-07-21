@@ -23,6 +23,7 @@ package com.gamingfondue.ptb.entities.player.behavior
 			new LeftWallJumping(),
 			new Falling(),
 			new Happy(),
+			new Dead()
 		];
 		
 		public static function get(type:int):PlayerBehavior

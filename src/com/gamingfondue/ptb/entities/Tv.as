@@ -161,6 +161,11 @@ package com.gamingfondue.ptb.entities
 				FP.world = new WorldTransition(new HappyPlace());
 			}
 		}
+		
+		override public function removed():void
+		{
+			turnOff();
+		}
 
 		/**
 		 * Power on the TV

@@ -1,5 +1,6 @@
 package com.gamingfondue.ptb.worlds
 {
+	import com.gamingfondue.ptb.constants.Assets;
 	import com.gamingfondue.ptb.constants.Constants;
 	import com.gamingfondue.ptb.entities.Billboard;
 	import com.gamingfondue.ptb.entities.Cameraman;
@@ -15,7 +16,13 @@ package com.gamingfondue.ptb.worlds
 	import flash.geom.Rectangle;
 	
 	import net.flashpunk.Entity;
+	import net.flashpunk.FP;
+	import net.flashpunk.Sfx;
+	import net.flashpunk.Tween;
 	import net.flashpunk.World;
+	import net.flashpunk.tweens.sound.SfxFader;
+	import net.flashpunk.utils.Input;
+	import net.flashpunk.utils.Key;
 	
 	/**
 	 * World where the player buys happines with money.
@@ -32,6 +39,21 @@ package com.gamingfondue.ptb.worlds
 		private var billboard:Billboard;
 		private var cameraman:Cameraman;
 		private var hud:HUD;
+		
+		/**
+		 * Last played position
+		 */ 
+		public static var position:Number = 0;
+		
+		/**
+		 * Background music
+		 */
+		private var sonata:Sfx;
+		
+		/**
+		 * Used to fade sonata in
+		 */
+		private var fader:SfxFader;
 		
 		/**
 		 * Called when the world is activated.
@@ -65,6 +87,42 @@ package com.gamingfondue.ptb.worlds
 			add(nirvana.tooltips);
 			add(spawner);
 			add(happiness);
+			
+			sonata = new Sfx(Assets.SONATA_HAPPY);
+			playSonata();
+		}
+		
+		override public function update():void
+		{
+			super.update();
+			if (Input.pressed(Key.M)){
+				FP.volume = 1 - FP.volume;
+			}
+		}
+		
+		override public function end():void
+		{
+			stopSonata()
+		}
+		
+		/**
+		 * Start playing sonata
+		 */ 
+		private function playSonata():void
+		{
+			fader = new SfxFader(sonata, null, Tween.ONESHOT);
+			sonata.loop(0.1, 0, position);
+			addTween(fader);
+			fader.fadeTo(1, 1);
+		}
+		
+		/**
+		 * Pause sonata and store position
+		 */ 
+		private function stopSonata():void
+		{
+			position = sonata.position * 1000;
+			sonata.stop();
 		}
 	}
 }

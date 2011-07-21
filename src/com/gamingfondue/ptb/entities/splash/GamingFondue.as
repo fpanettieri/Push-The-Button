@@ -24,7 +24,7 @@ package com.gamingfondue.ptb.entities.splash
 		private var _onComplete:Function;
 
         // Synch
-        private const CLIMAX:Number = 15.7;
+        private const CLIMAX:Number = 15.5;
         private const FADE_IN:Number = 4;
         private const FADE_OUT:Number = 2;
         private var _elapsed:Number;

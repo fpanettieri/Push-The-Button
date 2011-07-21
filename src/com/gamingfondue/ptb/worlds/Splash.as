@@ -1,7 +1,6 @@
 package com.gamingfondue.ptb.worlds
 {
 	import com.gamingfondue.ptb.constants.Assets;
-	import com.gamingfondue.ptb.constants.Musics;
 	import com.gamingfondue.ptb.entities.player.sound.Sound;
 	import com.gamingfondue.ptb.entities.splash.FlashPunk;
 	import com.gamingfondue.ptb.entities.splash.GamingFondue;
@@ -12,6 +11,8 @@ package com.gamingfondue.ptb.worlds
 	import net.flashpunk.Tween;
 	import net.flashpunk.World;
 	import net.flashpunk.tweens.sound.SfxFader;
+	import net.flashpunk.utils.Input;
+	import net.flashpunk.utils.Key;
 	
 	/**
      * Powered by FlashPunk
@@ -51,12 +52,7 @@ package com.gamingfondue.ptb.worlds
 		/**
 		 * Background music
 		 */
-		private var sfx:Sfx;
-		
-		/**
-		 * Background music
-		 */
-		private var fader:SfxFader;
+		private var balrog:Sfx;
 		
 		/**
 		 * Called when the world is activated.
@@ -65,8 +61,8 @@ package com.gamingfondue.ptb.worlds
 		override public function begin():void
 		{
 			// Intro music
-			sfx = new Sfx(Assets.BALROG);
-			sfx.loop();
+			balrog = new Sfx(Assets.BALROG);
+			balrog.loop();
 			
             elapsed = 0;
             fp = new FlashPunk(0xFF9900, 0x333333, 1, 2.7);
@@ -84,6 +80,9 @@ package com.gamingfondue.ptb.worlds
 		{
             super.update();
             elapsed += FP.elapsed;
+			if (Input.pressed(Key.M)){
+				FP.volume = 1 - FP.volume;
+			}
 		}
 		
         private function fpComplete():void
@@ -102,13 +101,7 @@ package com.gamingfondue.ptb.worlds
 		
 		private function menuComplete():void
 		{
-			fader = new SfxFader(sfx, onFadeOut, Tween.ONESHOT);
-			addTween(fader);
-			fader.fadeTo(0, 2);
-		}
-		
-		private function onFadeOut():void
-		{
+			balrog.stop();
 			FP.world = new Reality();
 		}
 	}

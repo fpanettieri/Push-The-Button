@@ -1,7 +1,7 @@
 package com.gamingfondue.ptb
 {
 	import com.gamingfondue.ptb.constants.Assets;
-	import com.gamingfondue.ptb.constants.Musics;
+	import com.gamingfondue.ptb.worlds.Credits;
 	import com.gamingfondue.ptb.worlds.Reality;
 	import com.gamingfondue.ptb.worlds.Splash;
 	
@@ -17,7 +17,7 @@ package com.gamingfondue.ptb
 		{
 			super(320, 240, 30, false);
 			FP.screen.scale = 2;
-			//FP.console.enable();
+			FP.console.enable();
 		}
 		
 		/**
@@ -26,8 +26,9 @@ package com.gamingfondue.ptb
 		override public function init():void
 		{
 			// Create first world
-			FP.world = new Splash();
+			//FP.world = new Splash();
 			//FP.world = new Reality();
+			FP.world = new Credits();
 		} 
 	}
 }
