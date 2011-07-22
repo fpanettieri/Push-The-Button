@@ -1,5 +1,6 @@
 package com.gamingfondue.ptb.entities
 {
+	import com.gamingfondue.ptb.constants.Languages;
 	import com.gamingfondue.ptb.constants.Layers;
 	import com.gamingfondue.util.Logger;
 	
@@ -50,7 +51,12 @@ package com.gamingfondue.ptb.entities
 		{
 			if (_dirty) {
 				_dirty = false;
-				age.text = "Age: " + _age;
+				
+				if (Statistics.language == Languages.EN) {
+					age.text = "Age: " + _age;
+				} else {
+					age.text = "Edad: " + _age;
+				}
 				money.text = "$ " + _money;
 				happiness.text = ":) " + _happiness;
 			}

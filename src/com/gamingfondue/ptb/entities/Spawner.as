@@ -45,6 +45,11 @@ package com.gamingfondue.ptb.entities
 		private var _delay:Alarm;
 		
 		/**
+		 * Last spawn spot
+		 */
+		private var last:Point = new Point();
+		
+		/**
 		 * If the player touched happiness it skips to the next level
 		 */
 		override public function update():void
@@ -85,7 +90,10 @@ package com.gamingfondue.ptb.entities
 			HUD.money -= Levels.number;
 			
 			// Choose random spot and move happiness there
-			spot = FP.choose(spots);
+			do {
+				spot = FP.choose(spots);
+			} while(spot.equals(last));
+			last = spot;
 			happiness.x = spot.x;
 			happiness.y = spot.y;
 			happiness.visible = true;
