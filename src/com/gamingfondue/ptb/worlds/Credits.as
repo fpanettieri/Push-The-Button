@@ -1,12 +1,15 @@
 package com.gamingfondue.ptb.worlds
 {
 	import com.gamingfondue.ptb.constants.Assets;
+	import com.gamingfondue.ptb.constants.Languages;
 	import com.gamingfondue.ptb.entities.Billboard;
 	import com.gamingfondue.ptb.entities.Cameraman;
 	import com.gamingfondue.ptb.entities.Statistics;
 	import com.gamingfondue.ptb.entities.credits.Background;
+	import com.gamingfondue.ptb.entities.credits.EnglishCredits;
 	import com.gamingfondue.ptb.entities.credits.Floor;
 	import com.gamingfondue.ptb.entities.credits.Front;
+	import com.gamingfondue.ptb.entities.credits.SpanishCredits;
 	import com.gamingfondue.ptb.entities.player.Player;
 	import com.gamingfondue.ptb.entities.player.behavior.Behaviors;
 	
@@ -79,12 +82,8 @@ package com.gamingfondue.ptb.worlds
 			player = new Player(-128, 0, Behaviors.DEAD);
 			
 			billboard = new Billboard();
-			// TODO: set msgs
-			Billboard.size = 10000;
+			Billboard.queue = Statistics.language == Languages.EN ? EnglishCredits.queue : SpanishCredits.queue;
 			
-			Billboard.notify("aca va manso mensaje");
-			Billboard.notify("Y uno triste");
-
 			cameraman = new Cameraman();
 			cameraman.bounds = new Rectangle(-1024, 0, 2048, 256);
 			cameraman.target = player;

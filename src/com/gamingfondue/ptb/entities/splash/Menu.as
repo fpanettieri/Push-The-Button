@@ -2,7 +2,9 @@ package com.gamingfondue.ptb.entities.splash
 {
 	import com.gamingfondue.ptb.constants.Assets;
 	import com.gamingfondue.ptb.constants.Languages;
+	import com.gamingfondue.ptb.entities.Statistics;
 	import com.gamingfondue.ptb.entities.Tooltip;
+	import com.gamingfondue.ptb.worlds.Credits;
 	
 	import flash.display.BitmapData;
 	
@@ -67,7 +69,7 @@ package com.gamingfondue.ptb.entities.splash
 		{
 			// Arrows switch languages
 			if (Input.pressed(Key.UP) || Input.pressed(Key.DOWN)) {
-				Tooltip.language = 1 - Tooltip.language;
+				Statistics.language = 1 - Statistics.language;
 			}
 			
 			// Select option on mouse down
@@ -78,15 +80,15 @@ package com.gamingfondue.ptb.entities.splash
 					
 					// English
 					if (Input.mouseY < 215) {
-						Tooltip.language = Languages.EN;
+						Statistics.language = Languages.EN;
 					} else {
-						Tooltip.language = Languages.ES;
+						Statistics.language = Languages.ES;
 					}
 				}
 			}
 			
 			// Update tooltip position
-			if(Tooltip.language == Languages.EN) {
+			if(Statistics.language == Languages.EN) {
 				option.y = 195;
 			} else {
 				option.y = 205;

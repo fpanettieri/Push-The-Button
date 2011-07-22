@@ -27,8 +27,8 @@ package com.gamingfondue.ptb
 		{
 			// Create first world
 			//FP.world = new Splash();
-			FP.world = new Reality();
-			//FP.world = new Credits();
+			//FP.world = new Reality();
+			FP.world = new Credits();
 		} 
 	}
 }

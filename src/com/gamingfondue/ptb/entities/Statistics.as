@@ -5,6 +5,7 @@ package com.gamingfondue.ptb.entities
 	 */ 
 	public class Statistics
 	{
+		public static var language:int = 0;
 		public static var age:Number = 0;
 		public static var money:Number = 0;
 		public static var happiness:Number = 0;

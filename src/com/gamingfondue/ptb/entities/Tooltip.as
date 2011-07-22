@@ -10,8 +10,6 @@ package com.gamingfondue.ptb.entities
 	
 	public class Tooltip extends Entity
 	{
-		public static var language:int = Languages.EN;
-		
 		private var en:String;
 		private var es:String;
 		private var rect:Rectangle;
@@ -31,12 +29,12 @@ package com.gamingfondue.ptb.entities
 			
 		public function get msg():String
 		{
-			return language == Languages.EN ? en : es;
+			return Statistics.language == Languages.EN ? en : es;
 		}
 		
 		public static function get tv():String
 		{
-			return language == Languages.EN ? "TV makes you happy!!!" : "La televisión te hace feliz!!!";
+			return Statistics.language == Languages.EN ? "TV makes you happy!!!" : "La TV te hace feliz!!!";
 		}
 		
 	}

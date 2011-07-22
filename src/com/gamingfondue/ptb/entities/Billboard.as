@@ -64,11 +64,10 @@ package com.gamingfondue.ptb.entities
 			if (!visible && queue.length > 0) {
 				visible = true;
 				text.text = queue.splice(0, 1);
-				text.width 
 				x = FP.screen.width;
 			} else {
 				x -= SPEED;
-				if (x <= -text.width) {
+				if (x <= -text.textWidth) {
 					visible = false;
 				}
 			}

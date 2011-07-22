@@ -62,8 +62,8 @@ package com.gamingfondue.ptb.entities.player.behavior
 			
 			// Vertical collition
 			projection.y = player.y + player.speed.y;
-			if(projection.y > 185) {
-				projection.y = 185;
+			if(projection.y > 186) {
+				projection.y = 186;
 				player.speed.y = 0;
 			}
 			player.y = projection.y;
