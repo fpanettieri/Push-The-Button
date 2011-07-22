@@ -52,6 +52,9 @@ package com.gamingfondue.ptb.entities.player.behavior
 						projection.x += CELL_SIZE;
 					}
 				}
+				
+				// Players stops on wall collision
+				player.speed.x = 0;
 			}
 			player.x = projection.x;
 			

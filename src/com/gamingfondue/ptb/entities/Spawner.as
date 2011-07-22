@@ -22,7 +22,7 @@ package com.gamingfondue.ptb.entities
 		/**
 		 * Min delay between happiness spawns
 		 */
-		private const DELAY_MARGIN:Number = 3;
+		private const DELAY_MARGIN:Number = 10;
 		
 		/**
 		 * Injected Dependency. Happiness

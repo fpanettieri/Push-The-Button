@@ -145,7 +145,7 @@ package com.gamingfondue.ptb.entities
 				timer -= FP.elapsed;
 				
 			} else {
-				timer = FP.rand(FRAME_DURATION);
+				timer = Math.random() * FRAME_DURATION;
 				graphic = FP.choose(frames);
 			}
 

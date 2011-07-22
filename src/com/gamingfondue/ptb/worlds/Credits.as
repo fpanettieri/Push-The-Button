@@ -113,6 +113,9 @@ package com.gamingfondue.ptb.worlds
 			if (Input.pressed(Key.R)) {
 				FP.world = new Splash();
 			}
+			if (Input.pressed(Key.M)){
+				FP.volume = 1 - FP.volume;
+			}
 		}
 		
 		/**

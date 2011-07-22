@@ -73,10 +73,10 @@ package com.gamingfondue.ptb.worlds
 			if (Input.pressed(Key.M)){
 				FP.volume = 1 - FP.volume;
 			}
-			if (Input.mousePressed) {
+			/*if (Input.mousePressed) {
 				HUD.money = 10;
 				FP.world = new WorldTransition(new HappyPlace());
-			}
+			}*/
 		}
 		
 		override public function end():void

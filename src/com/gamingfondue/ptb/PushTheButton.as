@@ -21,13 +21,13 @@ package com.gamingfondue.ptb
 		}
 		
 		/**
-		 * Set the slpash screen in the engine
+		 * Set the splash screen in the engine
 		 */
 		override public function init():void
 		{
 			// Create first world
-			FP.world = new Splash();
-			//FP.world = new Reality();
+			//FP.world = new Splash();
+			FP.world = new Reality();
 			//FP.world = new Credits();
 		} 
 	}
