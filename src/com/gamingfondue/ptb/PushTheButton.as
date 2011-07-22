@@ -1,5 +1,7 @@
 package com.gamingfondue.ptb
 {
+	import Playtomic.Log;
+	
 	import com.gamingfondue.ptb.constants.Assets;
 	import com.gamingfondue.ptb.worlds.Credits;
 	import com.gamingfondue.ptb.worlds.Reality;
@@ -17,6 +19,7 @@ package com.gamingfondue.ptb
 		{
 			super(320, 240, 30, false);
 			FP.screen.scale = 2;
+			Log.View(3639, "0a7e983cf8a24f2f", root.loaderInfo.loaderURL);
 			//FP.console.enable();
 		}
 		

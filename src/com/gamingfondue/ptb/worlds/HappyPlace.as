@@ -1,5 +1,7 @@
 package com.gamingfondue.ptb.worlds
 {
+	import Playtomic.Log;
+	
 	import com.gamingfondue.ptb.constants.Assets;
 	import com.gamingfondue.ptb.entities.Billboard;
 	import com.gamingfondue.ptb.entities.Cameraman;
@@ -92,6 +94,9 @@ package com.gamingfondue.ptb.worlds
 			scanlines = new Scanlines();
 			hud = new HUD();
 			
+			// Log level
+			Log.LevelCounterMetric("HP", Levels.number);
+
 			add(sky);
 			add(nirvana);
 			add(trail);

@@ -1,5 +1,7 @@
 package com.gamingfondue.ptb.entities.splash
 {
+	import Playtomic.Log;
+	
 	import com.gamingfondue.ptb.constants.Assets;
 	import com.gamingfondue.ptb.constants.Languages;
 	import com.gamingfondue.ptb.entities.Statistics;
@@ -96,7 +98,7 @@ package com.gamingfondue.ptb.entities.splash
 			
 			// Enter or space select current option
 			if (Input.pressed(Key.SPACE) || Input.pressed(Key.ENTER)) {
-				onComplete();
+				complete();
 			}
 			
 			// Enter or space select current option
@@ -104,9 +106,18 @@ package com.gamingfondue.ptb.entities.splash
 				
 				// Mouse in clickeable area
 				if (Input.mouseX > 265 && Input.mouseY > 195){
-					onComplete();
+					complete();
 				}
 			}
+		}
+
+		private function complete():void
+		{
+			// Log level
+			Log.Play();
+			if(Statistics.language == Languages.EN) Log.CustomMetric("English");
+			else Log.CustomMetric("Spanish");
+			onComplete();
 		}
 	}
 }

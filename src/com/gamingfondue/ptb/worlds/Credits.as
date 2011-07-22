@@ -1,5 +1,7 @@
 package com.gamingfondue.ptb.worlds
 {
+	import Playtomic.Log;
+	
 	import com.gamingfondue.ptb.constants.Assets;
 	import com.gamingfondue.ptb.constants.Languages;
 	import com.gamingfondue.ptb.entities.Billboard;
@@ -91,6 +93,10 @@ package com.gamingfondue.ptb.worlds
 			bg = new Background();
 			floor = new Floor();
 			front = new Front();
+
+			// Log level
+			Log.CustomMetric("Credits");
+			//Playtomic.Log.LevelCounterMetric("Played", (Statistics.end - Statistics.begin) / 1000);
 			
 			add(bg);
 			add(player);

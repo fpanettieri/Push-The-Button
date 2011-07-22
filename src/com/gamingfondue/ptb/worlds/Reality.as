@@ -1,5 +1,7 @@
 package com.gamingfondue.ptb.worlds
 {
+	import Playtomic.Log;
+	
 	import com.gamingfondue.ptb.constants.Constants;
 	import com.gamingfondue.ptb.entities.Billboard;
 	import com.gamingfondue.ptb.entities.Cameraman;
@@ -53,6 +55,9 @@ package com.gamingfondue.ptb.worlds
 			hud = new HUD();
 			Statistics.age = Levels.number * 4 + Constants.BASE_AGE;
 			HUD.age = Statistics.age;
+
+			// Log level
+			Log.LevelCounterMetric("L", Levels.number);
 			
 			add(sky);
 			add(level);

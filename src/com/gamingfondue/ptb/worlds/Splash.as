@@ -1,5 +1,7 @@
 package com.gamingfondue.ptb.worlds
 {
+	import Playtomic.Log;
+	
 	import com.gamingfondue.ptb.constants.Assets;
 	import com.gamingfondue.ptb.entities.Statistics;
 	import com.gamingfondue.ptb.entities.player.sound.Sound;
@@ -71,6 +73,9 @@ package com.gamingfondue.ptb.worlds
             fp = new FlashPunk(0xFF9900, 0x333333, 1, 2.7);
 			gf = new GamingFondue();
 			menu = new Menu();
+
+			// Log level
+			Log.CustomMetric("Splash");
 
 			add(fp);
             fp.start(fpComplete);
