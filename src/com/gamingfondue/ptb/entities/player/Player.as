@@ -88,5 +88,13 @@ package com.gamingfondue.ptb.entities.player
 		{
 			return _image;
 		}
+		
+		/**
+		 * 
+		 */
+		public function get flipped():Boolean
+		{
+			return _image.flipped;
+		}
 	}
 }

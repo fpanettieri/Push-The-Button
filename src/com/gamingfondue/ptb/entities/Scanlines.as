@@ -24,5 +24,11 @@ package com.gamingfondue.ptb.entities
 			graphic.scrollY = 0;
 			layer = Layers.SCANLINES;
 		}
+		
+		override public function update():void
+		{
+			if (display.alpha == 1) display.alpha = 0.97;
+			else display.alpha = 1;
+		}
 	}
 }

@@ -6,6 +6,7 @@ package com.gamingfondue.ptb.worlds
 	import com.gamingfondue.ptb.entities.HUD;
 	import com.gamingfondue.ptb.entities.Happiness;
 	import com.gamingfondue.ptb.entities.NirvanaSky;
+	import com.gamingfondue.ptb.entities.PlayerTrail;
 	import com.gamingfondue.ptb.entities.Scanlines;
 	import com.gamingfondue.ptb.entities.Spawner;
 	import com.gamingfondue.ptb.entities.level.Levels;
@@ -55,9 +56,14 @@ package com.gamingfondue.ptb.worlds
 		private var fader:SfxFader;
 		
 		/**
-		 * TV mode
+		 * Eyecandy: TV mode
 		 */
 		private var scanlines:Scanlines;
+		
+		/**
+		 * Player trail
+		 */
+		private var trail:PlayerTrail;
 		
 		/**
 		 * Called when the world is activated.
@@ -69,6 +75,8 @@ package com.gamingfondue.ptb.worlds
 			sky = new NirvanaSky();
 			player = new Player(nirvana.player.x, nirvana.player.y, Behaviors.HAPPY);
 			nirvana.tooltips.player = player;
+			trail = new PlayerTrail();
+			trail.player = player;
 			happiness = new Happiness();
 			
 			spawner = new Spawner();
@@ -85,6 +93,7 @@ package com.gamingfondue.ptb.worlds
 			
 			add(sky);
 			add(nirvana);
+			add(trail);
 			add(player);
 			add(cameraman);
 			add(billboard);

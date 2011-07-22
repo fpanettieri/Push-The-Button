@@ -119,7 +119,7 @@ package com.gamingfondue.ptb.entities
 			var frame:Image;
 			for (var i:int = 0; i < COLORS.length; i++) {
 				dst = src.clone();
-				dst.floodFill(3,6, COLORS[i]);
+				dst.floodFill(3, 6, COLORS[i]);
 				frame = new Image(dst);
 				frame.scaleX = width / 16;
 				frame.scaleY = height / 16;
