@@ -41,7 +41,7 @@ package com.gamingfondue.ptb.entities
 		/**
 		 * Factor used to determine how much satisfaction does TV give you
 		 */
-		private static const SATISFACTION:Number = 0.8;
+		private static const SATISFACTION:Number = 0.5;
 		
 		/**
 		 * Injected dependency

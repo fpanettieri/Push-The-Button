@@ -68,9 +68,9 @@ package com.gamingfondue.ptb.entities.player.behavior
 			player.x = projection.x;
 			
 			// World wrap
-			if (player.x > Nirvana.WIDTH) player.x = 0;
-			if (player.x <= -CELL_SIZE) player.x = Nirvana.WIDTH - CELL_SIZE;
-			if (player.y > Nirvana.HEIGHT) player.y = 0;
+			if (player.x > Nirvana.WIDTH - CELL_SIZE) player.x = -CELL_SIZE;
+			if (player.x < -CELL_SIZE) player.x = Nirvana.WIDTH - CELL_SIZE;
+			if (player.y > Nirvana.HEIGHT - MID_CELL) player.y = MID_CELL;
 		}
 		
 		override protected function fall(gravity:Number):void

@@ -19,7 +19,7 @@ package com.gamingfondue.ptb.entities.credits
 				"Que desperdicio",
 				"Ganaste $" + Statistics.money,
 				"Fuiste 'feliz' " + Statistics.happiness + " dias",
-				"Ahora se bueno y ve a apretar botones por alli",
+				"Ahora se bueno y sigue apretando botones en otro lado",
 				"Te llamare si te necesito",
 				"Este es el fin",
 				" ",

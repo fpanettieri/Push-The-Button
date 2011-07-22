@@ -21,6 +21,7 @@ package com.gamingfondue.ptb.entities.player.behavior
 		
 		// Default player configuration
 		protected var CELL_SIZE:Number = 8;
+		protected var MID_CELL:Number = 4;
 		protected var MAX_SPEED:Number = 8;
 		protected var MIN_SPEED:Number = 0.2;
 		protected var GRAVITY:Number = 8;
