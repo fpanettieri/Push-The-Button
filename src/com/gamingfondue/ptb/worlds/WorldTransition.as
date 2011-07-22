@@ -21,5 +21,11 @@ package com.gamingfondue.ptb.worlds
 		{
 			add(transition);
 		}
+		
+		override public function end():void
+		{
+			clearTweens()
+			removeAll();
+		}
 	}
 }

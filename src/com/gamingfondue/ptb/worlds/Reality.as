@@ -81,6 +81,7 @@ package com.gamingfondue.ptb.worlds
 		
 		override public function end():void
 		{
+			clearTweens()
 			removeAll();
 			Statistics.money += HUD.money;
 		}

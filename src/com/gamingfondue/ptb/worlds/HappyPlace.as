@@ -9,6 +9,7 @@ package com.gamingfondue.ptb.worlds
 	import com.gamingfondue.ptb.entities.PlayerTrail;
 	import com.gamingfondue.ptb.entities.Scanlines;
 	import com.gamingfondue.ptb.entities.Spawner;
+	import com.gamingfondue.ptb.entities.Statistics;
 	import com.gamingfondue.ptb.entities.level.Levels;
 	import com.gamingfondue.ptb.entities.level.Nirvana;
 	import com.gamingfondue.ptb.entities.player.Player;
@@ -118,6 +119,9 @@ package com.gamingfondue.ptb.worlds
 		override public function end():void
 		{
 			stopSonata()
+			clearTweens()
+			removeAll();
+			Statistics.happiness = HUD.happiness;
 		}
 		
 		/**

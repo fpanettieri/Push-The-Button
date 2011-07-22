@@ -108,5 +108,11 @@ package com.gamingfondue.ptb.worlds
 			Statistics.begin = getTimer();
 			FP.world = new Reality();
 		}
+		
+		override public function end():void
+		{
+			clearTweens()
+			removeAll();
+		}
 	}
 }

@@ -123,6 +123,8 @@ package com.gamingfondue.ptb.worlds
 		override public function end():void
 		{
 			balrog.stop();
+			clearTweens()
+			removeAll();
 		}
 	}
 }
