@@ -74,6 +74,11 @@ package com.gamingfondue.ptb.entities
          * Timer used to track screen transitions
          */
 		private var timer:Number;
+		
+		/**
+		 * TV center, used to calculate distance
+		 */
+		private var center:Point;
 
 		/**
 		 * Distance to the player
@@ -100,14 +105,15 @@ package com.gamingfondue.ptb.entities
 			setHitbox(16,14, 0, -2);
 			
 			noise = new LimitedSfx(Assets.TV_SOUND);
-			noise.min = 0.1;
-			noise.max = 0.6;
+			//noise.min = 0;
+			//noise.max = 0.8;
 
 			// Load raw tv image from Assets
 			var raw:Stamp = new Stamp(Assets.TV_IMAGE);
 			tv_off = new Image(raw.source);
 			tv_off.scaleX = width / 16;
 			tv_off.scaleY = height / 16;
+			center = new Point(x + width / 2, y + height / 2);
 			graphic = tv_off;
 			layer = Layers.OBJECTS;
 
@@ -150,8 +156,8 @@ package com.gamingfondue.ptb.entities
 			}
 
 			// Calculate distance to player
-			distance.x = player.x - x;
-			distance.y = player.y - y;
+			distance.x = player.x - center.x;
+			distance.y = player.y - center.y;
 			radial_distance = Math.sqrt(Math.pow(distance.x, 2) + Math.pow(distance.y, 2));
 
 			// Noise volume decreases with distance
@@ -161,7 +167,7 @@ package com.gamingfondue.ptb.entities
 			noise.pan = distance.x / -radius;
 			
 			// Watching tv reduces Player insatisfaction
-			player.insatisfaction -= FP.elapsed * SATISFACTION;
+			if(radial_distance < radius) player.insatisfaction -= FP.elapsed * SATISFACTION;
 			if (player.insatisfaction < 0) {
 				FP.world = new WorldTransition(new HappyPlace());
 			}
