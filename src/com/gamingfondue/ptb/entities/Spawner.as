@@ -80,7 +80,7 @@ package com.gamingfondue.ptb.entities
 			clearTweens();
 			
 			// A random value between the last 
-			cost = Levels.number;
+			cost = Math.pow(2, Levels.number - 1);
 			
 			// Return to reality when money it's not enough to spawn new happiness
 			if(HUD.money < cost)  {

@@ -28,7 +28,7 @@ package com.gamingfondue.ptb.entities.player.behavior
 		protected var RUN_ACCEL:Number = 8;
 		protected var RUN_SPEED:Number = 4;
 		protected var FALLING_SPEED:Number = 0;
-		protected var WALLJUMP_SPEED:Number = 2;
+		protected var WALLJUMP_SPEED:Number = 4;
 
 
 		// Jump heights

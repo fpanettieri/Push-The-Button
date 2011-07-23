@@ -117,10 +117,10 @@ package com.gamingfondue.ptb.entities
 		 */ 
 		private function playSonata():void
 		{
-/*			fader = new SfxFader(sonata, null, Tween.ONESHOT);
+			fader = new SfxFader(sonata, null, Tween.ONESHOT);
 			sonata.loop(0.1, 0, position);
 			addTween(fader);
-			fader.fadeTo(1, 1);*/
+			fader.fadeTo(1, 1);
 		}
 		
 		/**

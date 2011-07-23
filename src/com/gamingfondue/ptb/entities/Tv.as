@@ -4,6 +4,8 @@ package com.gamingfondue.ptb.entities
 	import com.gamingfondue.ptb.constants.Assets;
 	import com.gamingfondue.ptb.constants.Languages;
 	import com.gamingfondue.ptb.constants.Layers;
+	import com.gamingfondue.ptb.entities.level.Level;
+	import com.gamingfondue.ptb.entities.level.Levels;
 	import com.gamingfondue.ptb.entities.player.Player;
 	import com.gamingfondue.ptb.worlds.HappyPlace;
 	import com.gamingfondue.ptb.worlds.WorldTransition;
@@ -41,7 +43,7 @@ package com.gamingfondue.ptb.entities
 		/**
 		 * Factor used to determine how much satisfaction does TV give you
 		 */
-		private static const SATISFACTION:Number = 0.7;
+		private static const SATISFACTION:Number = 1;
 		
 		/**
 		 * Injected dependency
@@ -94,6 +96,11 @@ package com.gamingfondue.ptb.entities
          * Indicates if the TV its on or off
          */
 		public var on:Boolean;
+		
+		/**
+		 * How much satisfaction does TV give us
+		 */
+		private var satisfaction:Number;
 
 		/**
 		 * Creates and configures the sprite and sounds
@@ -105,8 +112,7 @@ package com.gamingfondue.ptb.entities
 			setHitbox(16,14, 0, -2);
 			
 			noise = new LimitedSfx(Assets.TV_SOUND);
-			//noise.min = 0;
-			//noise.max = 0.8;
+			noise.min = 0.1;
 
 			// Load raw tv image from Assets
 			var raw:Stamp = new Stamp(Assets.TV_IMAGE);
@@ -167,8 +173,10 @@ package com.gamingfondue.ptb.entities
 			noise.pan = distance.x / -radius;
 			
 			// Watching tv reduces Player insatisfaction
-			if(radial_distance < radius) player.insatisfaction -= FP.elapsed * SATISFACTION;
+			satisfaction = Math.pow(2, Levels.number - 1) * FP.elapsed * SATISFACTION;
+			if(radial_distance < radius) player.insatisfaction -= satisfaction;
 			if (player.insatisfaction < 0) {
+				player.insatisfaction = 0;
 				FP.world = new WorldTransition(new HappyPlace());
 			}
 		}
