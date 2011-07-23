@@ -3,6 +3,7 @@ package com.gamingfondue.ptb.entities.splash
 	import Playtomic.Log;
 	
 	import com.gamingfondue.ptb.constants.Assets;
+	import com.gamingfondue.ptb.constants.Bindings;
 	import com.gamingfondue.ptb.constants.Languages;
 	import com.gamingfondue.ptb.entities.Statistics;
 	import com.gamingfondue.ptb.entities.Tooltip;
@@ -97,7 +98,7 @@ package com.gamingfondue.ptb.entities.splash
 			}
 			
 			// Enter or space select current option
-			if (Input.pressed(Key.SPACE) || Input.pressed(Key.ENTER)) {
+			if (Input.pressed(Bindings.ACCEPT_KEY)) {
 				complete();
 			}
 			

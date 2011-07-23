@@ -6,11 +6,11 @@ package com.gamingfondue.ptb.entities.player
 	import com.gamingfondue.ptb.entities.player.behavior.BehaviorFactory;
 	import com.gamingfondue.ptb.entities.player.behavior.Behaviors;
 	import com.gamingfondue.ptb.entities.player.behavior.PlayerBehavior;
-	import com.gamingfondue.ptb.entities.player.sound.Sound;
 	
 	import flash.geom.Point;
 	
 	import net.flashpunk.Entity;
+	import net.flashpunk.Sfx;
 	import net.flashpunk.graphics.Image;
 	
 	public class Player extends Entity
@@ -18,7 +18,7 @@ package com.gamingfondue.ptb.entities.player
 		private var _image:Image;
 		private var _behavior:PlayerBehavior;
 		private var _behaviorType:int;
-		private var _sound:Sound;
+		private var jumping:Sfx;
 		
 		public var acceleration:Point;
 		public var speed:Point;
@@ -32,7 +32,7 @@ package com.gamingfondue.ptb.entities.player
 			graphic = _image;
 			layer = Layers.PLAYER;
 			
-			_sound = new Sound();
+			jumping = new Sfx(Assets.JUMPING);
 			
 			setHitbox(16, 16, 0, 0);
 			type = Types.PLAYER;
@@ -56,9 +56,9 @@ package com.gamingfondue.ptb.entities.player
 		/**
 		 * Play a sound effect
 		 */ 
-		public function play(sound:int):void
+		public function jump():void
 		{
-			_sound.play(sound);
+			jumping.play();
 		}
 		
 		/**

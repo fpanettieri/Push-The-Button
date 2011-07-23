@@ -2,7 +2,6 @@ package com.gamingfondue.ptb.entities.player.behavior
 {
 	import com.gamingfondue.ptb.constants.Bindings;
 	import com.gamingfondue.ptb.constants.Types;
-	import com.gamingfondue.ptb.entities.player.sound.Sounds;
 	
 	import net.flashpunk.FP;
 	import net.flashpunk.utils.Input;
@@ -12,7 +11,7 @@ package com.gamingfondue.ptb.entities.player.behavior
 		override public function begin():void
 		{
 			player.acceleration.y = DOUBLE_JUMP;
-			player.play(Sounds.JUMPING);
+			player.jump();
 		}
 		
 		override public function update():void

@@ -1,7 +1,6 @@
 package com.gamingfondue.ptb.entities.player.behavior
 {
 	import com.gamingfondue.ptb.constants.Types;
-	import com.gamingfondue.ptb.entities.player.sound.Sounds;
 	
 	import net.flashpunk.FP;
 
@@ -13,7 +12,7 @@ package com.gamingfondue.ptb.entities.player.behavior
 			player.acceleration.x = RUN_ACCEL;
 			player.speed.x = WALLJUMP_SPEED;
 			player.image.flipped = false;
-			player.play(Sounds.JUMPING);
+			player.jump();
 		}
 		
 		override public function update():void

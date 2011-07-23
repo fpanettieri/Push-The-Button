@@ -9,19 +9,20 @@ package com.gamingfondue.ptb.entities.level
 	{
 		public static const last:Number = 14;//58;
 		
-		[Embed(source='/assets/level02.oel', mimeType='application/octet-stream')]
-		private static const L1:Class;
+		[Embed(source='/assets/level01.oel', mimeType='application/octet-stream')] private static const L1:Class;
+		[Embed(source='/assets/level02.oel', mimeType='application/octet-stream')] private static const L2:Class;
 		
-		[Embed(source='/assets/hp02.oel', mimeType='application/octet-stream')]
-		private static const HP1:Class;
+		[Embed(source='/assets/hp01.oel', mimeType='application/octet-stream')] private static const HP1:Class;
+		[Embed(source='/assets/hp02.oel', mimeType='application/octet-stream')] private static const HP2:Class;
 		
-		private static const REALITIES:Array = [L1];
+		private static const REALITIES:Array = [L1, L2];
 		private static var realities:Array = [];
 
-		private static const NIRVANAS:Array = [HP1];
+		private static const NIRVANAS:Array = [HP1, HP2];
 		private static var nirvanas:Array = [];
 
-		private static var _current:Number = -1;
+		// FIXME: Default should be -1
+		private static var _current:Number = 0;
 		private static var instance:Levels = new Levels();
 		
 		public function Levels()

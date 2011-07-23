@@ -3,7 +3,6 @@ package com.gamingfondue.ptb.entities.player.behavior
 	import com.gamingfondue.patterns.Behavior;
 	import com.gamingfondue.ptb.constants.Types;
 	import com.gamingfondue.ptb.entities.player.Player;
-	import com.gamingfondue.ptb.entities.player.sound.Sounds;
 	
 	import flash.geom.Point;
 	
