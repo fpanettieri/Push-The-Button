@@ -25,7 +25,7 @@ package com.gamingfondue.ptb.entities.level
 		private static var nirvanas:Array = [];
 
 		// FIXME: Default should be -1
-		private static var _current:Number = -1;
+		private static var _current:Number = 0;
 		private static var instance:Levels = new Levels();
 		
 		public function Levels()

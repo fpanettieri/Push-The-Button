@@ -18,6 +18,7 @@ package com.gamingfondue.ptb.entities.player.behavior
 		override public function update():void
 		{
 			fall(GRAVITY);
+			if (player.y > Nirvana.HEIGHT - MID_CELL) player.y = MID_CELL;
 			
 			// Project player horizontally
 			if(Input.check(Bindings.RIGHT_KEY)) {
@@ -69,8 +70,7 @@ package com.gamingfondue.ptb.entities.player.behavior
 			
 			// World wrap
 			if (player.x > Nirvana.WIDTH - CELL_SIZE) player.x = -CELL_SIZE;
-			if (player.x < -CELL_SIZE) player.x = Nirvana.WIDTH - CELL_SIZE;
-			if (player.y > Nirvana.HEIGHT - MID_CELL) player.y = MID_CELL;
+			if (player.x < -CELL_SIZE) player.x = Nirvana.WIDTH - CELL_SIZE;	
 		}
 		
 		override protected function fall(gravity:Number):void
