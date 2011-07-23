@@ -1,5 +1,6 @@
 package com.gamingfondue.ptb.entities.level
 {
+	import com.gamingfondue.ptb.constants.Layers;
 	import com.gamingfondue.ptb.entities.Tooltips;
 	
 	import flash.geom.Point;
@@ -26,7 +27,7 @@ package com.gamingfondue.ptb.entities.level
 			super(0, 0);
 			tooltips = new Tooltips();
 			spots = [];
-			layer = 1;
+			layer = Layers.WALL;
 			type = "solid";
 		}
 	}

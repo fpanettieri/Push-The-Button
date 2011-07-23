@@ -3,16 +3,12 @@ package com.gamingfondue.ptb.entities
 	import com.gamingfondue.ptb.constants.Assets;
 	import com.gamingfondue.ptb.constants.Layers;
 	import com.gamingfondue.ptb.entities.player.Player;
-	import com.gamingfondue.util.Logger;
 	
-	import flash.display.BitmapData;
 	import flash.geom.Rectangle;
 	
 	import net.flashpunk.Entity;
-	import net.flashpunk.FP;
 	import net.flashpunk.Sfx;
 	import net.flashpunk.Tween;
-	import net.flashpunk.graphics.Stamp;
 	import net.flashpunk.tweens.sound.SfxFader;
 	
 	/**
@@ -121,10 +117,10 @@ package com.gamingfondue.ptb.entities
 		 */ 
 		private function playSonata():void
 		{
-			fader = new SfxFader(sonata, null, Tween.ONESHOT);
+/*			fader = new SfxFader(sonata, null, Tween.ONESHOT);
 			sonata.loop(0.1, 0, position);
 			addTween(fader);
-			fader.fadeTo(1, 1);
+			fader.fadeTo(1, 1);*/
 		}
 		
 		/**
@@ -144,7 +140,6 @@ package com.gamingfondue.ptb.entities
 			_area = area;
 			x = area.x;
 			y = area.y;
-			graphic = new Stamp(new BitmapData(area.width, area.height, false, BG));
 		}
 		
 		/**

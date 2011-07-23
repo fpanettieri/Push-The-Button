@@ -9,10 +9,10 @@ package com.gamingfondue.ptb.entities.level
 	{
 		public static const last:Number = 14;//58;
 		
-		[Embed(source='/assets/level01.oel', mimeType='application/octet-stream')]
+		[Embed(source='/assets/level02.oel', mimeType='application/octet-stream')]
 		private static const L1:Class;
 		
-		[Embed(source='/assets/hp01.oel', mimeType='application/octet-stream')]
+		[Embed(source='/assets/hp02.oel', mimeType='application/octet-stream')]
 		private static const HP1:Class;
 		
 		private static const REALITIES:Array = [L1];

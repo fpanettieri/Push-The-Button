@@ -19,7 +19,7 @@ package com.gamingfondue.ptb
 		{
 			super(320, 240, 30, false);
 			FP.screen.scale = 2;
-			Log.View(3639, "0a7e983cf8a24f2f", root.loaderInfo.loaderURL);
+			//Log.View(3639, "0a7e983cf8a24f2f", root.loaderInfo.loaderURL);
 			//FP.console.enable();
 		}
 		
@@ -29,8 +29,8 @@ package com.gamingfondue.ptb
 		override public function init():void
 		{
 			// Create first world
-			FP.world = new Splash();
-			//FP.world = new Reality();
+			//FP.world = new Splash();
+			FP.world = new Reality();
 			//FP.world = new Credits();
 		} 
 	}

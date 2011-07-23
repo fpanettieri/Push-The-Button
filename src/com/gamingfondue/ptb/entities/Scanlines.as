@@ -27,7 +27,7 @@ package com.gamingfondue.ptb.entities
 		
 		override public function update():void
 		{
-			if (display.alpha == 1) display.alpha = 0.97;
+			if (display.alpha == 1) display.alpha = 0.95;
 			else display.alpha = 1;
 		}
 	}

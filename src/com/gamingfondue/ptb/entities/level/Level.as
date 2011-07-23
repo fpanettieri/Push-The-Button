@@ -1,5 +1,6 @@
 package com.gamingfondue.ptb.entities.level 
 {
+	import com.gamingfondue.ptb.constants.Layers;
 	import com.gamingfondue.ptb.entities.Home;
 	import com.gamingfondue.ptb.entities.Tooltips;
 	import com.gamingfondue.ptb.entities.Work;
@@ -32,7 +33,7 @@ package com.gamingfondue.ptb.entities.level
 			home = new Home();
 			work = new Work();
 			tooltips = new Tooltips();
-			layer = 1;
+			layer = Layers.WALL;
 			type = "solid";
 		}
 	}

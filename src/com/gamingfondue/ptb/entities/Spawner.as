@@ -50,6 +50,11 @@ package com.gamingfondue.ptb.entities
 		private var last:Point = new Point();
 		
 		/**
+		 * Happiness cost
+		 */
+		private var cost:Number;
+		
+		/**
 		 * If the player touched happiness it skips to the next level
 		 */
 		override public function update():void
@@ -74,8 +79,11 @@ package com.gamingfondue.ptb.entities
 			// Remove previous alarm
 			clearTweens();
 			
+			// A random value between the last 
+			cost = Levels.number;
+			
 			// Return to reality when money it's not enough to spawn new happiness
-			if(HUD.money < Levels.number)  {
+			if(HUD.money < cost)  {
 				
 				// If this is the last level we show the final world
 				if (Statistics.age >= Levels.last) {
@@ -87,7 +95,7 @@ package com.gamingfondue.ptb.entities
 			}
 			
 			// Money decreases each time happiness spawns
-			HUD.money -= Levels.number;
+			HUD.money -= cost;
 			
 			// Choose random spot and move happiness there
 			do {

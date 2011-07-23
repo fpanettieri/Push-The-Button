@@ -3,16 +3,12 @@ package com.gamingfondue.ptb.entities
 	import com.gamingfondue.ptb.constants.Layers;
 	import com.gamingfondue.ptb.entities.player.Player;
 	
-	import flash.display.BitmapData;
 	import flash.geom.Rectangle;
 	
 	import net.flashpunk.Entity;
-	import net.flashpunk.graphics.Stamp;
 	
 	/**
-	 * Represents the player home
-     * Used to control game cycles.
-	 * Also, as soon as th player enter his home all lights are turned on
+	 * Used to determine if the player has gone to work
 	 * 
 	 * @author: Fabio R. Panettieri
 	 */ 
@@ -67,14 +63,8 @@ package com.gamingfondue.ptb.entities
 			// Only update state when all dependencies has been updated
 			if(_area == null || _player == null || buttons == null) return;
 				
-			// Turn on tvs when player enters work
-			if (!inside && _area.contains(_player.x, _player.y)) {
-				inside = true;
-			}
-			
-			// Turn off tvs when player leaves work
-			if (inside && !_area.contains(_player.x, _player.y)) {
-				inside = false;
+			// Mark player as worked as soon as he enters workTurn on tvs when player enters work
+			if (!_player.worked && _area.contains(_player.x, _player.y)) {
 				_player.worked = true;
 			}
 		}
@@ -87,7 +77,6 @@ package com.gamingfondue.ptb.entities
 			_area = area;
 			x = area.x;
 			y = area.y;
-			graphic = new Stamp(new BitmapData(area.width, area.height, false, BG));
 		}
 		
 		/**
