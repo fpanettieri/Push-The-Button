@@ -28,14 +28,14 @@ package com.gamingfondue.ptb.entities.player.behavior
 		protected var RUN_ACCEL:Number = 8;
 		protected var RUN_SPEED:Number = 4;
 		protected var FALLING_SPEED:Number = 0;
-		protected var WALLJUMP_SPEED:Number = 4;
+		protected var WALLJUMP_SPEED:Number = 2;
 
 
 		// Jump heights
 		protected var HIGH_JUMP:Number = -176;
 		protected var DOUBLE_JUMP:Number = -128;
 		protected var LONG_JUMP:Number = -144;
-		protected var WALL_JUMP:Number = -100;
+		protected var WALL_JUMP:Number = -144;
 	
 		// Vector used to estamiate player location after physics calculations
 		protected var projection:Point;

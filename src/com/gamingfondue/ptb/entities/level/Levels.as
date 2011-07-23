@@ -7,7 +7,7 @@ package com.gamingfondue.ptb.entities.level
 	 */ 
 	public class Levels
 	{
-		public static const last:Number = 14;//58;
+		public static const last:Number = 22;//58;
 		
 		[Embed(source='/assets/level01.oel', mimeType='application/octet-stream')] private static const L1:Class;
 		[Embed(source='/assets/level02.oel', mimeType='application/octet-stream')] private static const L2:Class;
@@ -25,7 +25,7 @@ package com.gamingfondue.ptb.entities.level
 		private static var nirvanas:Array = [];
 
 		// FIXME: Default should be -1
-		private static var _current:Number = 1;
+		private static var _current:Number = -1;
 		private static var instance:Levels = new Levels();
 		
 		public function Levels()
