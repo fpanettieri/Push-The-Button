@@ -14,15 +14,18 @@ package com.gamingfondue.ptb.entities.level
 		
 		[Embed(source='/assets/hp01.oel', mimeType='application/octet-stream')] private static const HP1:Class;
 		[Embed(source='/assets/hp02.oel', mimeType='application/octet-stream')] private static const HP2:Class;
+		[Embed(source='/assets/hp03.oel', mimeType='application/octet-stream')] private static const HP3:Class;
+		[Embed(source='/assets/hp04.oel', mimeType='application/octet-stream')] private static const HP4:Class;
+		[Embed(source='/assets/hp05.oel', mimeType='application/octet-stream')] private static const HP5:Class;
 		
-		private static const REALITIES:Array = [L1, L2];
+		private static const REALITIES:Array = [L1, L2, L1];
 		private static var realities:Array = [];
 
-		private static const NIRVANAS:Array = [HP1, HP2];
+		private static const NIRVANAS:Array = [HP1, HP2, HP3, HP4, HP5];
 		private static var nirvanas:Array = [];
 
 		// FIXME: Default should be -1
-		private static var _current:Number = 0;
+		private static var _current:Number = 1;
 		private static var instance:Levels = new Levels();
 		
 		public function Levels()
