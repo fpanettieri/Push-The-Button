@@ -28,6 +28,8 @@ package com.gamingfondue.ptb.entities.credits
 				"Or not?",
 				"Thank you for playing 'Push The Button'",
 				"We hope you enjoyed it",
+				"This is not the end. It's the beginning",
+				"Let's change this story",
 				"<Gaming Fondue team>",
 				"Luigi Panettieri: Tester",
 				"Liliana Pinto: Tester",
