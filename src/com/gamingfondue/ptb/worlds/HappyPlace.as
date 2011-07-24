@@ -119,6 +119,9 @@ package com.gamingfondue.ptb.worlds
 			if (Input.pressed(Key.M)){
 				FP.volume = 1 - FP.volume;
 			}
+			if (Input.pressed(Key.N)){
+				FP.world = new WorldTransition(new Reality());
+			}
 		}
 		
 		override public function end():void
@@ -145,7 +148,7 @@ package com.gamingfondue.ptb.worlds
 		 */ 
 		private function stopSonata():void
 		{
-			position = sonata.position * 1000;
+			if (sonata.position > 0) position = sonata.position * 1000;
 			sonata.stop();
 		}
 	}

@@ -20,7 +20,7 @@ package com.gamingfondue.ptb.entities.credits
 				"Ganaste $" + Statistics.money,
 				"No es suficiente",
 				"Fuiste 'feliz' " + Statistics.happiness + " dias",
-				"Muy poco",
+				"JA!",
 				"Ahora se bueno y sigue apretando botones en otro lado",
 				"Te llamare si te necesito",
 				"Este es el fin",

@@ -128,7 +128,7 @@ package com.gamingfondue.ptb.entities
 		 */ 
 		private function stopSonata():void
 		{
-			position = sonata.position * 1000;
+			if (sonata.position > 0) position = sonata.position * 1000;
 			sonata.stop();
 		}
 

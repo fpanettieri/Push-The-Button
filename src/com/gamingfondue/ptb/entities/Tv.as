@@ -112,7 +112,7 @@ package com.gamingfondue.ptb.entities
 			setHitbox(16,14, 0, -2);
 			
 			noise = new LimitedSfx(Assets.TV_SOUND);
-			noise.min = 0.1;
+			noise.min = 0.2;
 
 			// Load raw tv image from Assets
 			var raw:Stamp = new Stamp(Assets.TV_IMAGE);
