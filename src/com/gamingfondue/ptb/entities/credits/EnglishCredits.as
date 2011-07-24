@@ -41,6 +41,7 @@ package com.gamingfondue.ptb.entities.credits
 				"Intro y credits: Balrog Boogie [8-Bit Version] - Diablo Swing Orchestra‏",
 				"Reality: Moonlight Sonata [Remix] - Solarfist",
 				"Happy world: Moonlight Sonata, 3rd Movement [8-bit Version]",
+				"Game over",
 				"Press R to restart"
 			];
 		}
