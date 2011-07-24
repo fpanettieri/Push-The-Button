@@ -173,8 +173,7 @@ package com.gamingfondue.ptb.entities
 			noise.pan = distance.x / -radius;
 			
 			// Watching tv reduces Player insatisfaction
-			satisfaction = Math.pow(2, Levels.number - 1) * FP.elapsed * SATISFACTION;
-			if(radial_distance < radius) player.insatisfaction -= satisfaction;
+			player.insatisfaction -= FP.elapsed * SATISFACTION;
 			if (player.insatisfaction < 0) {
 				player.insatisfaction = 0;
 				FP.world = new WorldTransition(new HappyPlace());

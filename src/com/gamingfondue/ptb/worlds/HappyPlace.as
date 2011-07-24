@@ -119,6 +119,7 @@ package com.gamingfondue.ptb.worlds
 			if (Input.pressed(Key.M)){
 				FP.volume = 1 - FP.volume;
 			}
+			// FIXME: remove this
 			if (Input.pressed(Key.N)){
 				FP.world = new WorldTransition(new Reality());
 			}

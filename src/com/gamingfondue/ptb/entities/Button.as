@@ -16,11 +16,6 @@ package com.gamingfondue.ptb.entities
 	public class Button extends Entity
 	{
 		/**
-		 * Injected dependency
-		 */ 
-		public var player:Player;
-		
-		/**
 		 * Indicates if the button has been pressed
 		 */
 		private var pressed:Boolean;
@@ -64,7 +59,6 @@ package com.gamingfondue.ptb.entities
 			if (pressed) return;
 			if (collide(Types.PLAYER, x, y)) {
 				pressed = true;
-				player.insatisfaction += 1;
 				image.color = 0xFF30E030;
 				HUD.money += money;
 				sfx.play();

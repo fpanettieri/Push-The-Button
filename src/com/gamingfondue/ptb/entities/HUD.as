@@ -57,7 +57,7 @@ package com.gamingfondue.ptb.entities
 				} else {
 					age.text = "Edad: " + _age;
 				}
-				money.text = "$ " + _money;
+				money.text = "$ " + _money * 100;
 				happiness.text = ":) " + _happiness;
 			}
 		}

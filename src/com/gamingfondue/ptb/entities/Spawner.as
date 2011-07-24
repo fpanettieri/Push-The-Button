@@ -1,5 +1,6 @@
 package com.gamingfondue.ptb.entities
 {
+	import com.gamingfondue.ptb.entities.level.Level;
 	import com.gamingfondue.ptb.entities.level.Levels;
 	import com.gamingfondue.ptb.worlds.Credits;
 	import com.gamingfondue.ptb.worlds.Reality;
@@ -17,12 +18,12 @@ package com.gamingfondue.ptb.entities
 		/**
 		 * Max delay between happiness spawns
 		 */
-		private const DELAY_MIN:Number = 5;
+		private const DELAY_MIN:Number = 8;
 		
 		/**
 		 * Min delay between happiness spawns
 		 */
-		private const DELAY_MARGIN:Number = 10;
+		private const DELAY_MARGIN:Number = 12;
 		
 		/**
 		 * Injected Dependency. Happiness
@@ -86,7 +87,7 @@ package com.gamingfondue.ptb.entities
 			if(HUD.money < cost)  {
 				
 				// If this is the last level we show the final world
-				if (Statistics.age >= Levels.last) {
+				if (Levels.number >= Levels.last) {
 					FP.world = new WorldTransition(new Credits());
 				} else {
 					FP.world = new WorldTransition(new Reality());

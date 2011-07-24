@@ -4,6 +4,7 @@ package com.gamingfondue.ptb.worlds
 	
 	import com.gamingfondue.ptb.constants.Assets;
 	import com.gamingfondue.ptb.entities.Statistics;
+	import com.gamingfondue.ptb.entities.level.Levels;
 	import com.gamingfondue.ptb.entities.splash.FlashPunk;
 	import com.gamingfondue.ptb.entities.splash.GamingFondue;
 	import com.gamingfondue.ptb.entities.splash.Menu;
@@ -67,6 +68,10 @@ package com.gamingfondue.ptb.worlds
 			// Intro music
 			balrog = new Sfx(Assets.BALROG);
 			balrog.loop();
+			
+			// Reset statistics
+			Levels.reset();
+			Statistics.reset();
 			
             elapsed = 0;
             fp = new FlashPunk(0xFF9900, 0x333333, 1, 2.7);

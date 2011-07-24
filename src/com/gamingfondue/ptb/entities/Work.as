@@ -85,9 +85,6 @@ package com.gamingfondue.ptb.entities
 		public function set player(player:Player):void
 		{
 			_player = player;
-			for each (button in buttons) {
-				button.player = player;
-			}
 		}
 	}
 }

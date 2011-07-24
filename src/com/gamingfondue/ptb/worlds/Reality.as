@@ -53,7 +53,7 @@ package com.gamingfondue.ptb.worlds
 			cameraman.target = player;
 			
 			hud = new HUD();
-			Statistics.age = Levels.number * 4 + Constants.BASE_AGE;
+			Statistics.age = Levels.number * 10 + Constants.BASE_AGE;
 			HUD.age = Statistics.age;
 
 			// Log level

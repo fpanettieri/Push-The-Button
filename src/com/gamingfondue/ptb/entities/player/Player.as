@@ -23,6 +23,10 @@ package com.gamingfondue.ptb.entities.player
 		public var acceleration:Point;
 		public var speed:Point;
 		public var worked:Boolean;
+		
+		/**
+		 * How many seconds the guy shoyld see tv to enter happy place
+		 */ 
 		public var insatisfaction:Number;
 		
 		public function Player(x:Number = 0, y:Number = 0, behavior:int = Behaviors.STANDING)
@@ -40,7 +44,7 @@ package com.gamingfondue.ptb.entities.player
 			acceleration = new Point();
 			speed = new Point();
 			worked = false;
-			insatisfaction = 0;
+			insatisfaction = 15;
 			this.behavior = behavior;
 		}
 		
