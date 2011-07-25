@@ -70,6 +70,9 @@ package com.gamingfondue.ptb.worlds
 			add(billboard);
 			add(hud);
 			add(level.tooltips);
+			
+			// Start bg music
+			level.home.playSonata();
 		}
 		
 		override public function update():void

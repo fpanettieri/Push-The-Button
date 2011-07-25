@@ -115,18 +115,18 @@ package com.gamingfondue.ptb.entities
 		/**
 		 * Start playing sonata
 		 */ 
-		private function playSonata():void
+		public function playSonata():void
 		{
 			fader = new SfxFader(sonata, null, Tween.ONESHOT);
 			sonata.loop(0.1, 0, position);
 			addTween(fader);
-			fader.fadeTo(1, 1);
+			fader.fadeTo(1, 3);
 		}
 		
 		/**
 		 * Pause sonata and store position
 		 */ 
-		private function stopSonata():void
+		public function stopSonata():void
 		{
 			if (sonata.position > 0) position = sonata.position * 1000;
 			sonata.stop();
