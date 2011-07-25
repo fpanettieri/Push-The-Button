@@ -19,7 +19,6 @@ package com.gamingfondue.ptb.entities.credits
 				"Ahora se bueno y sigue apretando botones en otro lado",
 				"Te llamare si te necesitamos. Este es el fin",
 				"O no?",
-				"Presiona R para volver a empezar",
 				"Gracias por jugar 'Push The Button', esperamos que lo hayas disfrutado",
 				"Este es el final del juego, pero no de la historia. Todavia puedes cambiarla...",
 				"Presiona R para volver a empezar",
