@@ -27,7 +27,7 @@ package com.gamingfondue.ptb.entities
 		/**
 		 * Number of images used in the transition
 		 */
-		private static const SEGMENTS:Number = 10;
+		private static const SEGMENTS:Number = 16;
 		
 		/**
 		 * Tween that moves images
