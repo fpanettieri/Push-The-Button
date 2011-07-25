@@ -141,7 +141,6 @@
     <tile id="1" x="256" y="16"/>
   </wall>
   <objects>
-    <entrance x="208" y="96"/>
     <happiness x="288" y="208"/>
     <happiness x="288" y="272"/>
     <happiness x="288" y="144"/>
@@ -187,5 +186,6 @@
     <happiness x="320" y="48"/>
     <happiness x="112" y="48"/>
     <happiness x="176" y="48"/>
+    <entrance x="208" y="0"/>
   </objects>
 </level>

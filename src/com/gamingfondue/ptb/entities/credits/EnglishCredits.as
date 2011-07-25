@@ -11,7 +11,7 @@ package com.gamingfondue.ptb.entities.credits
 			var seconds:int = (elapsed / 1000) % 60;
 			
 			return [
-				"You're fired, game over",
+				"Game over. You're fired",
 				"You didn't lose the game! The company doesn't need you",
 				"You lived "  + Statistics.age + " winters in " + minutes + " minutes, " + seconds + " seconds. Wasted time",
 				"You earned $" + Statistics.money,

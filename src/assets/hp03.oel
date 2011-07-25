@@ -121,7 +121,6 @@
     <happiness x="208" y="48"/>
     <happiness x="304" y="48"/>
     <happiness x="368" y="48"/>
-    <entrance x="208" y="112"/>
     <happiness x="288" y="208"/>
     <happiness x="224" y="208"/>
     <happiness x="128" y="208"/>
@@ -139,5 +138,6 @@
     <happiness x="256" y="304"/>
     <happiness x="336" y="304"/>
     <happiness x="416" y="304"/>
+    <entrance x="208" y="0"/>
   </objects>
 </level>
