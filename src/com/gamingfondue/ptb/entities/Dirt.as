@@ -1,6 +1,8 @@
 package com.gamingfondue.ptb.entities
 {
+	import com.gamingfondue.ptb.constants.Layers;
 	import com.gamingfondue.ptb.entities.player.Player;
+	import com.gamingfondue.ptb.entities.player.behavior.Behaviors;
 	
 	import flash.display.BitmapData;
 	
@@ -23,11 +25,41 @@ package com.gamingfondue.ptb.entities
 		 */ 
 		private var _player:Player;
 		
-		// DUNNO
-		private var timer:Number = 0;
+		/**
+		 * Dirt color
+		 */
+		private const COLOR:uint = 0xC0C0C0;
 		
-		// DUNNO
-		private var particle_count:int = 20;
+		/**
+		 * Horizontal offset, used on right walling
+		 */
+		private const OFFSET_X:Number = 15;
+		
+		/**
+		 * Vertical offset, used on place player dirt
+		 */
+		private const OFFSET_Y:Number = 14;
+		
+		/**
+		 * Emitter type
+		 */
+		private const TYPE:String = 'dirt';
+		
+		
+		/**
+		 * Number of dirt particles
+		 */ 
+		private const PARTCILES:int = 20;
+		
+		/**
+		 * How many seconds shoul each emision be delayed
+		 */
+		private const DELAY:Number = 0.1;
+		
+		/**
+		 * How much time has passed since the last emission
+		 */
+		private var delay:Number;
 		
 		/**
 		 * Creates and configures the emmiter
@@ -35,30 +67,40 @@ package com.gamingfondue.ptb.entities
 		public function Dirt()
 		{
 			super(0, 0);
-			emitter = new Emitter(new BitmapData(1, 1, false, 0xFF0000));
+			emitter = new Emitter(new BitmapData(1, 1, false, COLOR));
 			this.graphic = emitter;
 			
-			emitter.newType('explode',[0]);
-			emitter.setMotion('explode', 0, 0, 0.2, 360, 20, 1);
+			emitter.newType(TYPE, [0]);
+			emitter.setAlpha(TYPE, 0.7, 0.2);
+			emitter.setMotion(TYPE, 75, 0, 0.1, 30, 20, 0.3);
+			
+			layer = Layers.PLAYER;
+			delay = 0;
 		}
 		
 		/**
 		 * Moves the emitter next to the player and emits something if it's accurate
 		 */ 
-		override public function update():void {
-			x = _player.x;
-			y = _player.y;
-			
-			timer += FP.elapsed;
-			if( timer > 1 ) {
-				timer = 0;
-				explode(x, y);
-			}
+		override public function update():void 
+		{
+			if (_player.behavior == Behaviors.LEFT_WALLING) {
+				y = _player.y + OFFSET_Y;
+				x = _player.x + 1;
+				emit(x, y);
+			} else if (_player.behavior == Behaviors.RIGHT_WALLING) {
+				y = _player.y + OFFSET_Y;
+				x = _player.x + OFFSET_X;
+				emit(x, y);
+			} 
 		}
 		
-		private function explode(x:Number, y:Number):void {
-			for(var i:int = 0; i < particle_count; i++){
-				emitter.emit('explode',0,0);
+		private function emit(x:Number, y:Number):void {
+			delay += FP.elapsed;
+			if (delay > DELAY){
+				delay = 0;
+				for(var i:int = 0; i < PARTCILES; i++){
+					emitter.emit(TYPE, 0, 0);
+				}
 			}
 		}
 		

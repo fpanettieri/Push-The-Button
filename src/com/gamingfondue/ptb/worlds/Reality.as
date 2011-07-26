@@ -6,6 +6,7 @@ package com.gamingfondue.ptb.worlds
 	import com.gamingfondue.ptb.entities.Billboard;
 	import com.gamingfondue.ptb.entities.Button;
 	import com.gamingfondue.ptb.entities.Cameraman;
+	import com.gamingfondue.ptb.entities.Dirt;
 	import com.gamingfondue.ptb.entities.HUD;
 	import com.gamingfondue.ptb.entities.Sky;
 	import com.gamingfondue.ptb.entities.Statistics;
@@ -30,6 +31,7 @@ package com.gamingfondue.ptb.worlds
 		private var sky:Sky;
 		private var level:Level;
 		private var player:Player;
+		private var dirt:Dirt;
 		private var billboard:Billboard;
 		private var cameraman:Cameraman;
 		private var hud:HUD;
@@ -47,6 +49,11 @@ package com.gamingfondue.ptb.worlds
 			level.home.player = player;
 			level.work.player = player;
 			level.tooltips.player = player;
+			
+			// Dirt used on walling
+			dirt = new Dirt();
+			dirt.player = player;
+			
 			billboard = new Billboard(0, 222);
 			
 			cameraman = new Cameraman();
@@ -67,6 +74,7 @@ package com.gamingfondue.ptb.worlds
 			add(level.work);
 			addList(level.work.buttons);
 			add(player);
+			add(dirt);
 			add(cameraman);
 			add(billboard);
 			add(hud);
