@@ -255,7 +255,7 @@
     <rect x="1744" y="1616" w="80" h="16"/>
     <rect x="1744" y="1840" w="48" h="16"/>
     <rect x="1744" y="1856" w="16" h="48"/>
-    <rect x="1760" y="1424" w="16" h="48"/>
+    <rect x="1760" y="1392" w="16" h="80"/>
     <rect x="1760" y="1488" w="16" h="32"/>
     <rect x="1760" y="1888" w="64" h="16"/>
     <rect x="1760" y="1984" w="16" h="32"/>
@@ -3202,7 +3202,6 @@
     <tile id="1" x="1664" y="1456"/>
     <tile id="1" x="1696" y="1424"/>
     <tile id="1" x="1712" y="1424"/>
-    <tile id="1" x="1712" y="1472"/>
     <tile id="1" x="1728" y="1472"/>
     <tile id="1" x="1744" y="1472"/>
     <tile id="1" x="1760" y="1472"/>
@@ -5535,7 +5534,6 @@
     <tile id="2" x="1696" y="1504"/>
     <tile id="2" x="1712" y="1488"/>
     <tile id="2" x="1696" y="1488"/>
-    <tile id="2" x="1696" y="1472"/>
     <tile id="2" x="1696" y="1456"/>
     <tile id="2" x="1696" y="1440"/>
     <tile id="2" x="1712" y="1440"/>
@@ -5847,12 +5845,14 @@
     <tile id="2" x="1296" y="1136"/>
     <tile id="2" x="1264" y="1616"/>
     <tile id="1" x="1296" y="1616"/>
+    <tile id="2" x="1696" y="1472"/>
+    <tile id="2" x="1712" y="1472"/>
   </wall>
   <home>
     <rect x="96" y="1392" w="224" h="176"/>
   </home>
   <work>
-    <rect x="1136" y="1712" w="80" h="48"/>
+    <rect x="1136" y="1728" w="48" h="32"/>
   </work>
   <objects>
     <tv x="160" y="1424" width="112" height="112" radius="128"/>
@@ -5866,10 +5866,10 @@
     <button x="1216" y="1984" money="1"/>
     <button x="1200" y="1984" money="1"/>
     <button x="1200" y="1968" money="1"/>
-    <button x="1216" y="1936" money="1"/>
+    <button x="1216" y="1936" money="2"/>
     <button x="1232" y="1920" money="1"/>
     <button x="1232" y="1904" money="1"/>
-    <button x="1280" y="1920" money="1"/>
+    <button x="1280" y="1920" money="2"/>
     <button x="1296" y="1936" money="1"/>
     <button x="1216" y="1776" money="1"/>
     <button x="1232" y="1776" money="2"/>
@@ -5880,15 +5880,15 @@
     <button x="1328" y="1792" money="1"/>
     <button x="1312" y="1792" money="1"/>
     <button x="1200" y="1792" money="5"/>
-    <button x="1232" y="1888" money="1"/>
+    <button x="1232" y="1888" money="2"/>
     <button x="1280" y="1904" money="2"/>
     <button x="1264" y="1920" money="1"/>
     <button x="1248" y="1920" money="1"/>
     <button x="1664" y="2000" money="2"/>
     <button x="1888" y="2016" money="2"/>
-    <button x="1936" y="1840" money="1"/>
-    <button x="1760" y="1872" money="1"/>
-    <button x="1632" y="1872" money="1"/>
+    <button x="1936" y="1840" money="2"/>
+    <button x="1760" y="1872" money="2"/>
+    <button x="1632" y="1872" money="2"/>
     <button x="1504" y="1824" money="1"/>
     <button x="1568" y="1984" money="2"/>
     <entrance x="512" y="1760"/>
@@ -5907,7 +5907,7 @@
     <button x="1312" y="1392" money="5"/>
     <button x="1200" y="1424" money="2"/>
     <button x="1152" y="1264" money="10"/>
-    <button x="1248" y="1120" money="1"/>
+    <button x="1248" y="1120" money="2"/>
     <button x="1152" y="1072" money="3"/>
     <button x="1216" y="1040" money="1"/>
     <button x="1280" y="976" money="1"/>
@@ -5915,9 +5915,9 @@
     <button x="1360" y="928" money="1"/>
     <button x="1392" y="928" money="2"/>
     <button x="1424" y="928" money="1"/>
-    <button x="1456" y="928" money="1"/>
+    <button x="1456" y="928" money="3"/>
     <button x="1536" y="928" money="10"/>
-    <button x="1568" y="928" money="1"/>
+    <button x="1568" y="928" money="3"/>
     <button x="1600" y="928" money="1"/>
     <button x="1632" y="928" money="1"/>
     <button x="1664" y="928" money="2"/>
@@ -5931,8 +5931,6 @@
     <button x="1424" y="1088" money="5"/>
     <button x="1344" y="1088" money="7"/>
     <button x="1872" y="1552" money="7"/>
-    <button x="1904" y="1584" money="5"/>
-    <button x="1936" y="1616" money="3"/>
     <button x="1776" y="1584" money="5"/>
     <button x="1728" y="1696" money="1"/>
     <button x="1648" y="1680" money="1"/>
@@ -5948,5 +5946,7 @@
     <button x="1504" y="1664" money="1"/>
     <button x="1568" y="1440" money="2"/>
     <button x="1456" y="1456" money="1"/>
+    <button x="1888" y="1584" money="3"/>
+    <button x="1920" y="1632" money="1"/>
   </objects>
 </level>

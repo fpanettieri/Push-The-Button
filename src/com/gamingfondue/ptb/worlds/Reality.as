@@ -4,6 +4,7 @@ package com.gamingfondue.ptb.worlds
 	
 	import com.gamingfondue.ptb.constants.Constants;
 	import com.gamingfondue.ptb.entities.Billboard;
+	import com.gamingfondue.ptb.entities.Button;
 	import com.gamingfondue.ptb.entities.Cameraman;
 	import com.gamingfondue.ptb.entities.HUD;
 	import com.gamingfondue.ptb.entities.Sky;
