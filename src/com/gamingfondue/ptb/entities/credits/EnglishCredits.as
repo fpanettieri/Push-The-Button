@@ -14,7 +14,7 @@ package com.gamingfondue.ptb.entities.credits
 				"Game over. You're fired",
 				"You didn't lose the game! The company doesn't need you anymore",
 				"You lived "  + Statistics.age + " winters in " + minutes + " minutes, " + seconds + " seconds. Wasted time",
-				"You earned $" + Statistics.money,
+				"You earned $" + Statistics.money * 100,
 				"You were 'happy' " + Statistics.happiness + " days, HA!",
 				"Now be good and go push buttons in other place",
 				"I'll call you if we need you, This is the end",

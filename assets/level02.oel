@@ -1167,8 +1167,8 @@
     <button x="1664" y="2016" money="1"/>
     <button x="1456" y="2016" money="1"/>
     <button x="1552" y="2016" money="1"/>
-    <button x="1552" y="1984" money="1"/>
-    <button x="1552" y="1824" money="2"/>
+    <button x="1552" y="1984" money="2"/>
+    <button x="1552" y="1824" money="3"/>
     <entrance x="368" y="2016"/>
   </objects>
 </level>

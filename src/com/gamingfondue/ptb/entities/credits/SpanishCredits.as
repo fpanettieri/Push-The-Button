@@ -14,7 +14,7 @@ package com.gamingfondue.ptb.entities.credits
 				"Fin del juego. Estas despedido",
 				"No perdiste! La empresa no te necesita",
 				"Viviste " + Statistics.age + " inviernos en " + minutes + " minutos, " + seconds + " segundos. Tiempo perdido",
-				"Ganaste $" + Statistics.money,
+				"Ganaste $" + Statistics.money * 100,
 				"Fuiste 'feliz' " + Statistics.happiness + " dias, JA!",
 				"Ahora se bueno y sigue apretando botones en otro lado",
 				"Te llamare si te necesitamos. Este es el fin",

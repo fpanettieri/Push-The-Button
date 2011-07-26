@@ -8,12 +8,13 @@ package com.gamingfondue.ptb.entities.level
 	public class Levels
 	{
 		public static const first:Number = -1;//58;
-		public static const last:Number = 4;//58;
+		public static const last:Number = 5;//58;
 		
 		[Embed(source='/assets/level01.oel', mimeType='application/octet-stream')] private static const L1:Class;
 		[Embed(source='/assets/level02.oel', mimeType='application/octet-stream')] private static const L2:Class;
 		[Embed(source='/assets/level03.oel', mimeType='application/octet-stream')] private static const L3:Class;
 		[Embed(source='/assets/level04.oel', mimeType='application/octet-stream')] private static const L4:Class;
+		[Embed(source='/assets/level05.oel', mimeType='application/octet-stream')] private static const L5:Class;
 		
 		[Embed(source='/assets/hp01.oel', mimeType='application/octet-stream')] private static const HP1:Class;
 		[Embed(source='/assets/hp02.oel', mimeType='application/octet-stream')] private static const HP2:Class;
@@ -21,14 +22,14 @@ package com.gamingfondue.ptb.entities.level
 		[Embed(source='/assets/hp04.oel', mimeType='application/octet-stream')] private static const HP4:Class;
 		[Embed(source='/assets/hp05.oel', mimeType='application/octet-stream')] private static const HP5:Class;
 		
-		private static const REALITIES:Array = [L1, L2, L3, L4];
+		private static const REALITIES:Array = [L1, L2, L3, L4, L5];
 		private static var realities:Array = [];
 
 		private static const NIRVANAS:Array = [HP1, HP2, HP3, HP4, HP5];
 		private static var nirvanas:Array = [];
 
 		// FIXME: Default should be -1
-		private static var _current:Number = 2;
+		private static var _current:Number = -1;
 		private static var instance:Levels = new Levels();
 		
 		public function Levels()

@@ -119,10 +119,13 @@ package com.gamingfondue.ptb.worlds
 			if (Input.pressed(Key.M)){
 				FP.volume = 1 - FP.volume;
 			}
-			// FIXME: remove this
+
+			/**
+			 * Next level chear
 			if (Input.pressed(Key.N)){
 				FP.world = new WorldTransition(new Reality());
 			}
+			 * */
 		}
 		
 		override public function end():void
