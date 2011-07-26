@@ -193,7 +193,7 @@ package com.gamingfondue.ptb.entities
 			if (!player.worked) return;
 			on = true;
 			Billboard.notify(Tooltip.tv);
-			noise.loop(0, 0, Math.random() * noise.length * 1000);
+			noise.loop(0.1, 0, Math.random() * noise.length * 1000);
 			timer = 0;
 		}
 

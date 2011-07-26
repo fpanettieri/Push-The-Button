@@ -28,7 +28,6 @@ package com.gamingfondue.ptb.entities.level
 		private static const NIRVANAS:Array = [HP1, HP2, HP3, HP4, HP5];
 		private static var nirvanas:Array = [];
 
-		// FIXME: Default should be -1
 		private static var _current:Number = -1;
 		private static var instance:Levels = new Levels();
 		
