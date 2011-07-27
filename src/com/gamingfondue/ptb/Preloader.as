@@ -4,6 +4,7 @@ package com.gamingfondue.ptb
 	import flash.display.Shape;
 	import flash.display.Sprite;
 	import flash.events.Event;
+	import flash.events.IOErrorEvent;
 	import flash.events.ProgressEvent;
 	import flash.net.URLRequest;
 	import flash.text.TextField;
@@ -14,7 +15,7 @@ package com.gamingfondue.ptb
 	{
 		[Embed(source = 'preloader.ttf', embedAsCFF="false", fontFamily = 'default')]
 		private static const FONT:Class;
-		private static const SWF: String = "ptb.swf";
+		private static const SWF: String = "https://s3.amazonaws.com/gamingfondue/ptb/ptb-1.0.swf";
 		private static const BG_COLOR:uint = 0x333333;
 		private static const FG_COLOR:uint = 0xFF9900;
 		
@@ -65,6 +66,7 @@ package com.gamingfondue.ptb
 			loader = new Loader();
 			loader.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, loaderProgress);
 			loader.contentLoaderInfo.addEventListener(Event.COMPLETE, loaderDone);
+			loader.contentLoaderInfo.addEventListener(IOErrorEvent.IO_ERROR, loaderError);
 			loader.load(new URLRequest(SWF));
 		}
 		
@@ -76,6 +78,13 @@ package com.gamingfondue.ptb
 			progressBar.graphics.drawRect(px, py, p * w, h);
 			progressBar.graphics.endFill();
 			text.text = int(p * 100) + "%";
+		}
+		
+		private function loaderError (e:IOErrorEvent):void
+		{
+			removeChild(progressBar);
+			text.text = "Something went wrong :(";
+			text.x = (stage.stageWidth - text.width) * 0.5;
 		}
 		
 		private function loaderDone (e:Event):void

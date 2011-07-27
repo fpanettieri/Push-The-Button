@@ -16,7 +16,8 @@ package com.gamingfondue.ptb.entities.splash
 	
 	public class GamingFondue extends Entity
 	{
-		private static const BG:uint = 0x101010;
+		private static const FROM_BG:uint = 0x808080;
+		private static const TO_BG:uint = 0x333333;
 		
 		private var display:Image;
 		private var tween:ColorTween;
@@ -24,7 +25,7 @@ package com.gamingfondue.ptb.entities.splash
 		private var _onComplete:Function;
 
         // Synch
-        private const CLIMAX:Number = 15.5;
+        private const CLIMAX:Number = 15.3;
         private const FADE_IN:Number = 4;
         private const FADE_OUT:Number = 2;
         private var _elapsed:Number;
@@ -32,7 +33,7 @@ package com.gamingfondue.ptb.entities.splash
 		public function GamingFondue()
 		{
 			super(0, 0);
-			var bmd:BitmapData = new BitmapData(FP.width, FP.height, false, BG);
+			var bmd:BitmapData = new BitmapData(FP.width, FP.height, false, TO_BG);
 			bmd.draw(new Assets.SPLASH);
 			display = new Image(bmd);
 			display.alpha = 0;
@@ -66,7 +67,7 @@ package com.gamingfondue.ptb.entities.splash
 		{
 			tween = new ColorTween(delay, Tween.ONESHOT);
 			addTween(tween);
-			tween.tween(FADE_IN, BG, BG, 0, 1, Ease.cubeOut);
+			tween.tween(FADE_IN, FROM_BG, TO_BG, 0, 1, Ease.cubeOut);
 		}
 		
 		/**
@@ -86,7 +87,7 @@ package com.gamingfondue.ptb.entities.splash
 		{
 			tween = new ColorTween(_onComplete, Tween.ONESHOT);
 			addTween(tween);
-			tween.tween(FADE_OUT, BG, BG, 1, 0, Ease.cubeOut);
+			tween.tween(FADE_OUT, TO_BG, FROM_BG, 1, 0, Ease.cubeOut);
 		}
 		
 	}
