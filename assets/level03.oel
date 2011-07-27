@@ -2360,7 +2360,7 @@
     <tile id="2" x="1296" y="1696"/>
   </wall>
   <home>
-    <rect x="192" y="1792" w="272" h="96"/>
+    <rect x="112" y="1792" w="352" h="96"/>
   </home>
   <work>
     <rect x="1248" y="1504" w="672" h="528"/>
@@ -2421,4 +2421,11 @@
     <button x="1840" y="1712" money="1"/>
     <button x="1360" y="1936" money="1"/>
   </objects>
+  <tooltips>
+    <tooltip x="272" y="1904" width="96" height="64" en="If the company grows, you and your house will grow" es="Si la empresa crece, tu y tu casa creceran"/>
+    <tooltip x="1520" y="1840" width="112" height="32" en="I need those button pushed this afternoon, and a report" es="Necesito esos botones apretados esta tarde, y un reporte"/>
+    <tooltip x="1824" y="1600" width="48" height="48" en="Where is that report? I don't know which buttons you pushed and which I must discount you!" es="Donde esta ese reporte? No se que botones apretaste y cuales debo descontarte!"/>
+    <tooltip x="1520" y="2000" width="112" height="32" en="You're a machine for turning buttons and coffee into money" es="Eres una maquina para convertir botones y cafe en dinero"/>
+    <tooltip x="1248" y="2000" width="16" height="32" en="Life is like a box of buttons, you never know which you're gonna push" es="La vida es como una caja de botones, uno nunca sabe cuales apretara"/>
+  </tooltips>
 </level>

@@ -4329,4 +4329,15 @@
     <button x="1968" y="1344" money="1"/>
     <button x="1392" y="1600" money="1"/>
   </objects>
+  <tooltips>
+    <tooltip x="64" y="1872" width="304" height="112" en="Thank God we have TV to save ourselves from reality" es="Gracias a Dios tenemos la TV para salvarnos de la realidad"/>
+    <tooltip x="1456" y="1360" width="16" height="16" en="I love when you push lots of buttons" es="Adoro cuando presionas muchos botones"/>
+    <tooltip x="1472" y="1488" width="16" height="16" en="Keep doing whatever you think you're doing" es="Sigue haciendo lo que creas que estas haciendo"/>
+    <tooltip x="1504" y="1696" width="16" height="16" en="Don't be proud, you're not THAT good" es="No estes orgulloso, no eres ASI bueno"/>
+    <tooltip x="1744" y="1824" width="16" height="16" en="You're such an hero" es="Eres un heroe"/>
+    <tooltip x="1888" y="1376" width="16" height="16" en="Don't think, keep pushing" es="No pienses, sigue apretando"/>
+    <tooltip x="1232" y="1904" width="16" height="16" en="This was a triumph" es="Esto fue un triunfo"/>
+    <tooltip x="1232" y="2000" width="32" height="32" en="Go home if you're feeling tired.             I won't pay you these hours" es="Vete a casa si te sientes cansado.             No te pagare esas horas"/>
+    <tooltip x="1152" y="1712" width="64" height="32" en="PTB It's a very big project, you'll grow a lot" es="PTB es un proyecto muy grande, vas a crecer mucho"/>
+  </tooltips>
 </level>

@@ -18,7 +18,7 @@ package com.gamingfondue.ptb.entities.credits
 				"Fuiste 'feliz' " + Statistics.happiness + " dias, JA!",
 				"Ahora se bueno y sigue apretando botones en otro lado",
 				"Te llamare si te necesitamos. Este es el fin",
-				"O no?",
+				"...",
 				"Gracias por jugar 'Push The Button', esperamos que lo hayas disfrutado",
 				"Este es el final del juego, pero no de la historia. Todavia puedes cambiarla...",
 				"Presiona R para volver a empezar",
@@ -33,7 +33,12 @@ package com.gamingfondue.ptb.entities.credits
 				"Intro y creditos: Balrog Boogie [8-Bit Version] - Diablo Swing Orchestra‏",
 				"Realidad: Moonlight Sonata [Remix] - Solarfist",
 				"Mundo feliz: Moonlight Sonata, 3rd Movement [8-bit Version]",
-				"Presiona R para volver a empezar"
+				"Presiona R para volver a empezar",
+				"<Agradecimientos>",
+				"Carlos Farina",
+				"Federico Schluter",
+				"Humberto Panettieri",
+				"Gino Panettieri"
 			];
 		}
 	}

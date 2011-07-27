@@ -5948,5 +5948,19 @@
     <button x="1456" y="1456" money="1"/>
     <button x="1888" y="1584" money="3"/>
     <button x="1920" y="1632" money="1"/>
+    <tooltip x="416" y="1568" width="192" height="144" en="The fake happiness in your wall is a memorable detail" es="La falsa alegria en tu pared es un detalle memorable"/>
+    <tooltip x="176" y="1728" width="208" height="256" en="A present from the company for all your hard work" es="Un regalo de la empresa por todo tu esfuerzo"/>
+    <tooltip x="1152" y="1728" width="32" height="32" en="Push The Button has now more than 3 millon employees, you should be proud" es="Push The Button tiene mas de 3 millones de empleados, deberias estar orgulloso"/>
+    <tooltip x="1408" y="2016" width="16" height="16" en="Mamma mia!" es="Mamma mia!"/>
+    <tooltip x="1328" y="1808" width="16" height="16" en="He's the manager, don't look at his eyes please. Thank you!" es="El es el manager, no lo mires a los ojos por favor. Gracias!"/>
   </objects>
+  <tooltips>
+    <tooltip x="1296" y="1584" width="64" height="32" en="Wake up" es="Despierta"/>
+    <tooltip x="1760" y="1520" width="48" height="32" en="PTB it's a lie" es="PTB es una mentira"/>
+    <tooltip x="1488" y="1424" width="32" height="32" en="You're living a lie" es="Estas viviendo una mentira"/>
+    <tooltip x="1328" y="1216" width="80" height="96" en="Why are you looking at me, keep pushing buttons" es="Por que me estas mirando, sigue apretando botones"/>
+    <tooltip x="1152" y="896" width="48" height="48" en="That's it, good boy" es="Eso es, buen chico"/>
+    <tooltip x="1568" y="1008" width="96" height="48" en="Didn't you get the memo? There it's a hole here" es="No te llego el memo? Hay un hueco aqui"/>
+    <tooltip x="1440" y="1824" width="32" height="32" en="There it's another hole here, I sent you a fax!" es="Aqui hay otro, te envie un fax!"/>
+  </tooltips>
 </level>
