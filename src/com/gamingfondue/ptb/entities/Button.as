@@ -5,7 +5,10 @@ package com.gamingfondue.ptb.entities
 	import com.gamingfondue.ptb.constants.Types;
 	import com.gamingfondue.ptb.entities.player.Player;
 	
+	import flash.utils.getTimer;
+	
 	import net.flashpunk.Entity;
+	import net.flashpunk.FP;
 	import net.flashpunk.Sfx;
 	import net.flashpunk.graphics.Image;
 	
@@ -15,6 +18,11 @@ package com.gamingfondue.ptb.entities
 	 */ 
 	public class Button extends Entity
 	{
+		/**
+		 * Injected dependency
+		 */
+		public var player:Player;
+		
 		/**
 		 * Indicates if the button has been pressed
 		 */
@@ -59,6 +67,7 @@ package com.gamingfondue.ptb.entities
 			if (pressed) return;
 			if (collide(Types.PLAYER, x, y)) {
 				pressed = true;
+				if(player) player.lastButton = getTimer();
 				image.color = 0xFF30E030;
 				HUD.money += money;
 				sfx.play();

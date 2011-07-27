@@ -24,5 +24,8 @@ package com.gamingfondue.ptb.constants
 		
 		public static const ACCEPT_KEY:String = "accept";
 		Input.define(ACCEPT_KEY, Key.ENTER, Key.SPACE);
+		
+		public static const SICKIE_KEY:String = "sickie";
+		Input.define(SICKIE_KEY, Key.K);
 	}
 }

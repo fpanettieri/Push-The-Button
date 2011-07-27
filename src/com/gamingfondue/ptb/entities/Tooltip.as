@@ -37,5 +37,10 @@ package com.gamingfondue.ptb.entities
 			return Statistics.language == Languages.EN ? "TV makes you happy!!!" : "La TV te hace feliz!!!";
 		}
 		
+		public static function get sickie():String
+		{
+			return Statistics.language == Languages.EN ? "Why aren't you working? (Press K to pull a sickie)" : "Por que no estas trabajando? (Presiona K para fingir estar enfermo)";
+		}
+		
 	}
 }

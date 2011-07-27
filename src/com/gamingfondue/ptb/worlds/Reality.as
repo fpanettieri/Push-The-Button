@@ -8,6 +8,7 @@ package com.gamingfondue.ptb.worlds
 	import com.gamingfondue.ptb.entities.Cameraman;
 	import com.gamingfondue.ptb.entities.Dirt;
 	import com.gamingfondue.ptb.entities.HUD;
+	import com.gamingfondue.ptb.entities.Sickie;
 	import com.gamingfondue.ptb.entities.Sky;
 	import com.gamingfondue.ptb.entities.Statistics;
 	import com.gamingfondue.ptb.entities.level.Level;
@@ -35,6 +36,7 @@ package com.gamingfondue.ptb.worlds
 		private var billboard:Billboard;
 		private var cameraman:Cameraman;
 		private var hud:HUD;
+		private var sickie:Sickie;
 		
 		/**
 		 * Flag used to pause game
@@ -68,6 +70,9 @@ package com.gamingfondue.ptb.worlds
 			hud = new HUD();
 			Statistics.age = Levels.number * 10 + Constants.BASE_AGE;
 			HUD.age = Statistics.age;
+			
+			sickie = new Sickie(player.x, player.y);
+			sickie.player = player;
 
 			// Log level
 			Log.LevelCounterMetric("L", Levels.number);
@@ -84,6 +89,7 @@ package com.gamingfondue.ptb.worlds
 			add(billboard);
 			add(hud);
 			add(level.tooltips);
+			add(sickie);
 			
 			// Start bg music
 			level.home.playSonata();

@@ -38,11 +38,13 @@ package com.gamingfondue.ptb
 		{
 			volume = FP.volume;
 			FP.volume = 0;
+			FP.world.active = false;
 		}	
 		
 		public function onActivate(e:Event = null):void
 		{
 			FP.volume = volume;
+			FP.world.active = true;
 		}
 		
 		/**
@@ -52,8 +54,5 @@ package com.gamingfondue.ptb
 		{
 			FP.world = new Splash();
 		} 
-		
-		
-		
 	}
 }

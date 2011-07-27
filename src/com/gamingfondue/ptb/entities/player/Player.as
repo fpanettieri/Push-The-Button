@@ -23,6 +23,8 @@ package com.gamingfondue.ptb.entities.player
 		public var acceleration:Point;
 		public var speed:Point;
 		public var worked:Boolean;
+		public var working:Boolean;
+		public var lastButton:Number;
 		
 		/**
 		 * How many seconds the guy shoyld see tv to enter happy place
@@ -44,7 +46,8 @@ package com.gamingfondue.ptb.entities.player
 			acceleration = new Point();
 			speed = new Point();
 			worked = false;
-			insatisfaction = 15;
+			working = false;
+			insatisfaction = 10;
 			this.behavior = behavior;
 		}
 		

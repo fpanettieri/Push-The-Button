@@ -67,6 +67,8 @@ package com.gamingfondue.ptb.entities
 			if (!_player.worked && _area.contains(_player.x, _player.y)) {
 				_player.worked = true;
 			}
+			
+			_player.working = _area.contains(_player.x, _player.y);
 		}
 		
 		/**
@@ -85,6 +87,9 @@ package com.gamingfondue.ptb.entities
 		public function set player(player:Player):void
 		{
 			_player = player;
+			for each(button in buttons){
+				button.player = player;
+			}
 		}
 	}
 }
