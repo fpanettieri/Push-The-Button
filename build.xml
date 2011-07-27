@@ -47,6 +47,31 @@
 			optimize="true"
 			target-player="10.1">
 
+			<!-- Set size of output SWF file. -->
+    		<default-size width="${SWF_WIDTH}" height="${SWF_HEIGHT}" />
+
+			<source-path path-element="${SRC_DIR}" />
+		</mxmlc>
+	</target>
+
+	<target name="preloader" >
+		<mkdir dir="${BIN_DIR}" />
+		<mxmlc
+			file="${PRELOADER_FILE}" 
+			output="${BIN_DIR}/preloader.swf"
+			debug="false" 
+			incremental="false"
+			strict="true"
+			accessible="false"
+			actionscript-file-encoding="UTF-8"
+			keep-generated-actionscript="false"
+			static-link-runtime-shared-libraries="true"
+			optimize="true"
+			target-player="10.1">
+
+			<!-- Set size of output SWF file. -->
+    		<default-size width="${SWF_WIDTH}" height="${SWF_HEIGHT}" />
+			
 			<source-path path-element="${SRC_DIR}" />
 		</mxmlc>
 	</target>

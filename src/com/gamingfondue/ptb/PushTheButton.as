@@ -10,6 +10,7 @@ package com.gamingfondue.ptb
 	import net.flashpunk.Engine;
 	import net.flashpunk.FP;
 	
+	[SWF(width = "640", height = "480")]
 	public class PushTheButton extends Engine
 	{
 		/**
@@ -20,7 +21,6 @@ package com.gamingfondue.ptb
 			super(320, 240, 30, false);
 			FP.screen.scale = 2;
 			Log.View(3639, "0a7e983cf8a24f2f", root.loaderInfo.loaderURL);
-			//FP.console.enable();
 		}
 		
 		/**
@@ -28,10 +28,7 @@ package com.gamingfondue.ptb
 		 */
 		override public function init():void
 		{
-			// Create first world
 			FP.world = new Splash();
-			//FP.world = new Reality();
-			//FP.world = new Credits();
 		} 
 	}
 }

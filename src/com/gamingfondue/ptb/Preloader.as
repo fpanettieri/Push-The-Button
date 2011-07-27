@@ -1,23 +1,20 @@
 package com.gamingfondue.ptb
 {
-	import flash.display.DisplayObject;
 	import flash.display.Loader;
 	import flash.display.Shape;
 	import flash.display.Sprite;
 	import flash.events.Event;
-	import flash.events.MouseEvent;
 	import flash.events.ProgressEvent;
 	import flash.net.URLRequest;
 	import flash.text.TextField;
 	import flash.text.TextFormat;
-	import flash.utils.getDefinitionByName;
 	
 	[SWF(width = "640", height = "480")]
 	public class Preloader extends Sprite
 	{
-		[Embed(source = 'net/flashpunk/graphics/04B_03__.TTF', embedAsCFF="false", fontFamily = 'default')]
+		[Embed(source = 'preloader.ttf', embedAsCFF="false", fontFamily = 'default')]
 		private static const FONT:Class;
-		private static const SWF: String = "PushTheButton.swf";
+		private static const SWF: String = "ptb.swf";
 		private static const BG_COLOR:uint = 0x333333;
 		private static const FG_COLOR:uint = 0xFF9900;
 		
