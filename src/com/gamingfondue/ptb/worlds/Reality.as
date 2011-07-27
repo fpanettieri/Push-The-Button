@@ -35,6 +35,11 @@ package com.gamingfondue.ptb.worlds
 		private var billboard:Billboard;
 		private var cameraman:Cameraman;
 		private var hud:HUD;
+		
+		/**
+		 * Flag used to pause game
+		 */
+		private var paused:Boolean;
 
 		/**
 		 * Called when the world is activated.
@@ -82,13 +87,22 @@ package com.gamingfondue.ptb.worlds
 			
 			// Start bg music
 			level.home.playSonata();
+			
+			paused = false;
 		}
 		
 		override public function update():void
 		{
-			super.update();
+			if (!paused) super.update();
+			
+			// Sound mute
 			if (Input.pressed(Key.M)){
 				FP.volume = 1 - FP.volume;
+			}
+			
+			// Game pause
+			if (Input.pressed(Key.P)){
+				paused = !paused;
 			}
 			
 			/**

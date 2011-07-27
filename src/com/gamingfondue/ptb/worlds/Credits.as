@@ -75,6 +75,11 @@ package com.gamingfondue.ptb.worlds
 		private var fader:SfxFader;
 		
 		/**
+		 * Flag used to pause game
+		 */
+		private var paused:Boolean;
+		
+		/**
 		 * Called when the world is activated.
 		 * It initializes texts and places them on screen.
 		 */ 
@@ -96,8 +101,7 @@ package com.gamingfondue.ptb.worlds
 
 			// Log level
 			Log.CustomMetric("Credits");
-			//Playtomic.Log.LevelCounterMetric("Played", (Statistics.end - Statistics.begin) / 1000);
-			
+
 			add(bg);
 			add(player);
 			add(floor);
@@ -107,6 +111,8 @@ package com.gamingfondue.ptb.worlds
 
 			balrog = new Sfx(Assets.BALROG);
 			balrog.loop();
+			
+			paused = false;
 		}
 		
 		/**
@@ -114,12 +120,21 @@ package com.gamingfondue.ptb.worlds
 		 */ 
 		override public function update():void
 		{
-			super.update();
+			if (!paused) super.update();
+			
+			// Restart
 			if (Input.pressed(Key.R)) {
 				FP.world = new Splash();
 			}
+			
+			// Sound mute
 			if (Input.pressed(Key.M)){
 				FP.volume = 1 - FP.volume;
+			}
+			
+			// Game pause
+			if (Input.pressed(Key.P)){
+				paused = !paused;
 			}
 		}
 		

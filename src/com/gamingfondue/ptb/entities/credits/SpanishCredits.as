@@ -16,9 +16,9 @@ package com.gamingfondue.ptb.entities.credits
 				"Viviste " + Statistics.age + " inviernos en " + minutes + " minutos, " + seconds + " segundos. Tiempo perdido",
 				"Ganaste $" + Statistics.money * 100,
 				"Fuiste 'feliz' " + Statistics.happiness + " dias, JA!",
+				"Fingiste estar enfermo " + Statistics.sickies + " veces",
 				"Ahora se bueno y sigue apretando botones en otro lado",
-				"Te llamare si te necesitamos. Este es el fin",
-				"...",
+				"Te llamare si te necesitamos, este es el fin...",
 				"Gracias por jugar 'Push The Button', esperamos que lo hayas disfrutado",
 				"Este es el final del juego, pero no de la historia. Todavia puedes cambiarla...",
 				"Presiona R para volver a empezar",
@@ -37,6 +37,7 @@ package com.gamingfondue.ptb.entities.credits
 				"<Agradecimientos>",
 				"Carlos Farina",
 				"Federico Schluter",
+				"Luis Floreani",
 				"Humberto Panettieri",
 				"Gino Panettieri"
 			];

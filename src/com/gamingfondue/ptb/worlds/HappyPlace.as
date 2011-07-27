@@ -69,6 +69,11 @@ package com.gamingfondue.ptb.worlds
 		private var trail:PlayerTrail;
 		
 		/**
+		 * Flag used to pause game
+		 */
+		private var paused:Boolean;
+		
+		/**
 		 * Called when the world is activated.
 		 * Adds game actors to the world so the simulatino can run
 		 */ 
@@ -111,13 +116,22 @@ package com.gamingfondue.ptb.worlds
 			
 			sonata = new Sfx(Assets.SONATA_HAPPY);
 			playSonata();
+			
+			paused = false;
 		}
 		
 		override public function update():void
 		{
-			super.update();
+			if (!paused) super.update();
+			
+			// Sount mute
 			if (Input.pressed(Key.M)){
 				FP.volume = 1 - FP.volume;
+			}
+			
+			// Game pause
+			if (Input.pressed(Key.P)){
+				paused = !paused;
 			}
 
 			/**

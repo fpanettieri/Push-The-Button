@@ -11,6 +11,7 @@ package com.gamingfondue.ptb.entities
 		public static var happiness:Number = 0;
 		public static var begin:int = 0;
 		public static var end:int = 0;
+		public static var sickies:int = 0;
 		
 		public static function reset():void
 		{
@@ -19,6 +20,7 @@ package com.gamingfondue.ptb.entities
 			happiness = 0;
 			begin = 0;
 			end = 0;
+			sickies = 0;
 		}
 	}
 }
