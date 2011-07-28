@@ -95,7 +95,8 @@
     <rect x="1504" y="1712" w="16" h="16"/>
     <rect x="1520" y="1184" w="32" h="32"/>
     <rect x="1536" y="1344" w="16" h="16"/>
-    <rect x="1552" y="1616" w="16" h="16"/>
+    <rect x="1552" y="1616" w="32" h="16"/>
+    <rect x="1568" y="1600" w="16" h="16"/>
     <rect x="1584" y="1184" w="96" h="48"/>
     <rect x="1616" y="1168" w="64" h="16"/>
     <rect x="1616" y="1280" w="16" h="64"/>
@@ -3171,7 +3172,6 @@
     <tile id="2" x="1616" y="1600"/>
     <tile id="2" x="1600" y="1600"/>
     <tile id="2" x="1584" y="1600"/>
-    <tile id="2" x="1568" y="1600"/>
     <tile id="2" x="1552" y="1600"/>
     <tile id="2" x="1552" y="1584"/>
     <tile id="2" x="1552" y="1568"/>
@@ -3315,7 +3315,6 @@
     <tile id="2" x="1248" y="1952"/>
     <tile id="2" x="1248" y="1936"/>
     <tile id="2" x="1248" y="1920"/>
-    <tile id="2" x="1568" y="1616"/>
     <tile id="2" x="1584" y="1616"/>
     <tile id="2" x="1600" y="1616"/>
     <tile id="2" x="1616" y="1616"/>
@@ -4218,12 +4217,14 @@
     <tile id="2" x="1808" y="1344"/>
     <tile id="1" x="1824" y="1344"/>
     <tile id="1" x="1376" y="1600"/>
+    <tile id="1" x="1568" y="1616"/>
+    <tile id="1" x="1568" y="1600"/>
   </wall>
   <home>
-    <rect x="64" y="1840" w="224" h="144"/>
+    <rect x="64" y="1840" w="208" h="144"/>
   </home>
   <work>
-    <rect x="1136" y="2000" w="48" h="32"/>
+    <rect x="1136" y="1232" w="864" h="816"/>
   </work>
   <objects>
     <tv x="144" y="1888" width="64" height="64" radius="512"/>
@@ -4330,14 +4331,19 @@
     <button x="1392" y="1600" money="1"/>
   </objects>
   <tooltips>
-    <tooltip x="64" y="1872" width="304" height="112" en="Thank God we have TV to save ourselves from reality" es="Gracias a Dios tenemos la TV para salvarnos de la realidad"/>
-    <tooltip x="1456" y="1360" width="16" height="16" en="I love when you push lots of buttons" es="Adoro cuando presionas muchos botones"/>
-    <tooltip x="1472" y="1488" width="16" height="16" en="Keep doing whatever you think you're doing" es="Sigue haciendo lo que creas que estas haciendo"/>
-    <tooltip x="1504" y="1696" width="16" height="16" en="Don't be proud, you're not THAT good" es="No estes orgulloso, no eres ASI bueno"/>
-    <tooltip x="1744" y="1824" width="16" height="16" en="You're such an hero" es="Eres un heroe"/>
-    <tooltip x="1888" y="1376" width="16" height="16" en="Don't think, keep pushing" es="No pienses, sigue apretando"/>
-    <tooltip x="1232" y="1904" width="16" height="16" en="This was a triumph" es="Esto fue un triunfo"/>
+    <tooltip x="64" y="1872" width="304" height="112" en="Thank God we have TV" es="Gracias a Dios tenemos la TV"/>
+    <tooltip x="1424" y="1344" width="80" height="48" en="I love when you push lots of buttons for me" es="Adoro cuando presionas muchos botones para mi"/>
+    <tooltip x="1376" y="1456" width="272" height="64" en="Keep doing whatever you think you're doing" es="Sigue haciendo lo que creas que estas haciendo"/>
+    <tooltip x="1472" y="1664" width="80" height="80" en="Don't be proud, you're not THAT good" es="No estes orgulloso, no eres ASI bueno"/>
+    <tooltip x="1712" y="1792" width="80" height="96" en="You're such an hero" es="Eres un heroe"/>
+    <tooltip x="1856" y="1344" width="80" height="96" en="Don't think, keep pushing" es="No pienses, sigue apretando"/>
+    <tooltip x="1232" y="1872" width="32" height="48" en="This was a triumph" es="Esto fue un triunfo"/>
     <tooltip x="1232" y="2000" width="32" height="32" en="Go home if you're feeling tired.             I won't pay you these hours" es="Vete a casa si te sientes cansado.             No te pagare esas horas"/>
     <tooltip x="1152" y="1712" width="64" height="32" en="PTB It's a very big project, you'll grow a lot" es="PTB es un proyecto muy grande, vas a crecer mucho"/>
+    <tooltip x="688" y="1936" width="80" height="80" en="(Wake up)" es="(Despierta)"/>
+    <tooltip x="1072" y="1648" width="64" height="16" en="Jump, there it's cake down here" es="Salta, hay pastel aqui abajo"/>
+    <tooltip x="1088" y="2000" width="48" height="32" en="I lied, he he. Don't you love my jokes?" es="Te menti, je je. No te encantan mis chistes?"/>
+    <tooltip x="480" y="1824" width="16" height="16" en="(Wake up)" es="(Despierta)"/>
+    <tooltip x="1360" y="1984" width="624" height="48" en="(Why are you doing this?)" es="(Despierta, no eres nada)"/>
   </tooltips>
 </level>

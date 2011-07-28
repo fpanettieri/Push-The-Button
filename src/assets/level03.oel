@@ -2363,7 +2363,7 @@
     <rect x="112" y="1792" w="352" h="96"/>
   </home>
   <work>
-    <rect x="1248" y="1504" w="672" h="528"/>
+    <rect x="1248" y="1600" w="656" h="432"/>
   </work>
   <objects>
     <entrance x="400" y="1936"/>
@@ -2423,9 +2423,12 @@
   </objects>
   <tooltips>
     <tooltip x="272" y="1904" width="96" height="64" en="If the company grows, you and your house will grow" es="Si la empresa crece, tu y tu casa creceran"/>
-    <tooltip x="1520" y="1840" width="112" height="32" en="I need those button pushed this afternoon, and a report" es="Necesito esos botones apretados esta tarde, y un reporte"/>
-    <tooltip x="1824" y="1600" width="48" height="48" en="Where is that report? I don't know which buttons you pushed and which I must discount you!" es="Donde esta ese reporte? No se que botones apretaste y cuales debo descontarte!"/>
-    <tooltip x="1520" y="2000" width="112" height="32" en="You're a machine for turning buttons and coffee into money" es="Eres una maquina para convertir botones y cafe en dinero"/>
+    <tooltip x="1520" y="1840" width="112" height="32" en="I need those button pushed this afternoon" es="Necesito esos botones apretados esta tarde"/>
+    <tooltip x="1824" y="1600" width="48" height="48" en="Can you tell me which buttons you pushed? So I DON'T have to pay you for the ones you didn't pushed" es="Puedes decirme que botones apretaste? Asi no tengo que pagarte por los que NO apretaste"/>
+    <tooltip x="1344" y="1600" width="112" height="32" en="You're a machine for turning buttons and coffee into money" es="Eres una maquina para convertir botones y cafe en dinero"/>
     <tooltip x="1248" y="2000" width="16" height="32" en="Life is like a box of buttons, you never know which you're gonna push" es="La vida es como una caja de botones, uno nunca sabe cuales apretara"/>
+    <tooltip x="1600" y="1968" width="16" height="16" en="Move against the wall while jumping to slide" es="Muevete contra la pared mientras saltas para deslizarte"/>
+    <tooltip x="1600" y="1904" width="16" height="16" en="Jump while sliding to perform a walljump" es="Salta mientras te deslizas para ejecutar un salto en la pared"/>
+    <tooltip x="768" y="1872" width="144" height="160" en="(You're living a lie)" es="(Estas viviendo una mentira)"/>
   </tooltips>
 </level>

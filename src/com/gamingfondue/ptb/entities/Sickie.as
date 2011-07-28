@@ -11,7 +11,7 @@ package com.gamingfondue.ptb.entities
 	
 	public class Sickie extends Entity
 	{
-		private const THRESHOLD:Number = 30 * 1000;
+		private const THRESHOLD:Number = 10 * 1000;
 		
 		/**
 		 * Injected dependency
@@ -19,23 +19,20 @@ package com.gamingfondue.ptb.entities
 		public var player:Player;
 		
 		private var worked:Number;
-		private var displayed:Boolean;
 		
 		public function Sickie(x:Number, y:Number)
 		{
 			super(x, y);
 			worked = 0;
-			displayed = false;
 		}
 		
 		override public function update():void
 		{
-			if(player && !displayed && player.working && player.lastButton + THRESHOLD < getTimer()) {
-				displayed = true;
+			if(player && player.working && player.lastButton + THRESHOLD < getTimer()) {
 				Billboard.notify(Tooltip.sickie);
 			}
 			
-			if (player && player.working && displayed && Input.pressed(Bindings.SICKIE_KEY)) {
+			if (player && player.working && Input.pressed(Bindings.SICKIE_KEY)) {
 				Statistics.sickies++;
 				player.x = x;
 				player.y = y;

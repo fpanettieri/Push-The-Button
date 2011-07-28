@@ -1,4 +1,4 @@
-<level duration="360" cell_size="16">
+<level duration="410" cell_size="16">
   <width>2048</width>
   <height>2048</height>
   <collision>
@@ -136,7 +136,6 @@
     <rect x="1280" y="1872" w="48" h="16"/>
     <rect x="1280" y="1936" w="16" h="16"/>
     <rect x="1296" y="944" w="16" h="112"/>
-    <rect x="1296" y="1136" w="16" h="16"/>
     <rect x="1296" y="1296" w="16" h="16"/>
     <rect x="1296" y="1616" w="64" h="16"/>
     <rect x="1296" y="1808" w="16" h="32"/>
@@ -5852,7 +5851,7 @@
     <rect x="96" y="1392" w="224" h="176"/>
   </home>
   <work>
-    <rect x="1136" y="1728" w="48" h="32"/>
+    <rect x="1136" y="880" w="864" h="1152"/>
   </work>
   <objects>
     <tv x="160" y="1424" width="112" height="112" radius="128"/>
@@ -5948,19 +5947,38 @@
     <button x="1456" y="1456" money="1"/>
     <button x="1888" y="1584" money="3"/>
     <button x="1920" y="1632" money="1"/>
-    <tooltip x="416" y="1568" width="192" height="144" en="The fake happiness in your wall is a memorable detail" es="La falsa alegria en tu pared es un detalle memorable"/>
-    <tooltip x="176" y="1728" width="208" height="256" en="A present from the company for all your hard work" es="Un regalo de la empresa por todo tu esfuerzo"/>
-    <tooltip x="1152" y="1728" width="32" height="32" en="Push The Button has now more than 3 millon employees, you should be proud" es="Push The Button tiene mas de 3 millones de empleados, deberias estar orgulloso"/>
-    <tooltip x="1408" y="2016" width="16" height="16" en="Mamma mia!" es="Mamma mia!"/>
-    <tooltip x="1328" y="1808" width="16" height="16" en="He's the manager, don't look at his eyes please. Thank you!" es="El es el manager, no lo mires a los ojos por favor. Gracias!"/>
   </objects>
   <tooltips>
-    <tooltip x="1296" y="1584" width="64" height="32" en="Wake up" es="Despierta"/>
-    <tooltip x="1760" y="1520" width="48" height="32" en="PTB it's a lie" es="PTB es una mentira"/>
-    <tooltip x="1488" y="1424" width="32" height="32" en="You're living a lie" es="Estas viviendo una mentira"/>
+    <tooltip x="1440" y="1488" width="64" height="32" en="(Wake up)" es="(Despierta)"/>
+    <tooltip x="1760" y="1520" width="48" height="32" en="(PTB it's a lie)" es="(PTB es una mentira)"/>
+    <tooltip x="1568" y="1520" width="80" height="80" en="(You're living a lie)" es="(Estas viviendo una mentira)"/>
     <tooltip x="1328" y="1216" width="80" height="96" en="Why are you looking at me, keep pushing buttons" es="Por que me estas mirando, sigue apretando botones"/>
-    <tooltip x="1152" y="896" width="48" height="48" en="That's it, good boy" es="Eso es, buen chico"/>
-    <tooltip x="1568" y="1008" width="96" height="48" en="Didn't you get the memo? There it's a hole here" es="No te llego el memo? Hay un hueco aqui"/>
+    <tooltip x="1472" y="960" width="96" height="48" en="Didn't you get the memo? There it's a hole here" es="No te llego el memo? Hay un hueco aqui"/>
     <tooltip x="1440" y="1824" width="32" height="32" en="There it's another hole here, I sent you a fax!" es="Aqui hay otro, te envie un fax!"/>
+    <tooltip x="416" y="1568" width="192" height="144" en="The fake happiness in your wall is a memorable detail" es="La falsa alegria en tu pared es un detalle memorable"/>
+    <tooltip x="176" y="1728" width="208" height="256" en="A present from the company for all your hard work" es="Un regalo de la empresa por todo tu esfuerzo"/>
+    <tooltip x="1792" y="1728" width="32" height="32" en="Push The Button has now more than 3 millon employees, you should be proud" es="Push The Button tiene mas de 3 millones de empleados, deberias estar orgulloso"/>
+    <tooltip x="1408" y="2016" width="16" height="16" en="Mamma mia!" es="Mamma mia!"/>
+    <tooltip x="1328" y="1808" width="16" height="16" en="He's the manager, don't look at his eyes" es="El es el manager, no lo mires a los ojos"/>
+    <tooltip x="656" y="1808" width="208" height="176" en="(What are you doing?)" es="(Que estas haciendo?)"/>
+    <tooltip x="1824" y="1664" width="32" height="112" en="Is something wrong? You look strange" es="Esta todo bien? Te ves raro"/>
+    <tooltip x="1152" y="1696" width="32" height="16" en="(Wake up)" es="(Despierta)"/>
+    <tooltip x="1280" y="1376" width="80" height="64" en="(They hate you)" es="(Te odian)"/>
+    <tooltip x="1264" y="1632" width="32" height="32" en="(Do you really LOVE this?)" es="(Realmente AMAS esto?)"/>
+    <tooltip x="1232" y="1536" width="32" height="32" en="(You're wasting your time)" es="(Desperdicias tu tiempo)"/>
+    <tooltip x="1568" y="1360" width="32" height="48" en="(Is it worth it?)" es="(Vale la pena?)"/>
+    <tooltip x="1744" y="1312" width="64" height="64" en="(Escape, NOW)" es="(Escapa AHORA)"/>
+    <tooltip x="1664" y="1616" width="80" height="48" en="(This leads to nowhere)" es="(Esto no va a ningun lugar)"/>
+    <tooltip x="1536" y="1248" width="64" height="64" en="HEY! There you are. Are you ok?" es="HEY! Ahi estas. Te sientes bien?"/>
+    <tooltip x="1424" y="1072" width="16" height="16" en="You look confused" es="Te ves confundido"/>
+    <tooltip x="1824" y="960" width="32" height="64" en="Watch out, there it's a hole here" es="Ten cuidado, hay un hueco aqui"/>
+    <tooltip x="1872" y="1088" width="32" height="48" en="What are you doing here? Only bosses are allowed" es="Que estas haciendo aqui? Solo los jefes pueden entrar"/>
+    <tooltip x="1968" y="1888" width="32" height="32" en="Can you push it please? It's a HIGH priority button" es="Puedes apretarlo por favor? Es un boton de ALTA prioridad"/>
+    <tooltip x="1744" y="1904" width="16" height="16" en="Can you push that HIGH priority button now?" es="Puedes apretar ese boton de ALTA prioridad ahora?"/>
+    <tooltip x="1664" y="1888" width="32" height="32" en="Yes another HIGH priority button. PUSH IT NOW!" es="Si otro boton de ALTA prioridad. APRIETALO AHORA!"/>
+    <tooltip x="1568" y="1936" width="16" height="16" en="Of course they are all HIGH priority, that's what we do right? Pushing buttons it's our LIFE" es="Por supuesto que son todos de ALTA prioridad, es lo que hacemos verdad? Apretar botones es nuestra VIDA"/>
+    <tooltip x="1456" y="1680" width="32" height="32" en="(They don't need you)" es="(No te necesitan)"/>
+    <tooltip x="1152" y="1456" width="32" height="32" en="(You're only a number)" es="(Eres un numero mas)"/>
+    <tooltip x="1152" y="896" width="80" height="80" en="You're the best" es="Mensaje en español"/>
   </tooltips>
 </level>
