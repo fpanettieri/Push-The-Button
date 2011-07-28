@@ -11,7 +11,7 @@ package com.gamingfondue.ptb.entities
 	
 	public class Sickie extends Entity
 	{
-		private const THRESHOLD:Number = 10 * 1000;
+		private const THRESHOLD:Number = 13 * 1000;
 		
 		/**
 		 * Injected dependency
@@ -29,6 +29,7 @@ package com.gamingfondue.ptb.entities
 		override public function update():void
 		{
 			if(player && player.working && player.lastButton + THRESHOLD < getTimer()) {
+				player.lastButton = getTimer();
 				Billboard.notify(Tooltip.sickie);
 			}
 			
