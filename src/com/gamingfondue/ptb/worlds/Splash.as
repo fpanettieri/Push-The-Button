@@ -3,6 +3,7 @@ package com.gamingfondue.ptb.worlds
 	import Playtomic.Log;
 	
 	import com.gamingfondue.ptb.constants.Assets;
+	import com.gamingfondue.ptb.entities.HUD;
 	import com.gamingfondue.ptb.entities.Statistics;
 	import com.gamingfondue.ptb.entities.level.Levels;
 	import com.gamingfondue.ptb.entities.splash.FlashPunk;
@@ -72,6 +73,7 @@ package com.gamingfondue.ptb.worlds
 			// Reset statistics
 			Levels.reset();
 			Statistics.reset();
+			HUD.reset();
 			
             elapsed = 0;
             fp = new FlashPunk(0xFF9900, 0x333333, 1, 2.7);

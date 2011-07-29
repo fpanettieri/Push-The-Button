@@ -15,7 +15,7 @@ package com.gamingfondue.ptb
 	{
 		[Embed(source = 'preloader.ttf', embedAsCFF="false", fontFamily = 'default')]
 		private static const FONT:Class;
-		private static const SWF: String = "https://s3.amazonaws.com/gamingfondue/ptb/ptb-1.1.swf";
+		private static const SWF: String = "https://s3.amazonaws.com/gamingfondue/ptb/ptb-1.2.swf";
 		private static const BG_COLOR:uint = 0x333333;
 		private static const FG_COLOR:uint = 0xFF9900;
 		

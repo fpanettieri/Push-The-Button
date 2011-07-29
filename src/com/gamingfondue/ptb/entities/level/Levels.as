@@ -33,16 +33,7 @@ package com.gamingfondue.ptb.entities.level
 		
 		public function Levels()
 		{
-			var i:int;
-			var reality_parser:LevelParser = new LevelParser();
-			for (i = 0; i < REALITIES.length; i++) {
-				realities.push(reality_parser.parse(REALITIES[i]));
-			}
-			
-			var nirvana_parser:NirvanaParser = new NirvanaParser();
-			for (i = 0; i < NIRVANAS.length; i++) {
-				nirvanas.push(nirvana_parser.parse(NIRVANAS[i]));
-			}
+			reset();
 		}
 		
 		public static function get number():Number
@@ -50,9 +41,21 @@ package com.gamingfondue.ptb.entities.level
 			return _current + 1;
 		}
 		
-		public static function reset():Number
+		public static function reset():void
 		{
-			return _current = first;
+			_current = first;
+			var i:int;
+			var reality_parser:LevelParser = new LevelParser();
+			realities = [];
+			for (i = 0; i < REALITIES.length; i++) {
+				realities.push(reality_parser.parse(REALITIES[i]));
+			}
+			
+			var nirvana_parser:NirvanaParser = new NirvanaParser();
+			nirvanas = [];
+			for (i = 0; i < NIRVANAS.length; i++) {
+				nirvanas.push(nirvana_parser.parse(NIRVANAS[i]));
+			}
 		}
 		
 		public static function next():Level

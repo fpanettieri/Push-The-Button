@@ -20,16 +20,12 @@ package com.gamingfondue.ptb
 		 */
 		private var volume:Number;
 		
-		
 		/**
 		 * Initializes FlashPunk engine
 		 */ 
 		public function PushTheButton()
 		{
 			super(320, 240, 30, false);
-			FP.screen.scale = 2;
-			volume = FP.volume;
-			Log.View(3639, "0a7e983cf8a24f2f", root.loaderInfo.loaderURL);
 			addEventListener(Event.ACTIVATE, onActivate);
 			addEventListener(Event.DEACTIVATE, onDeactivate);
 		}
@@ -52,6 +48,9 @@ package com.gamingfondue.ptb
 		 */
 		override public function init():void
 		{
+			FP.screen.scale = 2;
+			volume = FP.volume;
+			Log.View(3639, "0a7e983cf8a24f2f", root.loaderInfo.loaderURL);
 			FP.world = new Splash();
 		} 
 	}

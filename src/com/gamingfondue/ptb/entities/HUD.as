@@ -1,5 +1,6 @@
 package com.gamingfondue.ptb.entities
 {
+	import com.gamingfondue.ptb.constants.Constants;
 	import com.gamingfondue.ptb.constants.Languages;
 	import com.gamingfondue.ptb.constants.Layers;
 	import com.gamingfondue.util.Logger;
@@ -60,6 +61,14 @@ package com.gamingfondue.ptb.entities
 				money.text = "$ " + _money * 100;
 				happiness.text = ":) " + _happiness;
 			}
+		}
+		
+		public static function reset():void
+		{
+			_age = Constants.BASE_AGE + 10;
+			_money = 0;
+			_happiness = 0;
+			_dirty = true;
 		}
 		
 		public static function set age(value:Number):void

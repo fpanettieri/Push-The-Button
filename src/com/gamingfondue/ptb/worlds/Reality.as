@@ -114,10 +114,10 @@ package com.gamingfondue.ptb.worlds
 			/**
 			 * Next level cheat
 			if (Input.pressed(Key.N)) {
-				HUD.money = 24;
+				//HUD.money = 24;
 				FP.world = new WorldTransition(new HappyPlace());
 			}
-			 * */
+			* */
 		}
 		
 		override public function end():void
